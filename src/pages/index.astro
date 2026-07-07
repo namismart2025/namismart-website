@@ -203,6 +203,32 @@ import Layout from '../layouts/Layout.astro';
   }
   .cap-body p { font-size: 13.5px; line-height: 1.55; color: #8B98AE; margin-top: 9px; }
 
+  /* carousel controls — hidden on desktop, shown on mobile */
+  .caps-carousel-wrap { position: relative; }
+  .caps-fade-right {
+    display: none;
+    position: absolute; right: 0; top: 0; bottom: 0; width: 60px;
+    background: linear-gradient(to right, transparent, #0A0D14 88%);
+    pointer-events: none; z-index: 2;
+  }
+  .caps-scroll-footer {
+    display: none;
+    align-items: center; justify-content: space-between;
+    padding: 10px 2px 0;
+  }
+  .caps-swipe-hint {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    color: #4a5568; letter-spacing: 0.12em; display: flex; align-items: center; gap: 5px;
+  }
+  @keyframes swipe-nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(5px)} }
+  .caps-swipe-arrow { animation: swipe-nudge 1.8s ease-in-out infinite; display: inline-block; }
+  .caps-dots { display: flex; gap: 6px; align-items: center; }
+  .caps-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.2); transition: background 0.25s, width 0.25s;
+  }
+  .caps-dot.active { background: #4DA6FF; width: 18px; border-radius: 3px; }
+
   /* ===== DIFFERENCE ===== */
   .diff {
     position: relative; z-index: 4;
@@ -272,8 +298,19 @@ import Layout from '../layouts/Layout.astro';
     .caps-head { flex-direction: column; align-items: flex-start; gap: 14px; }
     .caps-sub { text-align: left; max-width: none; }
     .caps-h2 { font-size: 30px; }
-    .caps-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding-bottom: 8px; }
-    .cap-card { min-width: 80%; flex: 0 0 auto; scroll-snap-align: start; }
+    .caps-grid {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      gap: 14px; padding-bottom: 10px;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .caps-grid::-webkit-scrollbar { display: none; }
+    .cap-card { width: calc(100vw - 72px); max-width: 360px; flex: 0 0 auto; scroll-snap-align: start; }
+    .caps-fade-right { display: block; }
+    .caps-scroll-footer { display: flex; }
+    /* tablet — show 2 cards with peek of 3rd */
+    @media (min-width: 540px) {
+      .cap-card { width: calc(50vw - 26px); max-width: none; }
+    }
     .diff { grid-template-columns: 1fr; margin: 0 16px 36px; padding: 30px 20px; gap: 24px; }
     .diff h2 { font-size: 27px; }
     .area { grid-template-columns: 1fr; padding: 0 16px 36px; gap: 24px; }
@@ -436,40 +473,51 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="caps-sub">From 2‑camera homes to enterprise multi‑floor sites.</div>
   </div>
-  <div class="caps-grid">
-    <a href="/security-cameras" class="cap-card">
-      <div class="cap-img">
-        <img src="/images/07-security-cameras-hallway.png" alt="Security cameras in a hallway" />
-        <div class="cap-img-overlay"></div>
-        <span class="cap-num">01</span>
-      </div>
-      <div class="cap-body">
-        <h3>Security Cameras</h3>
-        <p>AI detection, 4K, 180° dual‑lens, NVR/VMS and remote viewing — indoor &amp; out.</p>
-      </div>
-    </a>
-    <a href="/networking-wifi" class="cap-card">
-      <div class="cap-img">
-        <img src="/images/08-networking-wifi-rack.png" alt="Network rack with Wi-Fi equipment" />
-        <div class="cap-img-overlay"></div>
-        <span class="cap-num">02</span>
-      </div>
-      <div class="cap-body">
-        <h3>Networking &amp; Wi‑Fi</h3>
-        <p>Enterprise Wi‑Fi, UniFi &amp; Cisco, switches, firewalls, VLANs and clean racks.</p>
-      </div>
-    </a>
-    <a href="/maintenance" class="cap-card">
-      <div class="cap-img">
-        <img src="/images/09-nvr-camera-monitors.png" alt="NVR monitoring station" />
-        <div class="cap-img-overlay"></div>
-        <span class="cap-num">03</span>
-      </div>
-      <div class="cap-body">
-        <h3>Monitoring &amp; Support</h3>
-        <p>Central recording, retention planning and long‑term maintenance you can call.</p>
-      </div>
-    </a>
+  <div class="caps-carousel-wrap">
+    <div class="caps-grid" id="caps-grid">
+      <a href="/security-cameras" class="cap-card">
+        <div class="cap-img">
+          <img src="/images/07-security-cameras-hallway.png" alt="Security cameras in a hallway" />
+          <div class="cap-img-overlay"></div>
+          <span class="cap-num">01</span>
+        </div>
+        <div class="cap-body">
+          <h3>Security Cameras</h3>
+          <p>AI detection, 4K, 180° dual‑lens, NVR/VMS and remote viewing — indoor &amp; out.</p>
+        </div>
+      </a>
+      <a href="/networking-wifi" class="cap-card">
+        <div class="cap-img">
+          <img src="/images/08-networking-wifi-rack.png" alt="Network rack with Wi-Fi equipment" />
+          <div class="cap-img-overlay"></div>
+          <span class="cap-num">02</span>
+        </div>
+        <div class="cap-body">
+          <h3>Networking &amp; Wi‑Fi</h3>
+          <p>Enterprise Wi‑Fi, UniFi &amp; Cisco, switches, firewalls, VLANs and clean racks.</p>
+        </div>
+      </a>
+      <a href="/maintenance" class="cap-card">
+        <div class="cap-img">
+          <img src="/images/09-nvr-camera-monitors.png" alt="NVR monitoring station" />
+          <div class="cap-img-overlay"></div>
+          <span class="cap-num">03</span>
+        </div>
+        <div class="cap-body">
+          <h3>Monitoring &amp; Support</h3>
+          <p>Central recording, retention planning and long‑term maintenance you can call.</p>
+        </div>
+      </a>
+    </div>
+    <div class="caps-fade-right"></div>
+  </div>
+  <div class="caps-scroll-footer">
+    <div class="caps-swipe-hint">SWIPE <span class="caps-swipe-arrow">→</span></div>
+    <div class="caps-dots">
+      <div class="caps-dot active" data-idx="0"></div>
+      <div class="caps-dot" data-idx="1"></div>
+      <div class="caps-dot" data-idx="2"></div>
+    </div>
   </div>
 </section>
 
@@ -558,6 +606,20 @@ import Layout from '../layouts/Layout.astro';
     });
   }, { threshold: 0.4 });
   nums.forEach(n => observer.observe(n));
+
+  // Carousel scroll dots
+  const capsGrid = document.getElementById('caps-grid') as HTMLElement | null;
+  const capsDots = document.querySelectorAll<HTMLElement>('.caps-dot');
+  if (capsGrid && capsDots.length) {
+    const updateDots = () => {
+      const cards = capsGrid.querySelectorAll<HTMLElement>('.cap-card');
+      if (!cards.length) return;
+      const cardW = cards[0].offsetWidth + 14; // width + gap
+      const idx = Math.min(Math.round(capsGrid.scrollLeft / cardW), cards.length - 1);
+      capsDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    };
+    capsGrid.addEventListener('scroll', updateDots, { passive: true });
+  }
 </script>
 
 </Layout>
