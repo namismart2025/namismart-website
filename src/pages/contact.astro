@@ -102,7 +102,9 @@ import Layout from '../layouts/Layout.astro';
         <p>Thanks — we've got your details and will review your project before reaching out. If it's urgent, call us and we'll pick up.</p>
       </div>
 
-      <form id="contact-form" action="https://formspree.io/f/vick@namismart.com" method="POST">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="8bde451b-e87c-43b6-8c93-b03bd5d4a59a" />
+        <input type="hidden" name="subject" value="New Estimate Request — NaMiSmart" />
         <div class="form-grid">
           <div class="form-field"><label>FULL NAME *</label><input name="name" type="text" required placeholder="Your name" /></div>
           <div class="form-field"><label>COMPANY / PROPERTY</label><input name="company" type="text" placeholder="Optional" /></div>
