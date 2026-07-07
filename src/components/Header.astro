@@ -1,0 +1,154 @@
+---
+const nav = [
+  { label: 'Security',    href: '/security-cameras' },
+  { label: 'Networking',  href: '/networking-wifi' },
+  { label: 'Cabling',     href: '/structured-cabling' },
+  { label: 'Maintenance', href: '/maintenance' },
+  { label: 'Industries',  href: '/industries' },
+  { label: 'Projects',    href: '/projects' },
+  { label: 'About',       href: '/about' },
+];
+---
+
+<style>
+  @keyframes hdrpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  .hdr-root {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 50px;
+    background: #0A0D14;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  .hdr-left { display: flex; align-items: center; gap: 34px; }
+
+  .hdr-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hdr-logo-mark {
+    width: 34px; height: 34px;
+    border: 1.5px solid #4DA6FF; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hdr-logo-mark span {
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid #4DA6FF;
+  }
+  .hdr-logo-text {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 19px;
+    letter-spacing: -0.01em; color: #fff;
+  }
+
+  .hdr-nav {
+    display: flex; align-items: center; gap: 26px;
+    font-size: 13.5px; font-weight: 500; color: #9AA6BC;
+  }
+  .hdr-nav a:hover { color: #fff; transition: color 0.15s; }
+
+  .hdr-right { display: flex; align-items: center; gap: 20px; }
+
+  .hdr-status {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: #6FE9C6;
+  }
+  .hdr-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #34E7A8; box-shadow: 0 0 10px #34E7A8;
+    animation: hdrpulse 2s ease-in-out infinite;
+  }
+
+  .hdr-cta-btn {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700; font-size: 13px; letter-spacing: 0.02em;
+    padding: 11px 20px;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 8px; color: #fff;
+  }
+  .hdr-cta-btn:hover { background: rgba(255,255,255,0.06); transition: background 0.15s; }
+
+  .hdr-burger {
+    display: none;
+    align-items: center; justify-content: center;
+    width: 46px; height: 46px;
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 12px;
+    background: rgba(255,255,255,0.05); cursor: pointer;
+    padding: 0; color: inherit;
+  }
+
+  .hdr-mobile {
+    display: none;
+    flex-direction: column; gap: 2px;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: #0C1019;
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+    box-shadow: 0 24px 44px rgba(0,0,0,0.5);
+    padding: 10px 16px 18px; z-index: 70;
+  }
+  .hdr-mobile.open { display: flex; }
+  .hdr-mobile a {
+    color: #EAF0F8; font-family: 'Archivo', sans-serif;
+    font-weight: 700; font-size: 16px;
+    padding: 13px 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .hdr-mobile .mobile-cta {
+    text-align: center; margin-top: 12px;
+    background: #4DA6FF; color: #04101F;
+    padding: 14px; border-radius: 10px;
+    font-weight: 800; font-size: 15px;
+    border-bottom: none;
+  }
+
+  @media (max-width: 860px) {
+    .hdr-nav, .hdr-status, .hdr-cta-btn { display: none !important; }
+    .hdr-burger { display: flex; }
+    .hdr-root { padding: 16px 18px; }
+  }
+</style>
+
+<header class="hdr-root">
+  <div class="hdr-left">
+    <a href="/" class="hdr-logo">
+      <div class="hdr-logo-mark"><span></span></div>
+      <div class="hdr-logo-text">NaMiSmart</div>
+    </a>
+    <nav class="hdr-nav">
+      {nav.map(n => <a href={n.href}>{n.label}</a>)}
+    </nav>
+  </div>
+
+  <div class="hdr-right">
+    <div class="hdr-status">
+      <span class="hdr-dot"></span>LA · ONLINE
+    </div>
+    <a href="/contact" class="hdr-cta-btn">REQUEST ESTIMATE</a>
+  </div>
+
+  <button class="hdr-burger" id="burger" aria-label="Open menu">
+    <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+      <line x1="1" y1="1.5" x2="21" y2="1.5" stroke="#EAF0F8" stroke-width="2" stroke-linecap="round"/>
+      <line x1="1" y1="8" x2="21" y2="8" stroke="#EAF0F8" stroke-width="2" stroke-linecap="round"/>
+      <line x1="1" y1="14.5" x2="21" y2="14.5" stroke="#EAF0F8" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="hdr-mobile" id="mobile-menu">
+    {nav.map(n => <a href={n.href}>{n.label}</a>)}
+    <a href="/contact" class="mobile-cta">Request a Free Estimate →</a>
+  </div>
+</header>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu   = document.getElementById('mobile-menu');
+  burger?.addEventListener('click', () => menu?.classList.toggle('open'));
+</script>

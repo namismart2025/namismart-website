@@ -1,0 +1,563 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home" description="Security cameras and enterprise Wi-Fi, engineered as one system across Greater Los Angeles.">
+
+<style>
+  @keyframes v2rec  { 0%,100%{opacity:1} 50%{opacity:.25} }
+  @keyframes v2scan { 0%{transform:translateY(0)} 100%{transform:translateY(150px)} }
+  @keyframes marq   { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @keyframes eqbar  { 0%,100%{transform:scaleY(0.28)} 50%{transform:scaleY(1)} }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative; z-index: 4;
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 640px;
+  }
+  .hero-left {
+    padding: 76px 40px 76px 56px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: 0.28em; color: #4DA6FF; margin-bottom: 26px;
+  }
+  .hero-h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900; font-size: 74px; line-height: 0.94;
+    letter-spacing: -0.03em; color: #fff;
+  }
+  .hero-h1 .blue { color: #4DA6FF; }
+  .hero-sub {
+    font-size: 16.5px; line-height: 1.6; color: #98A4BA;
+    max-width: 430px; margin-top: 30px;
+  }
+  .hero-btns { display: flex; gap: 14px; margin-top: 38px; }
+  .hero-trust {
+    display: flex; gap: 30px; margin-top: 46px; align-items: center;
+  }
+  .hero-trust-item .label {
+    font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; color: #fff;
+  }
+  .hero-trust-item .sub { font-size: 12px; color: #6C7890; margin-top: 3px; }
+  .hero-divider { width: 1px; background: rgba(255,255,255,0.12); align-self: stretch; }
+
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg,#0A0D14 0%,rgba(10,13,20,0.35) 24%,rgba(10,13,20,0) 55%),
+                linear-gradient(0deg,rgba(10,13,20,0.55),transparent 45%);
+  }
+
+  /* live cam HUD */
+  .hud {
+    position: absolute; top: 40px; right: 40px; width: 236px;
+    border: 1px solid rgba(77,166,255,0.55); border-radius: 10px;
+    overflow: hidden; background: rgba(6,12,22,0.5); backdrop-filter: blur(2px);
+  }
+  .hud-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 11px; background: rgba(6,12,22,0.7);
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.1em; color: #B9C6DC;
+  }
+  .hud-rec {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #FF4D5E; box-shadow: 0 0 8px #FF4D5E;
+    animation: v2rec 1.4s infinite; display: inline-block; margin-right: 6px;
+  }
+  .hud-feed { position: relative; height: 150px; overflow: hidden; }
+  .hud-feed img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05) saturate(1.05); }
+  .hud-scanline {
+    position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: linear-gradient(90deg,transparent,#4DA6FF,transparent);
+    animation: v2scan 3.2s linear infinite;
+  }
+  .hud-box {
+    position: absolute; left: 38%; top: 34%; width: 70px; height: 88px;
+    border: 1.5px solid #34E7A8; border-radius: 2px;
+  }
+  .hud-box span {
+    position: absolute; top: -16px; left: -1px;
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    background: #34E7A8; color: #04120C; padding: 1px 4px;
+  }
+  .hud-footer {
+    display: flex; justify-content: space-between; padding: 7px 11px;
+    font-family: 'Space Mono', monospace; font-size: 9.5px; color: #7C8AA4; letter-spacing: 0.08em;
+  }
+  .hero-tag {
+    position: absolute; bottom: 26px; right: 40px;
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.14em; color: rgba(210,224,244,0.7);
+  }
+
+  /* ===== TICKER ===== */
+  .ticker {
+    position: relative; z-index: 4;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: #0C1019; overflow: hidden; padding: 15px 0;
+  }
+  .ticker-inner {
+    display: flex; width: max-content;
+    animation: marq 26s linear infinite;
+    font-family: 'Space Mono', monospace; font-size: 13px;
+    letter-spacing: 0.18em; color: #5E6C86;
+  }
+  .ticker-inner span { padding: 0 26px; }
+  .ticker-inner .dot { color: #4DA6FF; padding: 0; }
+
+  /* ===== STATS ===== */
+  .stats {
+    position: relative; z-index: 4; padding: 44px 56px 58px;
+  }
+  .stats-panel {
+    border: 1px solid rgba(77,166,255,0.28); border-radius: 16px;
+    background: linear-gradient(180deg,#0C1220,#090D16);
+    overflow: hidden; box-shadow: inset 0 0 80px rgba(46,110,220,0.07);
+  }
+  .stats-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(6,12,22,0.55);
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    letter-spacing: 0.14em; color: #8A97AD;
+  }
+  .stats-live { display: flex; align-items: center; gap: 9px; color: #6FE9C6; }
+  .stats-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #34E7A8; box-shadow: 0 0 10px #34E7A8;
+    animation: v2rec 2s infinite;
+  }
+  .stats-meta { display: flex; gap: 26px; }
+  .stats-meta span { color: #5E6C86; }
+  .stats-clock { color: #8A97AD; }
+
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4,1fr);
+  }
+  .stats-ch {
+    padding: 30px 28px;
+    border-right: 1px dashed rgba(255,255,255,0.1);
+  }
+  .stats-ch:last-child { border-right: none; }
+  .stats-ch-head {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+  }
+  .ch-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.1em; color: #5E6C86;
+  }
+  .eq-bars { display: flex; align-items: flex-end; gap: 2.5px; height: 17px; }
+  .eq-bar {
+    width: 3px; background: #4DA6FF; transform-origin: bottom; border-radius: 1px; height: 100%;
+    animation: eqbar var(--dur, 0.85s) ease-in-out var(--delay, 0s) infinite;
+  }
+  .stat-num {
+    font-family: 'Archivo', sans-serif; font-weight: 900;
+    font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: #fff;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-unit { font-size: 26px; color: #4DA6FF; letter-spacing: 0; }
+  .stat-label { font-size: 12.5px; color: #8A97AD; margin-top: 12px; }
+
+  /* ===== CAPABILITIES ===== */
+  .caps { position: relative; z-index: 4; padding: 26px 56px 60px; }
+  .caps-head {
+    display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 30px;
+  }
+  .caps-h2 {
+    font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px;
+    letter-spacing: -0.02em; color: #fff; max-width: 560px; line-height: 1.02;
+  }
+  .caps-h2 .dim { color: #5B6884; }
+  .caps-sub { font-size: 13px; color: #8A97AD; max-width: 210px; text-align: right; padding-bottom: 6px; }
+  .caps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .cap-card {
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+    overflow: hidden; background: #0E131D; display: block;
+    transition: border-color 0.2s;
+  }
+  .cap-card:hover { border-color: rgba(77,166,255,0.4); }
+  .cap-img { height: 210px; position: relative; overflow: hidden; }
+  .cap-img img { width: 100%; height: 100%; object-fit: cover; }
+  .cap-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg,#0E131D,transparent 55%);
+  }
+  .cap-num {
+    position: absolute; top: 14px; left: 16px;
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    color: #4DA6FF; letter-spacing: 0.1em;
+  }
+  .cap-body { padding: 20px 22px 26px; }
+  .cap-body h3 {
+    font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 21px; color: #fff;
+  }
+  .cap-body p { font-size: 13.5px; line-height: 1.55; color: #8B98AE; margin-top: 9px; }
+
+  /* ===== DIFFERENCE ===== */
+  .diff {
+    position: relative; z-index: 4;
+    margin: 0 56px 60px;
+    border: 1px solid rgba(77,166,255,0.22); border-radius: 20px;
+    background: linear-gradient(160deg,#0D1220,#0A0E17);
+    padding: 48px 46px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;
+  }
+  .diff h2 {
+    font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 34px;
+    line-height: 1.08; letter-spacing: -0.02em; color: #fff; margin-top: 18px;
+  }
+  .diff p { font-size: 15px; line-height: 1.65; color: #93A0B6; margin-top: 20px; max-width: 440px; }
+  .diff-rows { display: flex; flex-direction: column; gap: 12px; }
+  .diff-row {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px; padding: 15px 18px;
+  }
+  .diff-tag {
+    font-family: 'Space Mono', monospace; font-size: 11px; color: #4DA6FF; width: 74px; flex-shrink: 0;
+  }
+  .diff-row span:last-child { font-size: 14px; color: #DCE5F2; }
+
+  /* ===== SERVICE AREA ===== */
+  .area {
+    position: relative; z-index: 4;
+    padding: 0 56px 60px;
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;
+  }
+  .area h2 {
+    font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 32px;
+    line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin-top: 16px;
+  }
+  .area p { font-size: 14.5px; line-height: 1.6; color: #93A0B6; margin: 18px 0 22px; }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 9px; }
+  .area-tag {
+    font-family: 'Space Mono', monospace; font-size: 11px; color: #B9C6DC;
+    border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 7px 14px;
+  }
+  .area-map {
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1); position: relative;
+  }
+  .area-map img { width: 100%; display: block; filter: saturate(0.85) brightness(0.92); }
+  .area-map-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 60% 50%,transparent,rgba(10,13,20,0.35));
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .hero-left { padding: 30px 16px 26px; }
+    .hero-h1 { font-size: 44px; }
+    .hero-right { min-height: 340px; margin-top: 24px; }
+    .hud { top: 14px; right: 14px; width: 172px; }
+    .stats { padding: 24px 16px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stats-ch { border-right: none; }
+    .stats-ch:nth-child(odd) { border-right: 1px dashed rgba(255,255,255,0.1) !important; }
+    .stats-ch:nth-child(-n+2) { border-bottom: 1px dashed rgba(255,255,255,0.1); }
+    .stat-num { font-size: 38px; }
+    .stats-meta .stats-clock { display: none; }
+    .caps { padding: 24px 16px 36px; }
+    .caps-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .caps-sub { text-align: left; max-width: none; }
+    .caps-h2 { font-size: 30px; }
+    .caps-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding-bottom: 8px; }
+    .cap-card { min-width: 80%; flex: 0 0 auto; scroll-snap-align: start; }
+    .diff { grid-template-columns: 1fr; margin: 0 16px 36px; padding: 30px 20px; gap: 24px; }
+    .diff h2 { font-size: 27px; }
+    .area { grid-template-columns: 1fr; padding: 0 16px 36px; gap: 24px; }
+  }
+</style>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">// SECURITY &amp; NETWORK ENGINEERING</div>
+    <h1 class="hero-h1">
+      EVERY DOOR.<br>EVERY FLOOR.<br><span class="blue">EVERY FRAME.</span>
+    </h1>
+    <p class="hero-sub">
+      Security cameras and enterprise Wi‑Fi, engineered as one system — designed, cabled, and monitored by people who actually understand networks.
+    </p>
+    <div class="hero-btns">
+      <a href="/contact" class="btn-primary">Request an estimate</a>
+      <a href="/projects" class="btn-outline">See our work →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item">
+        <div class="label">Local expertise</div>
+        <div class="sub">Network‑first installs</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-trust-item">
+        <div class="label">UniFi · Cisco · DW‑IPVMS</div>
+        <div class="sub">certified installers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="/images/01-home-hero.png" alt="Commercial building with security cameras" />
+    <div class="hero-overlay"></div>
+
+    <!-- Live cam HUD -->
+    <div class="hud">
+      <div class="hud-bar">
+        <span><span class="hud-rec"></span>REC · CAM 04</span>
+        <span>LOBBY</span>
+      </div>
+      <div class="hud-feed">
+        <img src="/images/07-security-cameras-hallway.png" alt="Camera feed" />
+        <div class="hud-scanline"></div>
+        <div class="hud-box">
+          <span>PERSON 98%</span>
+        </div>
+      </div>
+      <div class="hud-footer">
+        <span>34.0522° N</span>
+        <span>4K · 30FPS</span>
+      </div>
+    </div>
+    <div class="hero-tag">SITE&nbsp;/&nbsp;COMMERCIAL EXTERIOR&nbsp;·&nbsp;2 DOME&nbsp;·&nbsp;1 BULLET</div>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>SECURITY CAMERAS</span><span class="dot">✦</span>
+    <span>STRUCTURED CABLING</span><span class="dot">✦</span>
+    <span>UNIFI / CISCO</span><span class="dot">✦</span>
+    <span>ACCESS CONTROL</span><span class="dot">✦</span>
+    <span>NETWORK RACKS</span><span class="dot">✦</span>
+    <span>24/7 REMOTE VIEWING</span><span class="dot">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>SECURITY CAMERAS</span><span class="dot">✦</span>
+    <span>STRUCTURED CABLING</span><span class="dot">✦</span>
+    <span>UNIFI / CISCO</span><span class="dot">✦</span>
+    <span>ACCESS CONTROL</span><span class="dot">✦</span>
+    <span>NETWORK RACKS</span><span class="dot">✦</span>
+    <span>24/7 REMOTE VIEWING</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ===== STATS PANEL ===== -->
+<section class="stats">
+  <div class="stats-panel">
+    <div class="stats-header">
+      <span class="stats-live">
+        <span class="stats-dot"></span>LIVE SYSTEM STATUS
+      </span>
+      <span class="stats-meta">
+        <span>NODE: LA‑CENTRAL</span>
+        <span>UPTIME 99.98%</span>
+        <span class="stats-clock" id="clock">--:--:--</span>
+        <span>&nbsp;PT</span>
+      </span>
+    </div>
+    <div class="stats-grid">
+      <div class="stats-ch">
+        <div class="stats-ch-head">
+          <span class="ch-label">CH.01 · DEPLOY</span>
+          <div class="eq-bars">
+            <div class="eq-bar" style="--dur:0.85s;--delay:0s"></div>
+            <div class="eq-bar" style="--dur:0.7s;--delay:0.15s"></div>
+            <div class="eq-bar" style="--dur:1.05s;--delay:0.3s"></div>
+            <div class="eq-bar" style="--dur:0.8s;--delay:0.05s"></div>
+            <div class="eq-bar" style="--dur:0.95s;--delay:0.22s"></div>
+          </div>
+        </div>
+        <div class="stat-num" data-target="200" data-suffix="+">0+</div>
+        <div class="stat-label">cameras · single deployment</div>
+      </div>
+      <div class="stats-ch">
+        <div class="stats-ch-head">
+          <span class="ch-label">CH.02 · RESPONSE</span>
+          <div class="eq-bars">
+            <div class="eq-bar" style="--dur:0.75s;--delay:0.1s"></div>
+            <div class="eq-bar" style="--dur:1s;--delay:0.28s"></div>
+            <div class="eq-bar" style="--dur:0.68s;--delay:0s"></div>
+            <div class="eq-bar" style="--dur:0.9s;--delay:0.18s"></div>
+            <div class="eq-bar" style="--dur:0.82s;--delay:0.34s"></div>
+          </div>
+        </div>
+        <div class="stat-num" data-target="15" data-suffix=" min">0 <span class="stat-unit">min</span></div>
+        <div class="stat-label">average response window</div>
+      </div>
+      <div class="stats-ch">
+        <div class="stats-ch-head">
+          <span class="ch-label">CH.03 · INSTALLED</span>
+          <div class="eq-bars">
+            <div class="eq-bar" style="--dur:0.92s;--delay:0.2s"></div>
+            <div class="eq-bar" style="--dur:0.7s;--delay:0.04s"></div>
+            <div class="eq-bar" style="--dur:1.08s;--delay:0.32s"></div>
+            <div class="eq-bar" style="--dur:0.78s;--delay:0.14s"></div>
+            <div class="eq-bar" style="--dur:0.88s;--delay:0.26s"></div>
+          </div>
+        </div>
+        <div class="stat-num" data-target="500" data-suffix="+">0+</div>
+        <div class="stat-label">systems installed &amp; supported</div>
+      </div>
+      <div class="stats-ch">
+        <div class="stats-ch-head">
+          <span class="ch-label">CH.04 · EXPERIENCE</span>
+          <div class="eq-bars">
+            <div class="eq-bar" style="--dur:0.8s;--delay:0.12s"></div>
+            <div class="eq-bar" style="--dur:0.96s;--delay:0.3s"></div>
+            <div class="eq-bar" style="--dur:0.72s;--delay:0.06s"></div>
+            <div class="eq-bar" style="--dur:1.02s;--delay:0.24s"></div>
+            <div class="eq-bar" style="--dur:0.86s;--delay:0.16s"></div>
+          </div>
+        </div>
+        <div class="stat-num" data-target="10" data-suffix="+ yrs">0+ <span class="stat-unit">yrs</span></div>
+        <div class="stat-label">field installation experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES ===== -->
+<section class="caps">
+  <div class="caps-head">
+    <div>
+      <div class="eyebrow">// WHAT WE INSTALL</div>
+      <h2 class="caps-h2">One team for the cameras <span class="dim">and</span> the network behind them.</h2>
+    </div>
+    <div class="caps-sub">From 2‑camera homes to enterprise multi‑floor sites.</div>
+  </div>
+  <div class="caps-grid">
+    <a href="/security-cameras" class="cap-card">
+      <div class="cap-img">
+        <img src="/images/07-security-cameras-hallway.png" alt="Security cameras in a hallway" />
+        <div class="cap-img-overlay"></div>
+        <span class="cap-num">01</span>
+      </div>
+      <div class="cap-body">
+        <h3>Security Cameras</h3>
+        <p>AI detection, 4K, 180° dual‑lens, NVR/VMS and remote viewing — indoor &amp; out.</p>
+      </div>
+    </a>
+    <a href="/networking-wifi" class="cap-card">
+      <div class="cap-img">
+        <img src="/images/08-networking-wifi-rack.png" alt="Network rack with Wi-Fi equipment" />
+        <div class="cap-img-overlay"></div>
+        <span class="cap-num">02</span>
+      </div>
+      <div class="cap-body">
+        <h3>Networking &amp; Wi‑Fi</h3>
+        <p>Enterprise Wi‑Fi, UniFi &amp; Cisco, switches, firewalls, VLANs and clean racks.</p>
+      </div>
+    </a>
+    <a href="/maintenance" class="cap-card">
+      <div class="cap-img">
+        <img src="/images/09-nvr-camera-monitors.png" alt="NVR monitoring station" />
+        <div class="cap-img-overlay"></div>
+        <span class="cap-num">03</span>
+      </div>
+      <div class="cap-body">
+        <h3>Monitoring &amp; Support</h3>
+        <p>Central recording, retention planning and long‑term maintenance you can call.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== THE DIFFERENCE ===== -->
+<section class="diff">
+  <div>
+    <div class="eyebrow">// THE DIFFERENCE</div>
+    <h2>Most installers just mount cameras.<br>We engineer the whole system.</h2>
+    <p>Camera placement, PoE budgeting, network segmentation, storage retention, and clean labeled racks — planned together so nothing drops offline at 2am.</p>
+  </div>
+  <div class="diff-rows">
+    <div class="diff-row"><span class="diff-tag">POWER</span><span>PoE+ budgeted per switch</span></div>
+    <div class="diff-row"><span class="diff-tag">NETWORK</span><span>VLAN‑segmented camera traffic</span></div>
+    <div class="diff-row"><span class="diff-tag">STORAGE</span><span>NVR / VMS retention planning</span></div>
+    <div class="diff-row"><span class="diff-tag">RACK</span><span>Clean, labeled &amp; documented</span></div>
+  </div>
+</section>
+
+<!-- ===== SERVICE AREA ===== -->
+<section class="area">
+  <div>
+    <div class="eyebrow">// SERVICE AREA</div>
+    <h2>Serving Greater Los Angeles &amp; surrounding areas</h2>
+    <p>On‑site across LA, the San Fernando Valley, Ventura County and the Antelope Valley.</p>
+    <div class="area-tags">
+      <span class="area-tag">GREATER LA</span>
+      <span class="area-tag">SAN FERNANDO</span>
+      <span class="area-tag">VENTURA</span>
+      <span class="area-tag">ANTELOPE VALLEY</span>
+    </div>
+  </div>
+  <div class="area-map">
+    <img src="/images/22-service-area-map.png" alt="Service area map covering Greater Los Angeles" />
+    <div class="area-map-overlay"></div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8);margin-bottom:14px">// LET'S BUILD IT</div>
+    <h2>Let's design your system.</h2>
+    <p>Free on‑site assessment &amp; quote across Greater LA.</p>
+  </div>
+  <div>
+    <a href="/contact" class="btn-dark">Request an estimate</a>
+  </div>
+</section>
+
+<script>
+  // Clock
+  const clockEl = document.getElementById('clock');
+  function tick() {
+    if (!clockEl) return;
+    const d = new Date();
+    const p = (n: number) => String(n).padStart(2, '0');
+    clockEl.textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Counting stats animation (triggers when panel scrolls into view)
+  const nums = document.querySelectorAll<HTMLElement>('.stat-num[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target as HTMLElement;
+      const target = parseInt(el.dataset.target ?? '0', 10);
+      const suffix = el.dataset.suffix ?? '';
+      const dur = 1700;
+      const start = performance.now();
+      const unit = el.querySelector('.stat-unit');
+      const step = (now: number) => {
+        const t = Math.min(1, (now - start) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        const val = Math.round(target * e);
+        if (unit) {
+          el.childNodes[0].textContent = val + (suffix.includes('+') ? '+' : '');
+        } else {
+          el.textContent = val + suffix;
+        }
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  nums.forEach(n => observer.observe(n));
+</script>
+
+</Layout>

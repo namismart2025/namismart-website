@@ -1,0 +1,121 @@
+---
+---
+
+<style>
+  .ftr-root {
+    background: #080B12;
+    color: #EAF0F8;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    padding: 52px 50px 26px;
+    border-top: 1px solid rgba(77,166,255,0.2);
+  }
+  .ftr-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 36px;
+  }
+  .ftr-logo { display: flex; align-items: center; gap: 11px; }
+  .ftr-logo-mark {
+    width: 32px; height: 32px;
+    border: 1.5px solid #4DA6FF; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ftr-logo-mark span {
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #4DA6FF;
+  }
+  .ftr-logo-text {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 18px; color: #fff;
+  }
+  .ftr-brand p {
+    font-size: 13.5px; line-height: 1.6; color: #8A97AD;
+    margin: 16px 0 0; max-width: 280px;
+  }
+  .ftr-brand .tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.16em; color: #4DA6FF; margin-top: 18px;
+  }
+  .ftr-col-head {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: #5E6C86;
+  }
+  .ftr-links {
+    display: flex; flex-direction: column; gap: 11px;
+    margin-top: 16px; font-size: 14px;
+  }
+  .ftr-links a { color: #C4CEDE; }
+  .ftr-links a:hover { color: #fff; transition: color 0.15s; }
+  .ftr-area p {
+    font-size: 13.5px; line-height: 1.6; color: #8A97AD; margin: 16px 0 0;
+  }
+  .ftr-area-btn {
+    display: inline-block; margin-top: 16px;
+    background: #4DA6FF; color: #04101F;
+    padding: 12px 22px; border-radius: 9px;
+    font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 13.5px;
+  }
+  .ftr-area-btn:hover { background: #3b96f0; transition: background 0.15s; }
+  .ftr-bottom {
+    border-top: 1px solid rgba(255,255,255,0.09);
+    margin-top: 38px; padding-top: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ftr-bottom span {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: #5E6C86;
+  }
+
+  @media (max-width: 720px) {
+    .ftr-root { padding: 38px 18px 24px; }
+    .ftr-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .ftr-brand { grid-column: 1 / -1; }
+    .ftr-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
+  }
+</style>
+
+<footer class="ftr-root">
+  <div class="ftr-grid">
+    <div class="ftr-brand">
+      <div class="ftr-logo">
+        <div class="ftr-logo-mark"><span></span></div>
+        <span class="ftr-logo-text">NaMiSmart</span>
+      </div>
+      <p>Security cameras and enterprise networking, engineered as one system for homes, businesses, and commercial properties across Greater Los Angeles.</p>
+      <div class="tagline">// LOCAL TRUST · ENTERPRISE SKILL</div>
+    </div>
+
+    <div>
+      <div class="ftr-col-head">SERVICES</div>
+      <div class="ftr-links">
+        <a href="/security-cameras">Security Cameras</a>
+        <a href="/networking-wifi">Networking &amp; Wi‑Fi</a>
+        <a href="/structured-cabling">Structured Cabling</a>
+        <a href="/maintenance">Maintenance &amp; Support</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="ftr-col-head">COMPANY</div>
+      <div class="ftr-links">
+        <a href="/industries">Industries</a>
+        <a href="/projects">Project Gallery</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="ftr-area">
+      <div class="ftr-col-head">SERVICE AREA</div>
+      <p>Greater Los Angeles, San Fernando Valley, Ventura County, Antelope Valley, Lancaster &amp; Palmdale.</p>
+      <a href="/contact" class="ftr-area-btn">Request a Free Estimate</a>
+    </div>
+  </div>
+
+  <div class="ftr-bottom">
+    <span>© 2026 NaMiSmart · namismart.com · All rights reserved.</span>
+    <span>SERVING GREATER LOS ANGELES</span>
+  </div>
+</footer>
