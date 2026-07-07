@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Request a free on-site estimate for security cameras or networking across Greater Los Angeles.">
+
+<style>
+  .sec{position:relative;z-index:4;padding:30px 56px 20px;}
+  .crumb{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#5E6C86;margin-bottom:18px;}
+  .crumb a{color:#5E6C86;}
+  .contact-grid{border:1px solid rgba(255,255,255,0.1);border-radius:20px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:46px 48px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;position:relative;overflow:hidden;}
+  .contact-glow{position:absolute;top:-90px;left:-40px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(77,166,255,0.14),transparent 65%);filter:blur(30px);pointer-events:none;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.26em;color:#4DA6FF;margin-bottom:22px;}
+  .contact-h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:44px;line-height:0.98;letter-spacing:-0.03em;color:#fff;max-width:440px;margin:0;}
+  .contact-h1 .blue{color:#4DA6FF;}
+  .contact-sub{font-size:15.5px;line-height:1.65;color:#98A4BA;margin:22px 0 0;max-width:420px;}
+  .reveal-cards{margin-top:28px;display:flex;flex-direction:column;gap:12px;}
+  .reveal-btn{text-align:left;background:#0E131D;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:15px 18px;cursor:pointer;width:100%;}
+  .reveal-btn .rlbl{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#4DA6FF;}
+  .reveal-btn .rval{font-family:'Archivo',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-top:5px;}
+  .reveal-note{font-family:'Space Mono',monospace;font-size:10.5px;line-height:1.6;color:#5E6C86;margin:14px 0 0;}
+  .area-block{margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.1);}
+  .area-lbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;color:#4DA6FF;}
+  .area-block p{font-size:13.5px;line-height:1.6;color:#8B98AE;margin:10px 0 0;}
+  /* Form */
+  .form-panel{position:relative;background:#0E131D;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:30px;}
+  .form-panel h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;letter-spacing:-0.02em;color:#fff;margin:0 0 20px;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-field{display:flex;flex-direction:column;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:#9AA6BC;}
+  .form-field input,
+  .form-field select,
+  .form-field textarea{
+    width:100%;margin-top:7px;padding:11px 12px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.12);background:#0A0E17;
+    color:#EAF0F8;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;
+  }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder{color:#5E6C86;}
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus{outline:none;border-color:#4DA6FF;box-shadow:0 0 0 3px rgba(77,166,255,0.15);}
+  .form-field select{color:#9AA6BC;}
+  .form-field textarea{min-height:92px;resize:vertical;}
+  .honeypot{position:absolute;left:-9999px;}
+  .submit-btn{width:100%;margin-top:16px;background:linear-gradient(120deg,#0F5FC2,#2E7DF2 60%,#4DA6FF);color:#fff;padding:15px;border:none;border-radius:12px;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;cursor:pointer;}
+  .submit-btn:hover{opacity:0.92;}
+  .form-note{font-family:'Space Mono',monospace;font-size:10px;color:#5E6C86;margin:12px 0 0;text-align:center;}
+  /* Success state */
+  .success-msg{display:none;flex-direction:column;align-items:flex-start;gap:14px;padding:26px 4px;}
+  .success-msg.show{display:flex;}
+  .success-icon{width:54px;height:54px;border-radius:50%;background:rgba(52,231,168,0.12);border:1px solid rgba(52,231,168,0.4);display:flex;align-items:center;justify-content:center;}
+  .success-msg h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#fff;margin:0;}
+  .success-msg p{font-size:14px;line-height:1.65;color:#98A4BA;margin:0;max-width:420px;}
+  /* Confirm strip */
+  .confirm-strip{border:1px solid rgba(77,166,255,0.25);border-radius:16px;background:linear-gradient(160deg,#0C1626,#0A1220);padding:24px 28px;display:flex;align-items:center;gap:16px;}
+  .confirm-strip p{font-size:13.5px;line-height:1.6;color:#98A4BA;margin:0;}
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .contact-grid{grid-template-columns:1fr;gap:28px;padding:28px 20px;}
+    .contact-h1{font-size:34px;}
+    .form-grid{grid-template-columns:1fr;}
+  }
+</style>
+
+<section class="sec">
+  <div class="crumb"><a href="/">HOME</a> / <span style="color:#9AA6BC">CONTACT</span></div>
+  <div class="contact-grid">
+    <div class="contact-glow"></div>
+    <div style="position:relative">
+      <div class="eyebrow">// GET IN TOUCH</div>
+      <h1 class="contact-h1">Let's design the <span class="blue">right system</span> for your property.</h1>
+      <p class="contact-sub">Tell us about your property, what you need, and where the project is located. The more detail you share, the faster we can help design the right system.</p>
+
+      <div class="reveal-cards">
+        <button class="reveal-btn" id="reveal-btn">
+          <div class="rlbl">PHONE</div>
+          <div class="rval" id="phone-val">Click to reveal</div>
+        </button>
+        <button class="reveal-btn" id="reveal-btn2">
+          <div class="rlbl">EMAIL</div>
+          <div class="rval" id="email-val">Click to reveal</div>
+        </button>
+      </div>
+      <p class="reveal-note">Contact details revealed on click to reduce spam. The form is the fastest way to reach us.</p>
+
+      <div class="area-block">
+        <div class="area-lbl">// SERVICE AREA</div>
+        <p>Greater Los Angeles, San Fernando Valley, Ventura County, Antelope Valley, Lancaster &amp; Palmdale.</p>
+      </div>
+    </div>
+
+    <div class="form-panel">
+      <h2>Request a Free Estimate</h2>
+
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 12.4l3.6 3.4L18 7.6" stroke="#34E7A8" stroke-width="2"/></svg>
+        </div>
+        <h3>Request received.</h3>
+        <p>Thanks — we've got your details and will review your project before reaching out. If it's urgent, call us and we'll pick up.</p>
+      </div>
+
+      <form id="contact-form" action="https://formspree.io/f/vick@namismart.com" method="POST">
+        <div class="form-grid">
+          <div class="form-field"><label>FULL NAME *</label><input name="name" type="text" required placeholder="Your name" /></div>
+          <div class="form-field"><label>COMPANY / PROPERTY</label><input name="company" type="text" placeholder="Optional" /></div>
+          <div class="form-field"><label>EMAIL *</label><input name="email" type="email" required placeholder="you@email.com" /></div>
+          <div class="form-field"><label>PHONE</label><input name="phone" type="tel" placeholder="(555) 555‑5555" /></div>
+          <div class="form-field">
+            <label>PROPERTY TYPE</label>
+            <select name="propertyType">
+              <option value="">Select…</option>
+              <option>Home</option><option>Business</option><option>Hotel</option>
+              <option>School</option><option>Apartment / Condo</option>
+              <option>Commercial</option><option>Office</option>
+              <option>Retail</option><option>Warehouse</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>SERVICE NEEDED</label>
+            <select name="service">
+              <option value="">Select…</option>
+              <option>Security Cameras</option><option>Networking / Wi‑Fi</option>
+              <option>Structured Cabling</option><option>Maintenance / Support</option>
+              <option>System Upgrade</option><option>Troubleshooting</option>
+              <option>Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="form-field"><label>PROJECT LOCATION / CITY</label><input name="location" type="text" placeholder="e.g. Los Angeles, CA" /></div>
+          <div class="form-field">
+            <label>HOW SOON?</label>
+            <select name="timeline">
+              <option value="">Select…</option>
+              <option>As soon as possible</option><option>This week</option>
+              <option>This month</option><option>Planning ahead</option><option>Not sure</option>
+            </select>
+          </div>
+          <div class="form-field full"><label>PROJECT DETAILS</label><textarea name="details" placeholder="Tell us about your property and what you need help with…"></textarea></div>
+        </div>
+        <!-- Honeypot -->
+        <div class="honeypot" aria-hidden="true"><label>Do not fill<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button type="submit" class="submit-btn">Send Request →</button>
+        <p class="form-note">Your information is never shared. Spam-filtered so real requests reach us directly.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:8px;padding-bottom:12px">
+  <div class="confirm-strip">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><circle cx="12" cy="12" r="9" stroke="#4DA6FF" stroke-width="1.6"/><path d="M8.5 12.2l2.4 2.3 4.6-4.8" stroke="#4DA6FF" stroke-width="1.8" fill="none"/></svg>
+    <p>After you submit, you'll see a confirmation message and we'll review your project details before reaching out. We don't share your information, and the form is filtered so real requests reach us quickly.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;color:rgba(255,255,255,0.8);margin-bottom:14px">// PREFER TO TALK?</div>
+    <h2>Give us a call.</h2>
+    <p>Camera &amp; network systems across Greater LA.</p>
+  </div>
+  <button class="btn-dark" id="cta-phone-btn" style="border:none;cursor:pointer">Click to reveal number</button>
+</section>
+
+<script>
+  // Reveal contact info on click
+  const PHONE = '(818) 612‑4117';
+  const EMAIL = 'vick@namismart.com';
+  let revealed = false;
+
+  function reveal() {
+    if (revealed) return;
+    revealed = true;
+    const p = document.getElementById('phone-val');
+    const e = document.getElementById('email-val');
+    const c = document.getElementById('cta-phone-btn');
+    if (p) p.textContent = PHONE;
+    if (e) e.textContent = EMAIL;
+    if (c) c.textContent = PHONE;
+  }
+
+  document.getElementById('reveal-btn')?.addEventListener('click', reveal);
+  document.getElementById('reveal-btn2')?.addEventListener('click', reveal);
+  document.getElementById('cta-phone-btn')?.addEventListener('click', reveal);
+
+  // Form submission with honeypot check
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successMsg = document.getElementById('success-msg');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    // Honeypot
+    if (data.get('website')) { showSuccess(); return; }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) showSuccess();
+      else alert('Something went wrong. Please try again or call us directly.');
+    } catch {
+      alert('Something went wrong. Please try again or call us directly.');
+    }
+  });
+
+  function showSuccess() {
+    form?.classList.add('hidden');
+    (form as HTMLElement).style.display = 'none';
+    successMsg?.classList.add('show');
+  }
+</script>
+
+</Layout>

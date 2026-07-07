@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout title="Security Cameras" description="AI detection, 4K, 180° dual-lens camera systems designed and installed across Greater Los Angeles.">
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card {
+    border:1px solid rgba(255,255,255,0.1);border-radius:14px;
+    background:#0E131D;padding:22px;
+  }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card-lg {
+    border:1px solid rgba(255,255,255,0.1);border-radius:16px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px;
+  }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tag-row-item {
+    display:flex;align-items:center;gap:14px;
+    border:1px solid rgba(255,255,255,0.1);border-radius:14px;
+    background:#0E131D;padding:16px 20px;
+  }
+  .tag-lbl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:96px;letter-spacing:0.08em; }
+  .tag-row-item span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .callout {
+    border:1px solid rgba(77,166,255,0.22);border-radius:16px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);
+    padding:30px 34px;display:flex;align-items:center;
+    justify-content:space-between;gap:28px;
+  }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag {
+    font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;
+    border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5;
+  }
+  .systems-list { display:flex;flex-direction:column;gap:12px; }
+  .sys-row {
+    display:flex;justify-content:space-between;align-items:center;
+    padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.09);
+  }
+  .sys-row:last-child { border-bottom:none;padding-bottom:0; }
+  .sys-row span:first-child { font-weight:600;color:#EAF0F8;font-size:14.5px; }
+  .sys-row span:last-child  { font-size:10.5px;font-family:'Space Mono',monospace;color:#4DA6FF; }
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .grid3,.grid2,.sys-grid{grid-template-columns:1fr;}
+    .callout{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+
+<InnerHero
+  breadcrumb="SECURITY CAMERAS"
+  eyebrow="// SECURITY CAMERAS"
+  title="Camera systems designed to"
+  titleBlue="actually protect."
+  subtitle="From a 2‑camera home to a 200+ camera commercial deployment — designed, installed, and supported for real coverage, reliable recording, and secure remote access."
+  tags={['AI DETECTION','180° DUAL‑LENS','4K','NVR / VMS','REMOTE VIEWING']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="See Examples"
+  secondaryHref="/projects"
+  image="/images/07-security-cameras-hallway.png"
+  imageAlt="Dome cameras in commercial hallway"
+  statusLabel="REC · CAM 04 · LOBBY"
+  statusColor="#FF4D5E"
+/>
+
+<section class="sec">
+  <div class="eyebrow">// SYSTEMS WE BUILD</div>
+  <div class="sys-grid">
+    <div class="sys-card"><h3>Residential</h3><p>Clean, reliable systems for homes and large properties — entry, driveway, gate, and perimeter coverage with easy mobile viewing.</p></div>
+    <div class="sys-card"><h3>Commercial</h3><p>Retail, office, and multi‑area coverage with NVR/VMS recording, PoE switching, and organized network closets.</p></div>
+    <div class="sys-card"><h3>Enterprise</h3><p>Hotels, schools, and multi‑floor buildings with 100–200+ cameras, multiple network closets, and long‑term support.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// CAMERA CAPABILITIES</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Smart features, done properly</h2>
+  <div class="grid3">
+    <div class="card"><h3>AI people &amp; vehicle detection</h3><p>Fewer false alerts and faster smart video search.</p></div>
+    <div class="card"><h3>180° dual‑lens coverage</h3><p>Wide areas covered with fewer cameras and fewer blind spots.</p></div>
+    <div class="card"><h3>4K &amp; high‑resolution</h3><p>Clear detail for faces, plates, and evidence you can use.</p></div>
+    <div class="card"><h3>NVR / VMS recording</h3><p>Right storage and retention, from single NVRs to full VMS.</p></div>
+    <div class="card"><h3>Secure remote viewing</h3><p>Watch live and recorded footage from any device, anywhere.</p></div>
+    <div class="card"><h3>Coverage planning</h3><p>Camera placement mapped to your property, not guesswork.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY IT MATTERS</div>
+      <h3>A camera you can't count on is worse than none.</h3>
+      <p>Blurry footage, blind spots, and recordings that quietly stopped weeks ago are the difference between usable evidence and a shrug. We design for the moment you actually need it — clear detail, full coverage, and recording you can trust.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tag-row-item"><span class="tag-lbl">DETAIL</span><span>faces &amp; plates you can actually read</span></div>
+      <div class="tag-row-item"><span class="tag-lbl">COVERAGE</span><span>no blind spots where it counts</span></div>
+      <div class="tag-row-item"><span class="tag-lbl">RECORDING</span><span>verified retention, monitored health</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card" style="border-radius:16px;padding:30px">
+      <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0 0 16px">Areas we cover</h3>
+      <div class="areas-tags">
+        <span class="atag">ENTRANCES</span><span class="atag">HALLWAYS</span><span class="atag">LOBBIES</span>
+        <span class="atag">PARKING LOTS</span><span class="atag">GATES</span><span class="atag">PERIMETER</span>
+        <span class="atag">COMMON AREAS</span><span class="atag">LOADING DOCKS</span>
+      </div>
+      <p style="font-size:14px;line-height:1.6;color:#8B98AE;margin-top:20px">We plan coverage around how your property is actually used — entries and exits, high‑traffic zones, blind spots, and the areas that matter most.</p>
+    </div>
+    <div class="card" style="border-radius:16px;padding:30px">
+      <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0 0 16px">Systems we work with</h3>
+      <div class="systems-list">
+        <div class="sys-row"><span>Digital Watchdog IPVMS / Spectrum</span><span>CERTIFIED</span></div>
+        <div class="sys-row"><span>UniFi Protect</span><span style="color:#6C7890">ENTERPRISE</span></div>
+        <div class="sys-row"><span>Reolink</span><span style="color:#6C7890">RESIDENTIAL</span></div>
+        <div class="sys-row"><span>Amcrest</span><span style="color:#6C7890">RESIDENTIAL</span></div>
+      </div>
+      <p style="font-size:13.5px;line-height:1.6;color:#8B98AE;margin-top:18px">We help you choose the right platform for your property and budget.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Already have cameras?</h3>
+      <p>We troubleshoot, upgrade, expand, and replace existing systems — including messy or outdated setups. Often the network behind the cameras is the real problem, and that's exactly what we fix.</p>
+    </div>
+    <a href="/maintenance">Maintenance &amp; Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// LET'S BUILD IT</div>
+    <h2>Let's design your camera system.</h2>
+    <p>Free on‑site assessment &amp; quote across Greater LA.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>

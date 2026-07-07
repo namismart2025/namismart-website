@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Project Gallery" description="Security camera and networking project examples across Greater Los Angeles — hotels, schools, apartments, retail, and more.">
+
+<style>
+  .sec{position:relative;z-index:4;padding:30px 56px 20px;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px;}
+  .crumb{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#5E6C86;margin-bottom:18px;}
+  .crumb a{color:#5E6C86;}
+  .hero-panel{border:1px solid rgba(255,255,255,0.1);border-radius:20px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:46px 48px;}
+  .hero-panel h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:50px;line-height:0.98;letter-spacing:-0.03em;color:#fff;max-width:840px;margin:0;}
+  .hero-panel h1 .blue{color:#4DA6FF;}
+  .hero-panel p{font-size:16px;line-height:1.65;color:#98A4BA;margin:22px 0 0;max-width:700px;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .stat-box{border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:22px 24px;}
+  .stat-box .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;color:#fff;}
+  .stat-box .lbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#7C89A0;margin-top:4px;}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .proj-card{border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;overflow:hidden;}
+  .proj-img{height:210px;overflow:hidden;}
+  .proj-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .proj-body{padding:22px 24px;}
+  .proj-cat{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#4DA6FF;}
+  .proj-body h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;color:#fff;margin:6px 0 0;}
+  .proj-body p{font-size:13px;line-height:1.6;color:#8B98AE;margin:8px 0 12px;}
+  .proj-tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .ptag{font-size:10.5px;font-family:'Space Mono',monospace;padding:4px 9px;border-radius:6px;background:rgba(77,166,255,0.1);color:#4DA6FF;}
+  .disclaimer{font-family:'Space Mono',monospace;font-size:11px;color:#5E6C86;margin:20px 0 0;text-align:center;}
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .hero-panel h1{font-size:40px;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .gallery{grid-template-columns:1fr;}
+  }
+</style>
+
+<section class="sec">
+  <div class="crumb"><a href="/">HOME</a> / <span style="color:#9AA6BC">PROJECT GALLERY</span></div>
+  <div class="hero-panel">
+    <div class="eyebrow">// PROJECT GALLERY & CAPABILITY SHOWCASE</div>
+    <h1>The kinds of systems we <span class="blue">design, install &amp; support.</span></h1>
+    <p>From clean residential camera setups to multi-floor commercial deployments, here's a look at the project types NaMiSmart builds for real properties across Greater Los Angeles.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:8px;padding-bottom:12px">
+  <div class="stats-grid">
+    <div class="stat-box"><div class="num">500+</div><div class="lbl">CAMERAS DEPLOYED</div></div>
+    <div class="stat-box"><div class="num">6</div><div class="lbl">PROPERTY TYPES</div></div>
+    <div class="stat-box"><div class="num">LA</div><div class="lbl">GREATER AREA COVERAGE</div></div>
+    <div class="stat-box"><div class="num">24/7</div><div class="lbl">SUPPORT & MONITORING</div></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:12px">
+  <div class="gallery">
+    <div class="proj-card">
+      <div class="proj-img"><img src="/images/10-hotel-camera-network-system.png" alt="Hotel lobby and hallway with ceiling-mounted dome cameras" /></div>
+      <div class="proj-body">
+        <div class="proj-cat">HOTEL</div>
+        <h3>Hotel Camera &amp; Network System</h3>
+        <p>Multi-floor coverage, per-floor networking, remote access, and long-term support.</p>
+        <div class="proj-tags"><span class="ptag">Cameras</span><span class="ptag">Networking</span><span class="ptag">Wi-Fi</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="/images/11-school-security-coverage.png" alt="School corridor with ceiling-mounted dome cameras and lockers" /></div>
+      <div class="proj-body">
+        <div class="proj-cat">SCHOOL</div>
+        <h3>School Security Coverage</h3>
+        <p>Hallways, entries, and exterior monitoring with office viewing and reliable recording.</p>
+        <div class="proj-tags"><span class="ptag">Cameras</span><span class="ptag">Cabling</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="/images/12-apartment-entry-parking-cameras.png" alt="Apartment complex entry and gated parking with cameras" /></div>
+      <div class="proj-body">
+        <div class="proj-cat">APARTMENT</div>
+        <h3>Apartment Building Cameras</h3>
+        <p>Entry doors, parking, mailrooms, hallways, gates, and shared common areas.</p>
+        <div class="proj-tags"><span class="ptag">Cameras</span><span class="ptag">Support</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="/images/13-network-rack-cleanup.png" alt="Clean labeled network rack after cleanup" /></div>
+      <div class="proj-body">
+        <div class="proj-cat">NETWORK</div>
+        <h3>Network Rack Cleanup</h3>
+        <p>Messy equipment reorganized into a clean, labeled, reliable rack and cabinet setup.</p>
+        <div class="proj-tags"><span class="ptag">Networking</span><span class="ptag">Cabling</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="/images/09-nvr-camera-monitors.png" alt="NVR camera monitors showing parking lot night coverage" /></div>
+      <div class="proj-body">
+        <div class="proj-cat">EXTERIOR</div>
+        <h3>180° &amp; Parking Lot Coverage</h3>
+        <p>Dual-lens and exterior cameras for wide areas, drive lanes, and night visibility.</p>
+        <div class="proj-tags"><span class="ptag">Cameras</span><span class="ptag">AI</span></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="/images/08-networking-wifi-rack.png" alt="Enterprise Wi-Fi rack with access points, switches and controller" /></div>
+      <div class="proj-body">
+        <div class="proj-cat">WI-FI</div>
+        <h3>Enterprise Wi-Fi Deployment</h3>
+        <p>Access points, switches, routers, and controller setup for business-grade Wi-Fi.</p>
+        <div class="proj-tags"><span class="ptag">Networking</span><span class="ptag">Wi-Fi</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="disclaimer">Visual project examples based on NaMiSmart project experience — not exact photos of completed jobs unless noted.</p>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// SEE YOUR PROPERTY HERE</div>
+    <h2>Let's design yours.</h2>
+    <p>Camera &amp; network systems across Greater LA.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Get a quote</a>
+</section>
+
+</Layout>

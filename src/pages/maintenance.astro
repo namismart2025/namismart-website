@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout title="Maintenance & Support" description="Troubleshooting, upgrades, health checks, and long-term support for cameras, NVRs, and networks across Greater LA.">
+
+<style>
+  .sec{position:relative;z-index:4;padding:30px 56px 20px;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .card{border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px;}
+  .card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0;}
+  .card p{font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0;}
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .tier{border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:28px;}
+  .tier-em{border-color:rgba(77,166,255,0.3);background:linear-gradient(160deg,#0F2038,#0A1524);}
+  .tier .badge{font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;letter-spacing:0.08em;}
+  .tier-em .badge{color:#7FC0FF;}
+  .tier h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#fff;margin:10px 0 12px;}
+  .tier p{font-size:13.5px;line-height:1.6;color:#98A4BA;}
+  .tier-em p{color:#A9BAD4;}
+  .callout{border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px;}
+  .callout h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
+  .callout p{font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px;}
+  .callout a{white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF;}
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .grid3,.tier-grid{grid-template-columns:1fr;}
+    .callout{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+
+<InnerHero
+  breadcrumb="MAINTENANCE & SUPPORT"
+  eyebrow="// MAINTENANCE & SUPPORT"
+  title="We don't just install it —"
+  titleBlue="we keep it running."
+  subtitle="Troubleshooting, upgrades, system health checks, and long-term support for cameras, NVRs, VMS, and networks — so your system stays reliable long after install day."
+  tags={['TROUBLESHOOTING','UPGRADES','HEALTH CHECKS','SUPPORT PLANS']}
+  ctaLabel="Get Support →"
+  ctaHref="/contact"
+  secondaryLabel="Our Systems"
+  secondaryHref="/security-cameras"
+  image="/images/technician-nvr-monitoring-check.png"
+  imageAlt="Technician monitoring live camera feeds on dual displays at an NVR station"
+  statusLabel="SYSTEM HEALTHY"
+/>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE SUPPORT</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Whatever breaks, we fix</h2>
+  <div class="grid3">
+    <div class="card"><h3>Camera &amp; NVR troubleshooting</h3><p>Offline cameras, recording gaps, and playback issues resolved.</p></div>
+    <div class="card"><h3>VMS &amp; software support</h3><p>Firmware, software, and configuration kept current and stable.</p></div>
+    <div class="card"><h3>Remote access issues</h3><p>Mobile and remote viewing restored and secured properly.</p></div>
+    <div class="card"><h3>Network troubleshooting</h3><p>Wi-Fi drops, slow links, and switch problems tracked down.</p></div>
+    <div class="card"><h3>System expansion</h3><p>Add cameras, APs, and coverage as your property grows.</p></div>
+    <div class="card"><h3>Preventive maintenance</h3><p>Scheduled health checks that catch issues before they hurt.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// HOW WE HELP</div>
+  <div class="tier-grid">
+    <div class="tier">
+      <div class="badge">ONE-TIME</div>
+      <h3>Fix &amp; upgrade</h3>
+      <p>Diagnose a problem, repair it, or upgrade an outdated system — including cleaning up messy prior work.</p>
+    </div>
+    <div class="tier">
+      <div class="badge">ONGOING</div>
+      <h3>Support plans</h3>
+      <p>Long-term maintenance with scheduled checks and priority help so your system stays healthy.</p>
+    </div>
+    <div class="tier tier-em">
+      <div class="badge">WHEN AVAILABLE</div>
+      <h3>Emergency service</h3>
+      <p>Faster response for urgent camera or network outages at critical properties.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Inherited a system someone else installed?</h3>
+      <p>We take over, troubleshoot, and stabilize existing camera and network systems — even ones we didn't put in — then keep them running reliably going forward.</p>
+    </div>
+    <a href="/structured-cabling">Structured Cabling →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// STAY ONLINE</div>
+    <h2>Keep it running.</h2>
+    <p>Support &amp; maintenance across Greater LA.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Get support</a>
+</section>
+
+</Layout>

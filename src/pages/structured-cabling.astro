@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout title="Structured Cabling" description="Cat6 & Ethernet wiring, data drops, patch panels, and clean labeled racks across Greater Los Angeles.">
+
+<style>
+  .sec{position:relative;z-index:4;padding:30px 56px 20px;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .card{border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px;}
+  .card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0;}
+  .card p{font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0;}
+  .card-lg{border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px;}
+  .card-lg h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0;}
+  .card-lg p{font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0;}
+  .tag-row{display:flex;flex-direction:column;gap:12px;justify-content:center;}
+  .tri{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:16px 20px;}
+  .tl{font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:96px;letter-spacing:0.08em;}
+  .tri span:last-child{font-size:13.5px;color:#B9C6DC;}
+  .callout{border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px;}
+  .callout h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
+  .callout p{font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px;}
+  .callout a{white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF;}
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .grid3,.grid2{grid-template-columns:1fr;}
+    .callout{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+
+<InnerHero
+  breadcrumb="STRUCTURED CABLING"
+  eyebrow="// STRUCTURED CABLING"
+  title="Clean cabling is the"
+  titleBlue="foundation."
+  subtitle="Cat6 & Ethernet wiring, data drops, wall jacks, patch panels, and neatly labeled racks — the backbone that keeps cameras, Wi-Fi, and networks dependable for years."
+  tags={['CAT6 / ETHERNET','DATA DROPS','PATCH PANELS','CLEAN LABELING']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="Networking & Wi-Fi"
+  secondaryHref="/networking-wifi"
+  image="/images/13-network-rack-cleanup.png"
+  imageAlt="Clean labeled network rack with patch panels and organized cable runs"
+  statusLabel="PATCHED · LABELED"
+/>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT'S INCLUDED</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">The backbone, built to spec</h2>
+  <div class="grid3">
+    <div class="card"><h3>Cat6 &amp; Ethernet wiring</h3><p>High-quality runs built to spec for speed and reliability.</p></div>
+    <div class="card"><h3>Data drops &amp; wall jacks</h3><p>Connectivity exactly where you need it, cleanly terminated.</p></div>
+    <div class="card"><h3>Patch panels &amp; racks</h3><p>Organized termination that's easy to service and expand.</p></div>
+    <div class="card"><h3>Camera &amp; AP cabling</h3><p>PoE runs for cameras and access points, routed cleanly.</p></div>
+    <div class="card"><h3>Clean labeling</h3><p>Every cable documented so future changes are painless.</p></div>
+    <div class="card"><h3>Commercial cabling</h3><p>Low-voltage cabling for offices, retail, and larger buildings.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY IT MATTERS</div>
+      <h3>Everything plugs into the cabling first.</h3>
+      <p>Cameras, access points, phones, and switches all depend on the wiring behind the walls. Get the cabling right and the whole system stays fast, stable, and simple to service for years.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">TO SPEC</span><span>certified Cat6 runs &amp; terminations</span></div>
+      <div class="tri"><span class="tl">LABELED</span><span>every cable mapped &amp; documented</span></div>
+      <div class="tri"><span class="tl">EXPANDABLE</span><span>racks planned for future growth</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Messy wiring dragging your system down?</h3>
+      <p>We re-cable and re-organize outdated or tangled installations into clean, labeled, reliable infrastructure — often the single biggest reliability upgrade a property can make.</p>
+    </div>
+    <a href="/maintenance">Maintenance &amp; Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// LET'S BUILD IT</div>
+    <h2>Let's wire it right.</h2>
+    <p>Free on-site assessment &amp; quote across Greater LA.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>

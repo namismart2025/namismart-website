@@ -1,0 +1,103 @@
+---
+interface Props {
+  breadcrumb: string;
+  eyebrow: string;
+  title: string;
+  titleBlue?: string;
+  subtitle: string;
+  tags: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+  image: string;
+  imageAlt: string;
+  statusLabel: string;
+  statusColor?: string;
+}
+const {
+  breadcrumb, eyebrow, title, titleBlue = '', subtitle, tags,
+  ctaLabel, ctaHref, secondaryLabel, secondaryHref,
+  image, imageAlt, statusLabel, statusColor = '#3BE07F'
+} = Astro.props;
+---
+
+<style>
+  .ih-section { position:relative;z-index:4;padding:30px 56px 20px; }
+  .ih-crumb {
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;
+    color:#5E6C86;margin-bottom:18px;
+  }
+  .ih-crumb a { color:#5E6C86; }
+  .ih-panel {
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;
+    border:1px solid rgba(255,255,255,0.1);border-radius:20px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);
+    padding:44px 46px;overflow:hidden;
+  }
+  .ih-eyebrow {
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.26em;
+    color:#4DA6FF;margin-bottom:22px;
+  }
+  .ih-h1 {
+    font-family:'Archivo',sans-serif;font-weight:900;font-size:50px;
+    line-height:0.98;letter-spacing:-0.03em;color:#fff;
+  }
+  .ih-h1 .blue { color:#4DA6FF; }
+  .ih-sub { font-size:16px;line-height:1.65;color:#98A4BA;margin:22px 0 0;max-width:520px; }
+  .ih-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:24px; }
+  .ih-tag {
+    font-family:'Space Mono',monospace;font-size:11px;
+    padding:7px 13px;border-radius:999px;
+    border:1px solid rgba(255,255,255,0.16);color:#B9C6DC;
+  }
+  .ih-btns { display:flex;gap:14px;margin-top:30px; }
+  .ih-img-wrap {
+    position:relative;height:360px;border-radius:16px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .ih-img-wrap img { width:100%;height:100%;object-fit:cover; }
+  .ih-img-wrap .overlay {
+    position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(10,13,20,0.5),transparent 50%);
+  }
+  .ih-status {
+    position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:7px;
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#B9C6DC;
+  }
+  .ih-dot {
+    width:7px;height:7px;border-radius:50%;
+  }
+  @media(max-width:860px){
+    .ih-section{padding:20px 16px;}
+    .ih-panel{grid-template-columns:1fr;gap:24px;padding:28px 20px;}
+    .ih-h1{font-size:40px;}
+    .ih-img-wrap{height:260px;}
+  }
+</style>
+
+<section class="ih-section">
+  <div class="ih-crumb"><a href="/">HOME</a> / <span style="color:#9AA6BC">{breadcrumb}</span></div>
+  <div class="ih-panel">
+    <div>
+      <div class="ih-eyebrow">{eyebrow}</div>
+      <h1 class="ih-h1" set:html={titleBlue ? `${title} <span class="blue">${titleBlue}</span>` : title} />
+      <p class="ih-sub">{subtitle}</p>
+      <div class="ih-tags">
+        {tags.map(t => <span class="ih-tag">{t}</span>)}
+      </div>
+      <div class="ih-btns">
+        <a href={ctaHref} class="btn-primary">{ctaLabel}</a>
+        <a href={secondaryHref} class="btn-outline">{secondaryLabel}</a>
+      </div>
+    </div>
+    <div class="ih-img-wrap">
+      <img src={image} alt={imageAlt} />
+      <div class="overlay"></div>
+      <div class="ih-status">
+        <span class="ih-dot" style={`background:${statusColor};box-shadow:0 0 8px ${statusColor}`}></span>
+        {statusLabel}
+      </div>
+    </div>
+  </div>
+</section>

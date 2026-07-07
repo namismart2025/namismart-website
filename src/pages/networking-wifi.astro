@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout title="Networking & Wi-Fi" description="Enterprise Wi-Fi, UniFi & Cisco, switches, firewalls, and clean network racks across Greater Los Angeles.">
+
+<style>
+  .sec{position:relative;z-index:4;padding:30px 56px 20px;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .card{border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px;}
+  .card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0;}
+  .card p{font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0;}
+  .card-lg{border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px;}
+  .card-lg h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0;}
+  .card-lg p{font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0;}
+  .tag-row{display:flex;flex-direction:column;gap:12px;justify-content:center;}
+  .tri{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:16px 20px;}
+  .tl{font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:96px;letter-spacing:0.08em;}
+  .tri span:last-child{font-size:13.5px;color:#B9C6DC;}
+  .sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .sys-card{border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px;}
+  .sys-card h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
+  .sys-card p{font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0;}
+  .callout{border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px;}
+  .callout h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
+  .callout p{font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px;}
+  .callout a{white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF;}
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .grid3,.grid2,.sys-grid{grid-template-columns:1fr;}
+    .callout{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+
+<InnerHero
+  breadcrumb="NETWORKING & WI-FI"
+  eyebrow="// NETWORKING & WI-FI"
+  title="The network everything else"
+  titleBlue="runs on."
+  subtitle="Enterprise Wi-Fi, managed switching, firewalls, and clean network racks — engineered for coverage, uptime, and the bandwidth your cameras and devices actually need."
+  tags={['ENTERPRISE WI-FI','UNIFI / CISCO','SWITCHES & FIREWALLS','MULTI-FLOOR']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="Structured Cabling"
+  secondaryHref="/structured-cabling"
+  image="/images/network-switch-and-wifi.png"
+  imageAlt="UniFi network rack with switches and wall-mounted access points"
+  statusLabel="UPLINK · ONLINE"
+/>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE BUILD</div>
+  <div class="sys-grid">
+    <div class="sys-card"><h3>Enterprise Wi-Fi</h3><p>Access points placed for real coverage — no dead zones — across offices, hotels, and multi-floor buildings.</p></div>
+    <div class="sys-card"><h3>Switching &amp; Routing</h3><p>Managed switches, routers, firewalls, and PoE power sized for your cameras and devices.</p></div>
+    <div class="sys-card"><h3>Racks &amp; Organization</h3><p>Clean, labeled network racks and cabinets — with UPS and power-backup planning built in.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// NETWORK CAPABILITIES</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Networks that hold up under real load</h2>
+  <div class="grid3">
+    <div class="card"><h3>UniFi &amp; Ubiquiti systems</h3><p>Controller, APs, switches, and gateways deployed and tuned.</p></div>
+    <div class="card"><h3>Cisco networking</h3><p>Business-grade routing and switching where it's the right fit.</p></div>
+    <div class="card"><h3>Firewalls &amp; security</h3><p>Segmentation and protection for cameras, staff, and guests.</p></div>
+    <div class="card"><h3>Multi-floor design</h3><p>Per-floor closets and uplinks planned for hotels &amp; buildings.</p></div>
+    <div class="card"><h3>Wi-Fi coverage fixes</h3><p>Surveys and AP placement to kill dead zones for good.</p></div>
+    <div class="card"><h3>Cleanup &amp; reliability</h3><p>Untangle messy setups into a stable, documented network.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY IT MATTERS</div>
+      <h3>Your cameras are only as good as this network.</h3>
+      <p>Dropped feeds, laggy remote viewing, and failed recordings usually trace back to the network — not the cameras. We build the backbone right so the whole system stays reliable and ready to expand.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">COVERAGE</span><span>every floor &amp; corner reachable</span></div>
+      <div class="tri"><span class="tl">BANDWIDTH</span><span>sized for 4K camera streams</span></div>
+      <div class="tri"><span class="tl">UPTIME</span><span>UPS &amp; backup power planned in</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Inherited a messy network?</h3>
+      <p>We audit, clean up, and re-cable tangled closets and unstable setups — then document everything so your team actually knows what's what.</p>
+    </div>
+    <a href="/maintenance">Maintenance &amp; Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// LET'S BUILD IT</div>
+    <h2>Let's design your network.</h2>
+    <p>Free on-site assessment &amp; quote across Greater LA.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>
