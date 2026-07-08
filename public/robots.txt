@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://namismart.com/sitemap-index.xml
