@@ -9,6 +9,77 @@ interface Props {
 }
 
 const { title, description = 'Security cameras and enterprise networking, engineered as one system across Greater Los Angeles.' } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pageTitle = `${title} | NaMiSmart`;
+const ogImage = 'https://namismart.com/images/namismart-logo.png';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "name": "NaMiSmart",
+  "description": "NaMiSmart provides professional security camera systems, enterprise networking, Wi-Fi, structured cabling, access control, maintenance support, and website design for homes, businesses, and commercial properties across Greater Los Angeles and surrounding areas.",
+  "slogan": "Security · Networking",
+  "url": "https://namismart.com",
+  "logo": "https://namismart.com/images/namismart-logo.png",
+  "image": "https://namismart.com/images/namismart-logo.png",
+  "telephone": "+1-818-612-4117",
+  "email": "sales@namismart.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Los Angeles",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Los Angeles" },
+    { "@type": "AdministrativeArea", "name": "San Fernando Valley" },
+    { "@type": "AdministrativeArea", "name": "Ventura County" },
+    { "@type": "AdministrativeArea", "name": "Antelope Valley" },
+    { "@type": "City", "name": "Lancaster" },
+    { "@type": "City", "name": "Palmdale" },
+    { "@type": "AdministrativeArea", "name": "Orange County" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "NaMiSmart Services",
+    "itemListElement": [
+      "Security Camera Installation",
+      "Networking & Wi-Fi",
+      "Structured Cabling",
+      "Maintenance & Support",
+      "Network Rack Cleanup",
+      "NVR Setup",
+      "AI Camera Setup",
+      "Access Control",
+      "Website Design"
+    ].map((service) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": service
+      }
+    }))
+  },
+  "knowsAbout": [
+    "Security cameras", "Dome cameras", "Bullet cameras", "AI security cameras",
+    "NVR systems", "Video surveillance systems", "Access control systems",
+    "UniFi networking", "Cisco networking", "Enterprise Wi-Fi", "Wi-Fi access points",
+    "Network switches", "Routers", "Firewalls", "Cat6 cabling", "Patch panels",
+    "Network racks", "Digital Watchdog IPVMS", "Commercial camera systems"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/namismart"
+  ]
+};
 ---
 
 <!doctype html>
@@ -17,8 +88,28 @@ const { title, description = 'Security cameras and enterprise networking, engine
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/png" href="/images/namismart-logo.png" />
-    <title>{title} | NaMiSmart</title>
+    <title>{pageTitle}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="NaMiSmart" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
