@@ -4,6 +4,8 @@ description: "Business Wi-Fi weak in the back office, stock room, warehouse, or 
 pubDate: 2026-07-07
 author: "Vick Sarkis"
 tags: ["Networking & Wi-Fi", "Business", "Los Angeles"]
+image: "/images/blog-wifi-back-office.jpg"
+imageAlt: "UniFi access points and Cisco network rack for business Wi-Fi installation"
 draft: false
 ---
 
