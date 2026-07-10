@@ -6,11 +6,12 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
   articleMeta?: { pubDate: Date; author: string; image?: string };
   breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { title, description = 'Security cameras and enterprise networking, engineered as one system across Greater Los Angeles.', articleMeta, breadcrumbs } = Astro.props;
+const { title, description = 'Security cameras and enterprise networking, engineered as one system across Greater Los Angeles.', ogImage: ogImageProp, articleMeta, breadcrumbs } = Astro.props;
 
 const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
   "@context": "https://schema.org",
@@ -25,7 +26,7 @@ const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pageTitle = `${title} | NaMiSmart`;
-const ogImage = 'https://namismart.com/images/namismart-logo.png';
+const ogImage = ogImageProp ? `https://namismart.com${ogImageProp}` : 'https://namismart.com/images/namismart-logo.png';
 
 const jsonLd = {
   "@context": "https://schema.org",
