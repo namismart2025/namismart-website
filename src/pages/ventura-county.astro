@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout
+  title="Security Camera & Network Installation — Ventura County"
+  description="Security camera installation and enterprise networking in Ventura County — serving Thousand Oaks, Simi Valley, Oxnard, Camarillo, Moorpark, Ventura, and surrounding communities."
+  breadcrumbs={[{name:'Home',url:'/'},{name:'Ventura County',url:'/ventura-county'}]}
+>
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px; }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card a  { font-size:13px;color:#4DA6FF;margin-top:10px;display:inline-block; }
+  .card-lg { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px; }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tri { display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:16px 20px; }
+  .tl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:110px;letter-spacing:0.08em; }
+  .tri span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .sys-card a  { font-size:13px;color:#4DA6FF;margin-top:12px;display:inline-block; }
+  .callout { border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px; }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag { font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5; }
+  .intro-block { max-width:760px; }
+  .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
+</style>
+
+<InnerHero
+  breadcrumb="VENTURA COUNTY"
+  eyebrow="// VENTURA COUNTY"
+  title="Security cameras & networking"
+  titleBlue="across Ventura County."
+  subtitle="Camera systems, enterprise Wi-Fi, and structured cabling for businesses, hotels, schools, and commercial properties throughout Thousand Oaks, Simi Valley, Oxnard, Camarillo, Moorpark, and Ventura."
+  tags={['SECURITY CAMERAS','ENTERPRISE WI-FI','STRUCTURED CABLING','LOCAL INSTALL']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="See Our Work"
+  secondaryHref="/projects"
+  image="/images/10-hotel-camera-network-system.png"
+  imageAlt="Security camera installation in Ventura County commercial property"
+  imageWidth={1672}
+  imageHeight={941}
+  statusLabel="VENTURA CO. · ACTIVE COVERAGE"
+  statusColor="#3BE07F"
+/>
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// SERVING VENTURA COUNTY</div>
+    <h2>From the 101 corridor to the coast — we cover it all.</h2>
+    <p>Ventura County properties range from dense suburban retail corridors in Thousand Oaks and Oxnard to sprawling ranch-style commercial properties in Moorpark and Fillmore. That range demands flexible system design — whether you need cameras across a multi-building school campus in Camarillo, enterprise Wi-Fi in a Simi Valley hotel, or clean structured cabling in a medical office in Ventura. We've worked across the county and understand what works in these buildings.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// COMMUNITIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 6px">Across Ventura County</h2>
+  <p style="font-size:14px;color:#8B98AE;margin:0">From the 101 and 118 corridors to the Pacific Coast Highway.</p>
+  <div class="areas-tags" style="margin-top:18px">
+    <span class="atag">THOUSAND OAKS</span>
+    <span class="atag">SIMI VALLEY</span>
+    <span class="atag">OXNARD</span>
+    <span class="atag">CAMARILLO</span>
+    <span class="atag">MOORPARK</span>
+    <span class="atag">VENTURA</span>
+    <span class="atag">SANTA PAULA</span>
+    <span class="atag">FILLMORE</span>
+    <span class="atag">PORT HUENEME</span>
+    <span class="atag">OJAI</span>
+    <span class="atag">NEWBURY PARK</span>
+    <span class="atag">OAK PARK</span>
+    <span class="atag">WESTLAKE VILLAGE</span>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE INSTALL</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Three systems. One install team.</h2>
+  <div class="sys-grid">
+    <div class="sys-card">
+      <h3>Security Cameras</h3>
+      <p>AI detection, 4K, and 180° dual-lens systems designed for your property layout — hotels, schools, retail centers, warehouses, and residential estates across Ventura County.</p>
+      <a href="/security-cameras">Security cameras →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Networking & Wi-Fi</h3>
+      <p>Enterprise access points, UniFi and Cisco switching, firewalls, and clean network racks. Reliable coverage across large floor plans, outdoor areas, and multi-building properties.</p>
+      <a href="/networking-wifi">Networking & Wi-Fi →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Structured Cabling</h3>
+      <p>Cat6 runs, wall jacks, patch panels, and labeled racks — the clean infrastructure that keeps cameras and networks dependable for the long term.</p>
+      <a href="/structured-cabling">Structured cabling →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY LOCAL MATTERS</div>
+      <h3>A team that serves Ventura County regularly — not occasionally.</h3>
+      <p>Many LA-based installers treat Ventura County as an out-of-area job with added travel costs and slower response times. NaMiSmart works throughout the county regularly and does not charge out-of-area fees for Ventura County projects. When your system needs service, we can be there without a long delay.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">NO TRAVEL FEE</span><span>Ventura County is in our regular service area</span></div>
+      <div class="tri"><span class="tl">EXPERIENCE</span><span>commercial and residential projects county-wide</span></div>
+      <div class="tri"><span class="tl">SUPPORT</span><span>ongoing maintenance after installation</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// INDUSTRIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Every property type in Ventura County</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Hotels & Hospitality</h3>
+      <p>Multi-floor camera systems, lobby and parking coverage, guest Wi-Fi networks, and organized network closets for hotels throughout Thousand Oaks, Camarillo, and Oxnard.</p>
+    </div>
+    <div class="card">
+      <h3>Schools & Universities</h3>
+      <p>Campus-wide security cameras, perimeter coverage, reliable networking for classrooms and admin, and systems that hold up under daily student load.</p>
+    </div>
+    <div class="card">
+      <h3>Retail & Commercial</h3>
+      <p>Register and entrance cameras, stockroom coverage, business Wi-Fi for POS and staff, and clean cabling for retail centers along the 101 corridor.</p>
+    </div>
+    <div class="card">
+      <h3>Medical & Professional</h3>
+      <p>Patient and reception area cameras, HIPAA-aware network segmentation, and reliable Wi-Fi for medical offices and professional buildings in Camarillo and Thousand Oaks.</p>
+    </div>
+    <div class="card">
+      <h3>Warehouses & Industrial</h3>
+      <p>High-bay camera mounting, wide-angle coverage for large floor plans, and wired networking built to handle concrete and metal interference common in Oxnard and Port Hueneme.</p>
+    </div>
+    <div class="card">
+      <h3>Apartments & HOAs</h3>
+      <p>Gate, entry, parking, and common area cameras — plus building-wide networking for tenant use. From small complexes to large gated communities throughout the county.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Have an existing system that needs work?</h3>
+      <p>We audit, upgrade, and service existing security camera and network setups across Ventura County — including systems that have become unreliable, overgrown, or just poorly installed.</p>
+    </div>
+    <a href="/maintenance">Maintenance & Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// VENTURA COUNTY</div>
+    <h2>Let's design the right system for your Ventura County property.</h2>
+    <p>Free on-site assessment & quote. No out-of-area fees.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>

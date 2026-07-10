@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contact" description="Request a free on-site estimate for security cameras or networking across Greater Los Angeles.">
+<Layout title="Contact — Free Estimate for Security Cameras & Networking" description="Request a free on-site estimate for security cameras or networking across Greater Los Angeles." breadcrumbs={[{name:'Home',url:'/'},{name:'Contact',url:'/contact'}]}>
 
 <style>
   .sec{position:relative;z-index:4;padding:30px 56px 20px;}
@@ -47,6 +47,9 @@ import Layout from '../layouts/Layout.astro';
   .submit-btn{width:100%;margin-top:16px;background:linear-gradient(120deg,#0F5FC2,#2E7DF2 60%,#4DA6FF);color:#fff;padding:15px;border:none;border-radius:12px;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;cursor:pointer;}
   .submit-btn:hover{opacity:0.92;}
   .form-note{font-family:'Space Mono',monospace;font-size:10px;color:#5E6C86;margin:12px 0 0;text-align:center;}
+  .form-notice{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);}
+  .form-notice p{font-size:11px;line-height:1.7;color:#5E6C86;margin:0;}
+  .form-notice a{color:#4DA6FF;}
   /* Success state */
   .success-msg{display:none;flex-direction:column;align-items:flex-start;gap:14px;padding:26px 4px;}
   .success-msg.show{display:flex;}
@@ -144,7 +147,9 @@ import Layout from '../layouts/Layout.astro';
         <!-- Honeypot -->
         <div class="honeypot" aria-hidden="true"><label>Do not fill<input name="website" tabindex="-1" autocomplete="off" /></label></div>
         <button type="submit" class="submit-btn">Send Request →</button>
-        <p class="form-note">Your information is never shared. Spam-filtered so real requests reach us directly.</p>
+        <div class="form-notice">
+          <p>By submitting this form, you authorize NaMiSmart to use the information you provide to respond to your inquiry, evaluate your project, prepare an estimate, communicate with you about requested or related services, and maintain appropriate business records. Your information may be processed by service providers that support our website, form delivery, business email, cloud storage, security, and operations. NaMiSmart does not sell personal information or share it for cross-context behavioral advertising. Please do not include passwords, alarm codes, payment-card information, Social Security numbers, government identification numbers, or other highly sensitive information in this form. For additional information, please review our <a href="/privacy">Privacy Policy</a>.</p>
+        </div>
       </form>
     </div>
   </div>
@@ -169,7 +174,7 @@ import Layout from '../layouts/Layout.astro';
 <script>
   // Reveal contact info on click
   const PHONE = '(818) 612‑4117';
-  const EMAIL = 'vick@namismart.com';
+  const EMAIL = 'sales@namismart.com';
   let revealed = false;
 
   function reveal() {

@@ -10,7 +10,7 @@ const posts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout title="Blog" description="Security camera and networking tips, guides, and insights for homes and businesses across Greater Los Angeles — by NaMiSmart.">
+<Layout title="Security Camera & Networking Tips — Blog" description="Security camera and networking tips, guides, and insights for homes and businesses across Greater Los Angeles — by NaMiSmart." breadcrumbs={[{name:'Home',url:'/'},{name:'Blog',url:'/blog'}]}>
 
 <style>
   .sec { position:relative;z-index:4;padding:30px 56px 60px; }
@@ -74,7 +74,7 @@ const posts = allPosts
       {posts.map(post => (
         <a href={`/blog/${toSlug(post.id)}`} class="card" style="text-decoration:none;">
           {post.data.image ? (
-            <img src={post.data.image} alt={post.data.imageAlt || post.data.title} class="card-img" />
+            <img src={post.data.image} alt={post.data.imageAlt || post.data.title} class="card-img" width={post.data.imageWidth || 1280} height={post.data.imageHeight || 720} />
           ) : (
             <div class="card-img-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4DA6FF" stroke-width="1.5">

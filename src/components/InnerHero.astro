@@ -12,13 +12,15 @@ interface Props {
   secondaryHref: string;
   image: string;
   imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
   statusLabel: string;
   statusColor?: string;
 }
 const {
   breadcrumb, eyebrow, title, titleBlue = '', subtitle, tags,
   ctaLabel, ctaHref, secondaryLabel, secondaryHref,
-  image, imageAlt, statusLabel, statusColor = '#3BE07F'
+  image, imageAlt, imageWidth = 1672, imageHeight = 941, statusLabel, statusColor = '#3BE07F'
 } = Astro.props;
 ---
 
@@ -92,7 +94,7 @@ const {
       </div>
     </div>
     <div class="ih-img-wrap">
-      <img src={image} alt={imageAlt} />
+      <img src={image} alt={imageAlt} width={imageWidth} height={imageHeight} />
       <div class="overlay"></div>
       <div class="ih-status">
         <span class="ih-dot" style={`background:${statusColor};box-shadow:0 0 8px ${statusColor}`}></span>

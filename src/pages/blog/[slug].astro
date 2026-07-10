@@ -14,7 +14,22 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description} articleMeta={{ pubDate: post.data.pubDate, author: post.data.author, image: post.data.image }} breadcrumbs={[{name:'Home',url:'/'},{name:'Blog',url:'/blog'},{name:post.data.title,url:`/blog/${Astro.params.slug}`}]}>
+
+{post.data.faq && post.data.faq.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.data.faq.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  })} />
+)}
 
 <style>
   .sec { position:relative;z-index:4;padding:30px 56px 80px; }
@@ -103,7 +118,7 @@ const { Content } = await render(post);
   </div>
 
   {post.data.image && (
-    <img src={post.data.image} alt={post.data.imageAlt || post.data.title} class="post-img" />
+    <img src={post.data.image} alt={post.data.imageAlt || post.data.title} class="post-img" width={post.data.imageWidth || 1280} height={post.data.imageHeight || 720} />
   )}
 
   <div class="post-body">

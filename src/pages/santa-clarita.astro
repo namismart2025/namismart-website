@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout
+  title="Security Camera & Network Installation — Santa Clarita"
+  description="Security camera installation and enterprise networking in Santa Clarita — serving Valencia, Newhall, Canyon Country, Stevenson Ranch, Castaic, Saugus, and surrounding communities."
+  breadcrumbs={[{name:'Home',url:'/'},{name:'Santa Clarita',url:'/santa-clarita'}]}
+>
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px; }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card a  { font-size:13px;color:#4DA6FF;margin-top:10px;display:inline-block; }
+  .card-lg { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px; }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tri { display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:16px 20px; }
+  .tl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:110px;letter-spacing:0.08em; }
+  .tri span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .sys-card a  { font-size:13px;color:#4DA6FF;margin-top:12px;display:inline-block; }
+  .callout { border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px; }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag { font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5; }
+  .intro-block { max-width:760px; }
+  .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
+</style>
+
+<InnerHero
+  breadcrumb="SANTA CLARITA"
+  eyebrow="// SANTA CLARITA"
+  title="Security cameras & networking"
+  titleBlue="for Santa Clarita."
+  subtitle="Camera systems, enterprise Wi-Fi, and structured cabling installed across Valencia, Newhall, Canyon Country, Stevenson Ranch, Castaic, and every community in the Santa Clarita Valley."
+  tags={['SECURITY CAMERAS','ENTERPRISE WI-FI','STRUCTURED CABLING','LOCAL INSTALL']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="See Our Work"
+  secondaryHref="/projects"
+  image="/images/08-networking-wifi-rack.png"
+  imageAlt="Network rack and security camera installation in Santa Clarita"
+  imageWidth={1672}
+  imageHeight={941}
+  statusLabel="SANTA CLARITA · ACTIVE COVERAGE"
+  statusColor="#3BE07F"
+/>
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// SERVING SANTA CLARITA</div>
+    <h2>One of LA County's fastest-growing cities — and we're already here.</h2>
+    <p>Santa Clarita's rapid commercial and residential growth means a lot of new construction, large master-planned retail centers, and expanding business parks that need security and networking built right from the start. Whether it's a new strip mall in Valencia, a growing medical office in Stevenson Ranch, a school in Canyon Country, or a warehouse near the 14 freeway — we design systems around how the property is actually built and used, not a generic template.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// COMMUNITIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 6px">Across the Santa Clarita Valley</h2>
+  <p style="font-size:14px;color:#8B98AE;margin:0">From the 5 and 14 freeways to the surrounding hillside communities.</p>
+  <div class="areas-tags" style="margin-top:18px">
+    <span class="atag">VALENCIA</span>
+    <span class="atag">NEWHALL</span>
+    <span class="atag">CANYON COUNTRY</span>
+    <span class="atag">STEVENSON RANCH</span>
+    <span class="atag">CASTAIC</span>
+    <span class="atag">SAUGUS</span>
+    <span class="atag">ACTON</span>
+    <span class="atag">AGUA DULCE</span>
+    <span class="atag">BOUQUET CANYON</span>
+    <span class="atag">FAIR OAKS RANCH</span>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE INSTALL</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Three systems. One install team.</h2>
+  <div class="sys-grid">
+    <div class="sys-card">
+      <h3>Security Cameras</h3>
+      <p>AI detection, 4K, and 180° dual-lens systems planned around your property. New construction, retail centers, schools, and large residential estates throughout Santa Clarita.</p>
+      <a href="/security-cameras">Security cameras →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Networking & Wi-Fi</h3>
+      <p>Enterprise Wi-Fi, UniFi and Cisco systems, managed switching, and organized network closets. Coverage that reaches every corner of large floor plans and outdoor areas.</p>
+      <a href="/networking-wifi">Networking & Wi-Fi →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Structured Cabling</h3>
+      <p>Cat6 runs, patch panels, and clean labeled racks — done right during new construction or retrofitted cleanly into existing buildings.</p>
+      <a href="/structured-cabling">Structured cabling →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY LOCAL MATTERS</div>
+      <h3>Close to the San Fernando Valley — fast to reach, no travel fees.</h3>
+      <p>Santa Clarita is just over the hill from the San Fernando Valley, where NaMiSmart runs a high volume of projects. That means no out-of-area fees, faster response times for service calls, and a team that is already familiar with the types of properties being built and operated in the SCV.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">NO TRAVEL FEE</span><span>Santa Clarita is in our regular service zone</span></div>
+      <div class="tri"><span class="tl">NEW BUILDS</span><span>experience with new construction cabling</span></div>
+      <div class="tri"><span class="tl">SUPPORT</span><span>ongoing maintenance available after install</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// INDUSTRIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Every property type in Santa Clarita</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Retail & Shopping Centers</h3>
+      <p>Entrance and register cameras, stockroom coverage, business Wi-Fi for POS and staff, and clean cabling in Valencia Gateway and other retail corridors.</p>
+    </div>
+    <div class="card">
+      <h3>Schools & Education</h3>
+      <p>Campus perimeter cameras, hallway and entry coverage, and reliable networking for classrooms, admin offices, and portables throughout Canyon Country and Valencia.</p>
+    </div>
+    <div class="card">
+      <h3>Medical & Professional</h3>
+      <p>Reception and waiting room cameras, HIPAA-aware network segmentation, and reliable Wi-Fi for medical offices and professional suites in Stevenson Ranch and Valencia.</p>
+    </div>
+    <div class="card">
+      <h3>Warehouses & Industrial</h3>
+      <p>High-bay camera mounting, wide coverage for large floor plans, and wired networking near the 14 freeway industrial corridor.</p>
+    </div>
+    <div class="card">
+      <h3>New Construction</h3>
+      <p>Pre-wire cabling, access point rough-in, and camera conduit planning during construction — the right time to get infrastructure in before walls close up.</p>
+    </div>
+    <div class="card">
+      <h3>Large Homes & Estates</h3>
+      <p>Gate, driveway, perimeter, and interior coverage for large residential properties throughout the Santa Clarita hills and gated communities.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Inherited a messy or outdated system?</h3>
+      <p>We troubleshoot, clean up, and upgrade existing camera and network setups across Santa Clarita — including systems that have grown disorganized, unreliable, or just never worked well to begin with.</p>
+    </div>
+    <a href="/maintenance">Maintenance & Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// SANTA CLARITA</div>
+    <h2>Let's design the right system for your Santa Clarita property.</h2>
+    <p>Free on-site assessment & quote. No travel fees.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>

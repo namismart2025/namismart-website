@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout
+  title="Security Camera & Network Installation — San Fernando Valley"
+  description="Security camera installation and enterprise networking in the San Fernando Valley — serving Burbank, Glendale, Van Nuys, Northridge, Woodland Hills, Chatsworth, and surrounding communities."
+  breadcrumbs={[{name:'Home',url:'/'},{name:'San Fernando Valley',url:'/san-fernando-valley'}]}
+>
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card {
+    border:1px solid rgba(255,255,255,0.1);border-radius:14px;
+    background:#0E131D;padding:22px;
+  }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card a  { font-size:13px;color:#4DA6FF;margin-top:10px;display:inline-block; }
+  .card-lg {
+    border:1px solid rgba(255,255,255,0.1);border-radius:16px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px;
+  }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tri {
+    display:flex;align-items:center;gap:14px;
+    border:1px solid rgba(255,255,255,0.1);border-radius:14px;
+    background:#0E131D;padding:16px 20px;
+  }
+  .tl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:110px;letter-spacing:0.08em; }
+  .tri span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .sys-card a  { font-size:13px;color:#4DA6FF;margin-top:12px;display:inline-block; }
+  .callout {
+    border:1px solid rgba(77,166,255,0.22);border-radius:16px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);
+    padding:30px 34px;display:flex;align-items:center;
+    justify-content:space-between;gap:28px;
+  }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag {
+    font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;
+    border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5;
+  }
+  .intro-block {
+    max-width:760px;margin-bottom:0;
+  }
+  .intro-block h2 {
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;
+    letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1;
+  }
+  .intro-block p {
+    font-size:15px;line-height:1.75;color:#98A4BA;margin:0;
+  }
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .grid3,.grid2,.sys-grid{grid-template-columns:1fr;}
+    .callout{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+
+<InnerHero
+  breadcrumb="SAN FERNANDO VALLEY"
+  eyebrow="// SAN FERNANDO VALLEY"
+  title="Security cameras & networking"
+  titleBlue="built for the Valley."
+  subtitle="Camera systems, enterprise Wi-Fi, and structured cabling installed across Burbank, Glendale, Van Nuys, Northridge, Woodland Hills, Chatsworth, and every community in between."
+  tags={['SECURITY CAMERAS','ENTERPRISE WI-FI','STRUCTURED CABLING','LOCAL INSTALL']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="See Our Work"
+  secondaryHref="/projects"
+  image="/images/07-security-cameras-hallway.png"
+  imageAlt="Security camera installation in San Fernando Valley commercial property"
+  imageWidth={1672}
+  imageHeight={941}
+  statusLabel="SFV · ACTIVE COVERAGE"
+  statusColor="#3BE07F"
+/>
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// LOCAL TO THE VALLEY</div>
+    <h2>We know Valley properties — and what they need.</h2>
+    <p>From strip malls in Van Nuys to hotels in Burbank, apartment complexes in Northridge to warehouses in Chatsworth — properties in the San Fernando Valley have their own layout challenges. Thick concrete walls, long parking structures, multi-floor buildings, and large outdoor areas all need a different approach than a simple home setup. We design security camera and networking systems around the real property, not a one-size-fits-all template.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// COMMUNITIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 6px">Across the entire San Fernando Valley</h2>
+  <p style="font-size:14px;color:#8B98AE;margin:0 0 0">From the 101 to the 118, east to west and north to south.</p>
+  <div class="areas-tags" style="margin-top:18px">
+    <span class="atag">BURBANK</span>
+    <span class="atag">GLENDALE</span>
+    <span class="atag">VAN NUYS</span>
+    <span class="atag">NORTH HOLLYWOOD</span>
+    <span class="atag">STUDIO CITY</span>
+    <span class="atag">SHERMAN OAKS</span>
+    <span class="atag">ENCINO</span>
+    <span class="atag">TARZANA</span>
+    <span class="atag">RESEDA</span>
+    <span class="atag">NORTHRIDGE</span>
+    <span class="atag">CHATSWORTH</span>
+    <span class="atag">CANOGA PARK</span>
+    <span class="atag">WOODLAND HILLS</span>
+    <span class="atag">WEST HILLS</span>
+    <span class="atag">CALABASAS</span>
+    <span class="atag">GRANADA HILLS</span>
+    <span class="atag">SYLMAR</span>
+    <span class="atag">SAN FERNANDO</span>
+    <span class="atag">PACOIMA</span>
+    <span class="atag">ARLETA</span>
+    <span class="atag">PANORAMA CITY</span>
+    <span class="atag">MISSION HILLS</span>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE INSTALL</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Three systems. One install team.</h2>
+  <div class="sys-grid">
+    <div class="sys-card">
+      <h3>Security Cameras</h3>
+      <p>AI detection, 4K, 180° dual-lens systems — designed for your specific property layout. Hotels, apartments, retail stores, warehouses, offices, and homes across the Valley.</p>
+      <a href="/security-cameras">Security cameras →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Networking & Wi-Fi</h3>
+      <p>Enterprise access points, UniFi and Cisco switching, firewalls, and clean network racks. Wi-Fi that reaches the back office, the parking structure, and every floor.</p>
+      <a href="/networking-wifi">Networking & Wi-Fi →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Structured Cabling</h3>
+      <p>Cat6 runs, wall jacks, patch panels, and labeled racks — the clean backbone that keeps cameras, Wi-Fi, and business systems dependable for years.</p>
+      <a href="/structured-cabling">Structured cabling →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY LOCAL MATTERS</div>
+      <h3>A local team that actually shows up — and stays available.</h3>
+      <p>When something goes wrong with your cameras or network, you need someone who can be on-site fast. NaMiSmart is based in the Greater Los Angeles area and runs the majority of projects in the San Fernando Valley. That means faster response times, no out-of-area travel fees, and an installer who understands what properties here actually look like.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">RESPONSE</span><span>local team, no long travel delays</span></div>
+      <div class="tri"><span class="tl">EXPERIENCE</span><span>Valley properties installed regularly</span></div>
+      <div class="tri"><span class="tl">SUPPORT</span><span>ongoing maintenance after install</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// INDUSTRIES IN THE VALLEY</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">We work across every property type</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Hotels & Motels</h3>
+      <p>Multi-floor camera coverage, lobby and parking monitoring, guest Wi-Fi, and per-floor network closets. Burbank and Glendale hotel corridors are a specialty.</p>
+    </div>
+    <div class="card">
+      <h3>Apartments & Condos</h3>
+      <p>Entry, gate, mailroom, hallway, and parking coverage — plus building-wide Wi-Fi for tenant use. From small complexes to large multi-building properties.</p>
+    </div>
+    <div class="card">
+      <h3>Retail & Strip Malls</h3>
+      <p>Register coverage, entrance and exit monitoring, stockroom cameras, and reliable business Wi-Fi for POS systems — built for the pace of retail.</p>
+    </div>
+    <div class="card">
+      <h3>Warehouses & Industrial</h3>
+      <p>High-ceiling camera mounting, wide-angle coverage, and wired networking through concrete and metal — Chatsworth and Northridge industrial spaces are common projects.</p>
+    </div>
+    <div class="card">
+      <h3>Schools & Education</h3>
+      <p>Hallway and entry coverage, exterior perimeter cameras, reliable campus networking, and systems that meet school district requirements.</p>
+    </div>
+    <div class="card">
+      <h3>Offices & Medical</h3>
+      <p>Interior coverage, reception and break room cameras, HIPAA-aware network segmentation, and clean cabling behind walls — not across the floor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Already have a system that isn't working?</h3>
+      <p>We troubleshoot, upgrade, and clean up existing camera and network setups across the San Fernando Valley — including messy racks, dead access points, and cameras that stopped recording without anyone noticing.</p>
+    </div>
+    <a href="/maintenance">Maintenance & Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// SAN FERNANDO VALLEY</div>
+    <h2>Let's design the right system for your Valley property.</h2>
+    <p>Free on-site assessment & quote. No travel fees in the San Fernando Valley.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>

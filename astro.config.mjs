@@ -4,5 +4,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   output: 'static',
   site: 'https://namismart.com',
+  trailingSlash: 'never',
+  compressHTML: true,
   integrations: [sitemap()],
 });

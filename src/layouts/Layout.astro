@@ -6,9 +6,22 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  articleMeta?: { pubDate: Date; author: string; image?: string };
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { title, description = 'Security cameras and enterprise networking, engineered as one system across Greater Los Angeles.' } = Astro.props;
+const { title, description = 'Security cameras and enterprise networking, engineered as one system across Greater Los Angeles.', articleMeta, breadcrumbs } = Astro.props;
+
+const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": crumb.name,
+    "item": new URL(crumb.url, Astro.site).toString()
+  }))
+} : null;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pageTitle = `${title} | NaMiSmart`;
@@ -93,13 +106,19 @@ const jsonLd = {
     <title>{pageTitle}</title>
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={articleMeta ? "article" : "website"} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="NaMiSmart" />
     <meta property="og:locale" content="en_US" />
+    {articleMeta && (
+      <>
+        <meta property="article:published_time" content={articleMeta.pubDate.toISOString()} />
+        <meta property="article:author" content={articleMeta.author} />
+      </>
+    )}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
@@ -109,10 +128,47 @@ const jsonLd = {
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
+    {articleMeta && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": description,
+        "image": articleMeta.image || ogImage,
+        "datePublished": articleMeta.pubDate.toISOString(),
+        "author": {
+          "@type": "Person",
+          "name": articleMeta.author
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "NaMiSmart",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://namismart.com/images/namismart-logo.png"
+          }
+        },
+        "url": canonicalURL.toString(),
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalURL.toString()
+        }
+      })} />
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCHTDXHRL0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RCHTDXHRL0');
+    </script>
   </head>
   <body>
     <div class="page-root grid-bg">

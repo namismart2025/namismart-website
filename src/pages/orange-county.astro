@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<Layout
+  title="Security Camera & Network Installation — Orange County"
+  description="Security camera installation and enterprise networking in Orange County — serving Anaheim, Santa Ana, Irvine, Fullerton, Garden Grove, Brea, Yorba Linda, Huntington Beach, and surrounding cities."
+  breadcrumbs={[{name:'Home',url:'/'},{name:'Orange County',url:'/orange-county'}]}
+>
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px; }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card a  { font-size:13px;color:#4DA6FF;margin-top:10px;display:inline-block; }
+  .card-lg { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px; }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tri { display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:16px 20px; }
+  .tl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:110px;letter-spacing:0.08em; }
+  .tri span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .sys-card a  { font-size:13px;color:#4DA6FF;margin-top:12px;display:inline-block; }
+  .callout { border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px; }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag { font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5; }
+  .intro-block { max-width:760px; }
+  .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
+</style>
+
+<InnerHero
+  breadcrumb="ORANGE COUNTY"
+  eyebrow="// ORANGE COUNTY"
+  title="Security cameras & networking"
+  titleBlue="across Orange County."
+  subtitle="Camera systems, enterprise Wi-Fi, and structured cabling for hotels, retail, offices, schools, and commercial properties throughout Anaheim, Irvine, Santa Ana, Fullerton, and the greater OC."
+  tags={['SECURITY CAMERAS','ENTERPRISE WI-FI','STRUCTURED CABLING','LOCAL INSTALL']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="See Our Work"
+  secondaryHref="/projects"
+  image="/images/07-security-cameras-hallway.png"
+  imageAlt="Security camera installation in Orange County commercial property"
+  imageWidth={1672}
+  imageHeight={941}
+  statusLabel="ORANGE COUNTY · ACTIVE COVERAGE"
+  statusColor="#3BE07F"
+/>
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// SERVING ORANGE COUNTY</div>
+    <h2>Dense commercial corridors, large hotels, and fast-paced businesses — we handle the complexity.</h2>
+    <p>Orange County has some of the most active commercial real estate in Southern California — large hotel properties in Anaheim, dense retail corridors in Santa Ana and Garden Grove, corporate office parks in Irvine, and busy medical centers throughout the county. These properties need security camera and networking systems that are designed for high traffic, multiple floors, large parking structures, and the kind of reliability that a busy business depends on every day. We build for that standard.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// COMMUNITIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 6px">Across Orange County</h2>
+  <p style="font-size:14px;color:#8B98AE;margin:0">From the 5 and 91 freeways to the coast.</p>
+  <div class="areas-tags" style="margin-top:18px">
+    <span class="atag">ANAHEIM</span>
+    <span class="atag">SANTA ANA</span>
+    <span class="atag">IRVINE</span>
+    <span class="atag">FULLERTON</span>
+    <span class="atag">GARDEN GROVE</span>
+    <span class="atag">BREA</span>
+    <span class="atag">YORBA LINDA</span>
+    <span class="atag">ORANGE</span>
+    <span class="atag">HUNTINGTON BEACH</span>
+    <span class="atag">COSTA MESA</span>
+    <span class="atag">BUENA PARK</span>
+    <span class="atag">LA HABRA</span>
+    <span class="atag">PLACENTIA</span>
+    <span class="atag">TUSTIN</span>
+    <span class="atag">STANTON</span>
+    <span class="atag">CYPRESS</span>
+    <span class="atag">WESTMINSTER</span>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE INSTALL</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Three systems. One install team.</h2>
+  <div class="sys-grid">
+    <div class="sys-card">
+      <h3>Security Cameras</h3>
+      <p>AI detection, 4K, and 180° dual-lens systems designed for high-traffic OC properties — hotels, retail centers, office parks, parking structures, and large commercial buildings.</p>
+      <a href="/security-cameras">Security cameras →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Networking & Wi-Fi</h3>
+      <p>Enterprise Wi-Fi, UniFi and Cisco systems, managed switching, firewalls, and VLANs. Guest Wi-Fi separated from business traffic — designed for hotels, retail, and office environments.</p>
+      <a href="/networking-wifi">Networking & Wi-Fi →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Structured Cabling</h3>
+      <p>Cat6 infrastructure, patch panels, and clean labeled racks — installed properly so your cameras and network stay reliable as your business grows.</p>
+      <a href="/structured-cabling">Structured cabling →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY WE WORK IN OC</div>
+      <h3>Orange County is a natural extension of our Greater LA service area.</h3>
+      <p>NaMiSmart serves Orange County as a direct extension of our Los Angeles work — not as a distant out-of-area job. Many of our commercial clients operate across both markets. That means consistent installation quality, no surprise travel fees, and a team that is already familiar with the property types and business pace of OC.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">NO TRAVEL FEE</span><span>OC projects within our standard service area</span></div>
+      <div class="tri"><span class="tl">COMMERCIAL</span><span>hotels, retail, offices — done at scale</span></div>
+      <div class="tri"><span class="tl">SUPPORT</span><span>ongoing maintenance and service available</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// INDUSTRIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Every property type in Orange County</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Hotels & Hospitality</h3>
+      <p>Multi-floor camera systems, lobby, hallway, and parking coverage, guest Wi-Fi networks, and organized per-floor network closets for Anaheim, Garden Grove, and Buena Park hotel properties.</p>
+    </div>
+    <div class="card">
+      <h3>Retail & Shopping Centers</h3>
+      <p>Register and entrance cameras, stockroom coverage, reliable POS Wi-Fi, and clean cabling throughout Orange County retail corridors and strip centers.</p>
+    </div>
+    <div class="card">
+      <h3>Corporate & Office</h3>
+      <p>Enterprise networking, access-controlled camera zones, VLAN segmentation, and clean structured cabling for Irvine and OC office parks and multi-tenant buildings.</p>
+    </div>
+    <div class="card">
+      <h3>Medical & Healthcare</h3>
+      <p>Patient and reception area cameras, HIPAA-aware network segmentation, and reliable Wi-Fi for medical offices, urgent care centers, and healthcare facilities countywide.</p>
+    </div>
+    <div class="card">
+      <h3>Schools & Education</h3>
+      <p>Campus perimeter and entry cameras, hallway coverage, and dependable networking for classrooms and admin offices throughout Orange County school districts.</p>
+    </div>
+    <div class="card">
+      <h3>Apartments & HOAs</h3>
+      <p>Entry, gate, parking, mailroom, and common area cameras — plus building-wide networking. From mid-size complexes to large gated communities throughout OC.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Already have a camera or network system that isn't holding up?</h3>
+      <p>We audit, upgrade, and service existing security camera and networking setups across Orange County — including systems that have grown unreliable, disorganized, or were never properly designed.</p>
+    </div>
+    <a href="/maintenance">Maintenance & Support →</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// ORANGE COUNTY</div>
+    <h2>Let's design the right system for your Orange County property.</h2>
+    <p>Free on-site assessment & quote. No out-of-area fees.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>
