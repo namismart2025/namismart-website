@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import portraitImg from '../assets/images/owner-portrait.png';
 ---
 
 <Layout title="About — Los Angeles Security Camera & Networking Installers" description="NaMiSmart is owned and operated by Vick Sarkis — 10+ years of security camera and enterprise networking experience across Greater LA." breadcrumbs={[{name:'Home',url:'/'},{name:'About',url:'/about'}]}>
@@ -60,7 +62,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="portrait">
         <div class="portrait-grid"></div>
         <div class="portrait-glow"></div>
-        <img src="/images/owner-portrait.png" alt="Vick Sarkis, owner and lead technician of NaMiSmart" width="707" height="2199" />
+        <Image src={portraitImg} alt="Vick Sarkis, owner and lead technician of NaMiSmart" loading="lazy" />
         <div class="portrait-caption">
           <div class="n">Vick Sarkis</div>
           <div class="t">OWNER · LEAD TECHNICIAN</div>

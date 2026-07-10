@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/01-home-hero.png';
+import camHallImg from '../assets/images/07-security-cameras-hallway.png';
+import wifiRackImg from '../assets/images/08-networking-wifi-rack.png';
+import nvrImg from '../assets/images/09-nvr-camera-monitors.png';
+import mapImg from '../assets/images/22-service-area-map.png';
 ---
 
 <Layout title="Security Camera & Network Installers — Greater Los Angeles" description="Security cameras and enterprise Wi-Fi, engineered as one system across Greater Los Angeles." ogImage="/images/og/og-home.png">
@@ -345,7 +351,7 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <div class="hero-right">
-    <img src="/images/01-home-hero.png" alt="Commercial building with security cameras" width="1415" height="1111" />
+    <Image src={heroImg} alt="Commercial building with security cameras" loading="eager" />
     <div class="hero-overlay"></div>
 
     <!-- Live cam HUD -->
@@ -355,7 +361,7 @@ import Layout from '../layouts/Layout.astro';
         <span>LOBBY</span>
       </div>
       <div class="hud-feed">
-        <img src="/images/07-security-cameras-hallway.png" alt="Camera feed" width="1672" height="941" />
+        <Image src={camHallImg} alt="Camera feed" loading="eager" />
         <div class="hud-scanline"></div>
         <div class="hud-box">
           <span>PERSON 98%</span>
@@ -475,7 +481,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="caps-grid" id="caps-grid">
       <a href="/security-cameras" class="cap-card">
         <div class="cap-img">
-          <img src="/images/07-security-cameras-hallway.png" alt="Security cameras in a hallway" width="1672" height="941" />
+          <Image src={camHallImg} alt="Security cameras in a hallway" loading="lazy" />
           <div class="cap-img-overlay"></div>
           <span class="cap-num">01</span>
         </div>
@@ -486,7 +492,7 @@ import Layout from '../layouts/Layout.astro';
       </a>
       <a href="/networking-wifi" class="cap-card">
         <div class="cap-img">
-          <img src="/images/08-networking-wifi-rack.png" alt="Network rack with Wi-Fi equipment" width="1672" height="941" />
+          <Image src={wifiRackImg} alt="Network rack with Wi-Fi equipment" loading="lazy" />
           <div class="cap-img-overlay"></div>
           <span class="cap-num">02</span>
         </div>
@@ -497,7 +503,7 @@ import Layout from '../layouts/Layout.astro';
       </a>
       <a href="/maintenance" class="cap-card">
         <div class="cap-img">
-          <img src="/images/09-nvr-camera-monitors.png" alt="NVR monitoring station" width="1672" height="941" />
+          <Image src={nvrImg} alt="NVR monitoring station" loading="lazy" />
           <div class="cap-img-overlay"></div>
           <span class="cap-num">03</span>
         </div>
@@ -548,7 +554,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
   <div class="area-map">
-    <img src="/images/22-service-area-map.png" alt="Service area map covering Greater Los Angeles" width="1835" height="857" />
+    <Image src={mapImg} alt="Service area map covering Greater Los Angeles" loading="lazy" />
     <div class="area-map-overlay"></div>
   </div>
 </section>

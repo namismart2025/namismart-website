@@ -1,4 +1,6 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 interface Props {
   breadcrumb: string;
   eyebrow: string;
@@ -10,17 +12,15 @@ interface Props {
   ctaHref: string;
   secondaryLabel: string;
   secondaryHref: string;
-  image: string;
+  image: ImageMetadata;
   imageAlt: string;
-  imageWidth?: number;
-  imageHeight?: number;
   statusLabel: string;
   statusColor?: string;
 }
 const {
   breadcrumb, eyebrow, title, titleBlue = '', subtitle, tags,
   ctaLabel, ctaHref, secondaryLabel, secondaryHref,
-  image, imageAlt, imageWidth = 1672, imageHeight = 941, statusLabel, statusColor = '#3BE07F'
+  image, imageAlt, statusLabel, statusColor = '#3BE07F'
 } = Astro.props;
 ---
 
@@ -94,7 +94,7 @@ const {
       </div>
     </div>
     <div class="ih-img-wrap">
-      <img src={image} alt={imageAlt} width={imageWidth} height={imageHeight} />
+      <Image src={image} alt={imageAlt} loading="eager" />
       <div class="overlay"></div>
       <div class="ih-status">
         <span class="ih-dot" style={`background:${statusColor};box-shadow:0 0 8px ${statusColor}`}></span>

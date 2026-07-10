@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
+import heroImage from '../assets/images/07-security-cameras-hallway.png';
 ---
 
 <Layout
@@ -54,10 +55,8 @@ import InnerHero from '../components/InnerHero.astro';
   ctaHref="/contact"
   secondaryLabel="See Our Work"
   secondaryHref="/projects"
-  image="/images/07-security-cameras-hallway.png"
+  image={heroImage}
   imageAlt="Security camera installation in Orange County commercial property"
-  imageWidth={1672}
-  imageHeight={941}
   statusLabel="ORANGE COUNTY · ACTIVE COVERAGE"
   statusColor="#3BE07F"
 />

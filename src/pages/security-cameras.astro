@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
+import heroImage from '../assets/images/07-security-cameras-hallway.png';
 ---
 
 <Layout title="Security Camera Installation Los Angeles" description="AI detection, 4K, 180° dual-lens camera systems designed and installed across Greater Los Angeles." ogImage="/images/og/og-security-cameras.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Security Cameras',url:'/security-cameras'}]}>
@@ -74,7 +75,7 @@ import InnerHero from '../components/InnerHero.astro';
   ctaHref="/contact"
   secondaryLabel="See Examples"
   secondaryHref="/projects"
-  image="/images/07-security-cameras-hallway.png"
+  image={heroImage}
   imageAlt="Dome cameras in commercial hallway"
   statusLabel="REC · CAM 04 · LOBBY"
   statusColor="#FF4D5E"

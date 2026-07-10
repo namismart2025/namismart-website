@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import hotelImg from '../assets/images/10-hotel-camera-network-system.png';
+import schoolImg from '../assets/images/11-school-security-coverage.png';
+import apartmentImg from '../assets/images/12-apartment-entry-parking-cameras.png';
+import rackImg from '../assets/images/13-network-rack-cleanup.png';
+import nvrImg from '../assets/images/09-nvr-camera-monitors.png';
+import wifiRackImg from '../assets/images/08-networking-wifi-rack.png';
 ---
 
 <Layout title="Project Gallery — Security Camera & Network Installs LA" description="Security camera and networking project examples across Greater Los Angeles — hotels, schools, apartments, retail, and more." breadcrumbs={[{name:'Home',url:'/'},{name:'Project Gallery',url:'/projects'}]}>
@@ -57,7 +64,7 @@ import Layout from '../layouts/Layout.astro';
 <section class="sec" style="padding-top:12px">
   <div class="gallery">
     <div class="proj-card">
-      <div class="proj-img"><img src="/images/10-hotel-camera-network-system.png" alt="Hotel lobby and hallway with ceiling-mounted dome cameras" width="1672" height="941" /></div>
+      <div class="proj-img"><Image src={hotelImg} alt="Hotel lobby and hallway with ceiling-mounted dome cameras" loading="lazy" /></div>
       <div class="proj-body">
         <div class="proj-cat">HOTEL</div>
         <h3>Hotel Camera &amp; Network System</h3>
@@ -66,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-img"><img src="/images/11-school-security-coverage.png" alt="School corridor with ceiling-mounted dome cameras and lockers" width="1672" height="941" /></div>
+      <div class="proj-img"><Image src={schoolImg} alt="School corridor with ceiling-mounted dome cameras and lockers" loading="lazy" /></div>
       <div class="proj-body">
         <div class="proj-cat">SCHOOL</div>
         <h3>School Security Coverage</h3>
@@ -75,7 +82,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-img"><img src="/images/12-apartment-entry-parking-cameras.png" alt="Apartment complex entry and gated parking with cameras" width="1672" height="941" /></div>
+      <div class="proj-img"><Image src={apartmentImg} alt="Apartment complex entry and gated parking with cameras" loading="lazy" /></div>
       <div class="proj-body">
         <div class="proj-cat">APARTMENT</div>
         <h3>Apartment Building Cameras</h3>
@@ -84,7 +91,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-img"><img src="/images/13-network-rack-cleanup.png" alt="Clean labeled network rack after cleanup" width="1672" height="941" /></div>
+      <div class="proj-img"><Image src={rackImg} alt="Clean labeled network rack after cleanup" loading="lazy" /></div>
       <div class="proj-body">
         <div class="proj-cat">NETWORK</div>
         <h3>Network Rack Cleanup</h3>
@@ -93,7 +100,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-img"><img src="/images/09-nvr-camera-monitors.png" alt="NVR camera monitors showing parking lot night coverage" width="1672" height="941" /></div>
+      <div class="proj-img"><Image src={nvrImg} alt="NVR camera monitors showing parking lot night coverage" loading="lazy" /></div>
       <div class="proj-body">
         <div class="proj-cat">EXTERIOR</div>
         <h3>180° &amp; Parking Lot Coverage</h3>
@@ -102,7 +109,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-img"><img src="/images/08-networking-wifi-rack.png" alt="Enterprise Wi-Fi rack with access points, switches and controller" width="1672" height="941" /></div>
+      <div class="proj-img"><Image src={wifiRackImg} alt="Enterprise Wi-Fi rack with access points, switches and controller" loading="lazy" /></div>
       <div class="proj-body">
         <div class="proj-cat">WI-FI</div>
         <h3>Enterprise Wi-Fi Deployment</h3>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
+import heroImage from '../assets/images/technician-nvr-monitoring-check.png';
 ---
 
 <Layout title="Security Camera & Network Maintenance Los Angeles" description="Troubleshooting, upgrades, health checks, and long-term support for cameras, NVRs, and networks across Greater LA." ogImage="/images/og/og-maintenance.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Maintenance & Support',url:'/maintenance'}]}>
@@ -42,9 +43,7 @@ import InnerHero from '../components/InnerHero.astro';
   ctaHref="/contact"
   secondaryLabel="Our Systems"
   secondaryHref="/security-cameras"
-  image="/images/technician-nvr-monitoring-check.png"
-  imageWidth={1536}
-  imageHeight={1024}
+  image={heroImage}
   imageAlt="Technician monitoring live camera feeds on dual displays at an NVR station"
   statusLabel="SYSTEM HEALTHY"
 />
