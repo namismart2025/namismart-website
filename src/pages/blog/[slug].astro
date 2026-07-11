@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description} articleMeta={{ pubDate: post.data.pubDate, author: post.data.author, image: post.data.image }} breadcrumbs={[{name:'Home',url:'/'},{name:'Blog',url:'/blog'},{name:post.data.title,url:`/blog/${Astro.params.slug}`}]}>
+<Layout title={post.data.title} description={post.data.description} ogImage={post.data.image} articleMeta={{ pubDate: post.data.pubDate, author: post.data.author, image: post.data.image }} breadcrumbs={[{name:'Home',url:'/'},{name:'Blog',url:'/blog'},{name:post.data.title,url:`/blog/${Astro.params.slug}`}]}>
 
 {post.data.faq && post.data.faq.length > 0 && (
   <script type="application/ld+json" set:html={JSON.stringify({
