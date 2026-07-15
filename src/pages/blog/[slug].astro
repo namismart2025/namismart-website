@@ -113,7 +113,7 @@ const { Content } = await render(post);
     <h1 class="post-title">{post.data.title}</h1>
     <div class="post-meta">
       <span class="post-author">BY {post.data.author.toUpperCase()}</span>
-      <span class="post-date">{post.data.pubDate.toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' })}</span>
+      <span class="post-date">{post.data.pubDate.toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric', timeZone:'UTC' })}</span>
     </div>
   </div>
 

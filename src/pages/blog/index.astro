@@ -92,7 +92,7 @@ const posts = allPosts
             <div class="card-title">{post.data.title}</div>
             <div class="card-desc">{post.data.description}</div>
             <div class="card-meta">
-              <span class="card-date">{post.data.pubDate.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })}</span>
+              <span class="card-date">{post.data.pubDate.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric', timeZone:'UTC' })}</span>
               <span class="card-link">READ MORE →</span>
             </div>
           </div>
