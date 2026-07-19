@@ -1,0 +1,29 @@
+# NaMiSmart
+
+> Security camera installation, enterprise networking, and structured cabling for homes and businesses across Burbank and Greater Los Angeles.
+
+NaMiSmart is a Burbank, CA-based low-voltage contractor specializing in AI-enabled security camera systems, enterprise Wi-Fi/networking, and structured Cat6 cabling for residential, commercial, and enterprise properties throughout Los Angeles County, Ventura County, Orange County, and the Antelope Valley. Every project starts with a free on-site assessment. Owned and operated by Vick Sarkis.
+
+## Services
+
+- [Security Camera Installation](https://namismart.com/security-cameras): AI people/vehicle detection, 4K, 180° dual-lens cameras, NVR/VMS recording, secure remote viewing. Works with Digital Watchdog IPVMS, UniFi Protect, Reolink, and Amcrest.
+- [Enterprise Wi-Fi & Networking](https://namismart.com/networking-wifi): UniFi and Cisco networking, managed switching, firewalls, VLAN segmentation, clean network racks.
+- [Structured Cabling](https://namismart.com/structured-cabling): Cat6/Cat6a Ethernet wiring, data drops, patch panels, PoE cabling for cameras and access points.
+- [Maintenance & Support](https://namismart.com/maintenance): Troubleshooting, upgrades, and ongoing support for existing camera and network systems, including systems NaMiSmart did not originally install.
+
+## Service Areas
+
+- [Burbank](https://namismart.com/burbank) — company headquarters
+- [San Fernando Valley](https://namismart.com/san-fernando-valley)
+- [Santa Clarita](https://namismart.com/santa-clarita)
+- [Ventura County](https://namismart.com/ventura-county)
+- [Orange County](https://namismart.com/orange-county)
+- [Lancaster & Palmdale / Antelope Valley](https://namismart.com/lancaster-palmdale)
+
+## Company
+
+- [About](https://namismart.com/about) — owned and operated by Vick Sarkis, 10+ years of security camera and enterprise networking experience.
+- [Project Gallery](https://namismart.com/projects) — completed installations across hotels, schools, apartments, retail, and homes.
+- [Industries Served](https://namismart.com/industries)
+- [Blog](https://namismart.com/blog) — guides and insights on security cameras and networking.
+- [Contact](https://namismart.com/contact) — free on-site assessment and quote. Phone: (818) 612-4117.
