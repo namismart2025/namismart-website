@@ -2,6 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/network-switch-and-wifi.png';
+
+const faqs = [
+  {
+    q: 'How much does business Wi-Fi installation cost in Los Angeles?',
+    a: 'It depends on square footage, the number of access points needed, and whether you need managed switching or a firewall as well. We do a free on-site survey to map dead zones and give a firm quote — no cost to find out what your building actually needs.'
+  },
+  {
+    q: 'Can you fix Wi-Fi dead zones in an existing office or building?',
+    a: 'Yes — this is one of our most common calls. We run a proper site survey, identify where signal is actually failing (often thick walls, elevator shafts, or a single overloaded router), and place enterprise access points to cover it properly instead of just adding another consumer router.'
+  },
+  {
+    q: 'Do you install separate Wi-Fi for guests and staff?',
+    a: 'Yes. We regularly configure VLANs and firewall rules so guest or public Wi-Fi is fully isolated from POS systems, cameras, and internal business traffic — standard practice for retail, hotel, and office installs.'
+  },
+  {
+    q: 'Do you work with UniFi or does it have to be Cisco?',
+    a: 'Both. We install and support UniFi/Ubiquiti for most small and mid-size properties, and Cisco business-grade equipment where the scale or client requirements call for it. We help you pick the right platform for your budget rather than pushing one brand.'
+  },
+  {
+    q: 'Will my network be able to handle security cameras and Wi-Fi together?',
+    a: 'That’s exactly what we design for. Camera streams need consistent bandwidth and PoE power that consumer routers aren’t built for — we size switching, cabling, and access points around your actual camera count from the start so neither system chokes the other.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Enterprise Wi-Fi and Network Installation",
+  "name": "Enterprise Wi-Fi & Network Installation — Los Angeles",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "City", "name": "Los Angeles" },
+  "description": "Enterprise Wi-Fi, UniFi & Cisco networking, managed switching, firewalls, and clean network racks across Greater Los Angeles.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site assessment and quote" }
+};
 ---
 
 <Layout title="Enterprise Wi-Fi & Network Installation Los Angeles" description="Enterprise Wi-Fi, UniFi & Cisco, switches, firewalls, and clean network racks across Greater Los Angeles." ogImage="/images/og/og-networking-wifi.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Networking & Wi-Fi',url:'/networking-wifi'}]}>
@@ -29,12 +71,23 @@ import heroImage from '../assets/images/network-switch-and-wifi.png';
   .callout h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
   .callout p{font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px;}
   .callout a{white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF;}
+  .intro-block { max-width:760px; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){
     .sec{padding:20px 16px;}
     .grid3,.grid2,.sys-grid{grid-template-columns:1fr;}
     .callout{flex-direction:column;align-items:flex-start;}
   }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
 
 <InnerHero
   breadcrumb="NETWORKING & WI-FI"
@@ -51,6 +104,13 @@ import heroImage from '../assets/images/network-switch-and-wifi.png';
   imageAlt="UniFi network rack with switches and wall-mounted access points"
   statusLabel="UPLINK · ONLINE"
 />
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// ENTERPRISE WI-FI & NETWORK INSTALLATION — LOS ANGELES</div>
+    <p>NaMiSmart designs and installs enterprise Wi-Fi and network infrastructure for offices, hotels, retail, and multi-floor properties throughout Burbank and Greater Los Angeles. We start with a real site survey — not guesswork — to find where signal actually fails, then place access points, switches, and firewalls sized for the devices, cameras, and traffic your property really runs. Every network we build is documented and labeled, so your team (or the next technician) can actually understand it.</p>
+  </div>
+</section>
 
 <section class="sec">
   <div class="eyebrow">// WHAT WE BUILD</div>
@@ -97,6 +157,17 @@ import heroImage from '../assets/images/network-switch-and-wifi.png';
     </div>
     <a href="/maintenance">Maintenance &amp; Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// NETWORKING & WI-FI FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions about network installation</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

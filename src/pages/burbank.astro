@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+import heroImage from '../assets/images/07-security-cameras-hallway.png';
+
+const faqs = [
+  {
+    q: 'Is NaMiSmart actually based in Burbank?',
+    a: 'Yes — Burbank is our home base, not a service-area add-on. Because we\'re local, response times for Burbank estimates and service calls are typically the fastest of anywhere we work, with no travel fee.'
+  },
+  {
+    q: 'Do you install security systems for media and production offices in Burbank?',
+    a: 'Yes. Burbank\'s concentration of studios, production companies, and post-production facilities means we regularly design systems around badge-controlled areas, equipment rooms, and sound-stage-adjacent offices where discretion and reliability both matter.'
+  },
+  {
+    q: 'How much does security camera installation cost in Burbank?',
+    a: 'It depends on property size and camera count — a small office is a different job than a multi-building studio lot. We give every Burbank property a free on-site assessment and a firm quote before any work starts.'
+  },
+  {
+    q: 'Can you service a system that was installed by someone else?',
+    a: 'Yes. We regularly take over and stabilize existing camera and network systems around Burbank, including ones we didn\'t originally install — fixing what\'s actually broken rather than starting from scratch.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+---
+
+<Layout
+  title="Security Camera & Network Installation — Burbank, CA"
+  description="Security camera installation and enterprise networking based in Burbank, CA — serving Media District, Downtown Burbank, Magnolia Park, Toluca Lake, and surrounding communities."
+  ogImage="/images/og/og-security-cameras.png"
+  breadcrumbs={[{name:'Home',url:'/'},{name:'Burbank',url:'/burbank'}]}
+>
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:22px; }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card a  { font-size:13px;color:#4DA6FF;margin-top:10px;display:inline-block; }
+  .card-lg { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px; }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tri { display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:16px 20px; }
+  .tl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:110px;letter-spacing:0.08em; }
+  .tri span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .sys-card a  { font-size:13px;color:#4DA6FF;margin-top:12px;display:inline-block; }
+  .callout { border:1px solid rgba(77,166,255,0.22);border-radius:16px;background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px; }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag { font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5; }
+  .intro-block { max-width:760px; }
+  .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
+  @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
+</style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+<InnerHero
+  breadcrumb="BURBANK"
+  eyebrow="// BURBANK, CA — HOME BASE"
+  title="Security cameras & networking"
+  titleBlue="based right here in Burbank."
+  subtitle="Camera systems, enterprise Wi-Fi, and structured cabling installed across Downtown Burbank, the Media District, Magnolia Park, Toluca Lake, and every corner in between."
+  tags={['SECURITY CAMERAS','ENTERPRISE WI-FI','STRUCTURED CABLING','HOME BASE']}
+  ctaLabel="Request a Free Estimate →"
+  ctaHref="/contact"
+  secondaryLabel="See Our Work"
+  secondaryHref="/projects"
+  image={heroImage}
+  imageAlt="Security camera installation in Burbank commercial property"
+  statusLabel="BURBANK · HQ"
+  statusColor="#3BE07F"
+/>
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// SERVING BURBANK</div>
+    <h2>This isn't a service area for us. It's home.</h2>
+    <p>NaMiSmart is based in Burbank, and it's where we do the largest share of our work — from small offices near Downtown Burbank to production and post-production facilities in the Media District. Being local means faster response times, no travel fees, and a team that already understands the mix of media, retail, and residential properties that make up this city.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// AREAS WE COVER</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 6px">Across Burbank</h2>
+  <p style="font-size:14px;color:#8B98AE;margin:0">From the Media District to the hillside neighborhoods.</p>
+  <div class="areas-tags" style="margin-top:18px">
+    <span class="atag">DOWNTOWN BURBANK</span>
+    <span class="atag">MEDIA DISTRICT</span>
+    <span class="atag">MAGNOLIA PARK</span>
+    <span class="atag">TOLUCA LAKE</span>
+    <span class="atag">RANCHO EQUESTRIAN DISTRICT</span>
+    <span class="atag">BURBANK HILLS</span>
+    <span class="atag">CHANDLER</span>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT WE INSTALL</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Three systems. One install team.</h2>
+  <div class="sys-grid">
+    <div class="sys-card">
+      <h3>Security Cameras</h3>
+      <p>AI detection, 4K, and 180° dual-lens systems for offices, production facilities, retail, and homes throughout Burbank.</p>
+      <a href="/security-cameras">Security cameras →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Networking & Wi-Fi</h3>
+      <p>Enterprise Wi-Fi, UniFi and Cisco systems, managed switching, and organized network closets built for real load.</p>
+      <a href="/networking-wifi">Networking & Wi-Fi →</a>
+    </div>
+    <div class="sys-card">
+      <h3>Structured Cabling</h3>
+      <p>Cat6 runs, patch panels, and clean labeled racks — done right whether it's new construction or a retrofit.</p>
+      <a href="/structured-cabling">Structured cabling →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY LOCAL MATTERS</div>
+      <h3>No travel fee, no waiting — we're already here.</h3>
+      <p>Because Burbank is our home base, there's no out-of-area markup and no long delay for service calls. It's also where we've installed the widest range of property types, from small production offices to large residential estates in the hills.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tri"><span class="tl">HOME BASE</span><span>Burbank is where we operate from daily</span></div>
+      <div class="tri"><span class="tl">MEDIA & PRODUCTION</span><span>experience with studio-adjacent properties</span></div>
+      <div class="tri"><span class="tl">SUPPORT</span><span>ongoing maintenance available after install</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// INDUSTRIES WE SERVE</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Every property type in Burbank</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Media & Production Offices</h3>
+      <p>Discreet coverage for production offices, equipment rooms, and post-production suites near the Media District.</p>
+    </div>
+    <div class="card">
+      <h3>Retail & Commercial</h3>
+      <p>Entrance and register cameras, stockroom coverage, and reliable business Wi-Fi for Downtown Burbank storefronts.</p>
+    </div>
+    <div class="card">
+      <h3>Medical & Professional</h3>
+      <p>Reception and waiting room cameras, HIPAA-aware network segmentation, and reliable Wi-Fi for offices citywide.</p>
+    </div>
+    <div class="card">
+      <h3>Apartments & HOAs</h3>
+      <p>Entry, gate, parking, and common-area cameras plus building-wide networking for tenant use.</p>
+    </div>
+    <div class="card">
+      <h3>New Construction</h3>
+      <p>Pre-wire cabling, access point rough-in, and camera conduit planning during construction.</p>
+    </div>
+    <div class="card">
+      <h3>Homes & Estates</h3>
+      <p>Gate, driveway, perimeter, and interior coverage for homes throughout the Burbank hillside neighborhoods.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Inherited a messy or outdated system?</h3>
+      <p>We troubleshoot, clean up, and upgrade existing camera and network setups around Burbank — including systems we didn't originally install.</p>
+    </div>
+    <a href="/maintenance">Maintenance & Support →</a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// BURBANK FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions from Burbank property owners</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// BURBANK</div>
+    <h2>Let's design the right system for your Burbank property.</h2>
+    <p>Free on-site assessment & quote. We're already local.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request an estimate</a>
+</section>
+
+</Layout>

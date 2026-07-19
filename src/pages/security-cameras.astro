@@ -2,6 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/07-security-cameras-hallway.png';
+
+const faqs = [
+  {
+    q: 'How much does security camera installation cost in Los Angeles?',
+    a: 'It depends on the number of cameras, resolution, and whether cabling already exists — a small home system costs far less than a 50-camera commercial deployment. We give every property a free on-site assessment and a firm, itemized quote before any work starts, so there’s never a guessing game on price.'
+  },
+  {
+    q: 'Do I need a permit to install security cameras in Los Angeles?',
+    a: 'Most residential and small commercial camera installs don’t require a permit, since cameras are low-voltage. Larger commercial projects that involve new electrical circuits or structural work sometimes do. We’ll tell you upfront if your specific project needs one.'
+  },
+  {
+    q: 'Can I view my cameras remotely from my phone?',
+    a: 'Yes. Every system we install includes secure remote viewing so you can check live and recorded footage from your phone or computer, whether you’re on-site or across the country.'
+  },
+  {
+    q: 'Do you install security cameras without a monthly subscription fee?',
+    a: 'Yes — local NVR-based storage with no required monthly fee is one of the most common systems we install for homeowners. We’ll walk you through the trade-offs between local storage and cloud subscription plans so you can choose what fits your property.'
+  },
+  {
+    q: 'How long does a typical security camera installation take?',
+    a: 'A standard home system is usually a single day. Larger commercial or multi-building projects can take several days to a couple of weeks depending on cabling needs — we’ll give you a clear timeline as part of your quote.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Security Camera Installation",
+  "name": "Security Camera Installation — Los Angeles",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "City", "name": "Los Angeles" },
+  "description": "AI detection, 4K, and 180° dual-lens security camera systems designed and installed across Greater Los Angeles.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site assessment and quote" }
+};
 ---
 
 <Layout title="Security Camera Installation Los Angeles" description="AI detection, 4K, 180° dual-lens camera systems designed and installed across Greater Los Angeles." ogImage="/images/og/og-security-cameras.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Security Cameras',url:'/security-cameras'}]}>
@@ -57,12 +99,23 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
   .sys-row:last-child { border-bottom:none;padding-bottom:0; }
   .sys-row span:first-child { font-weight:600;color:#EAF0F8;font-size:14.5px; }
   .sys-row span:last-child  { font-size:10.5px;font-family:'Space Mono',monospace;color:#4DA6FF; }
+  .intro-block { max-width:760px; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){
     .sec{padding:20px 16px;}
     .grid3,.grid2,.sys-grid{grid-template-columns:1fr;}
     .callout{flex-direction:column;align-items:flex-start;}
   }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
 
 <InnerHero
   breadcrumb="SECURITY CAMERAS"
@@ -80,6 +133,13 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
   statusLabel="REC · CAM 04 · LOBBY"
   statusColor="#FF4D5E"
 />
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// SECURITY CAMERA INSTALLATION — LOS ANGELES</div>
+    <p>NaMiSmart designs and installs security camera systems for homes, businesses, and commercial properties throughout Burbank and Greater Los Angeles. Every install starts with a free on-site assessment — we walk the property, map coverage around actual entry points and blind spots, and spec the right camera and recording hardware for the budget, rather than pushing a one-size-fits-all package. The result is a system that actually holds up when you need the footage, not just cameras that look good on day one.</p>
+  </div>
+</section>
 
 <section class="sec">
   <div class="eyebrow">// SYSTEMS WE BUILD</div>
@@ -150,6 +210,17 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
     </div>
     <a href="/maintenance">Maintenance &amp; Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// SECURITY CAMERA FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions about camera installation</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

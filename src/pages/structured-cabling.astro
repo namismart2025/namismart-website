@@ -2,6 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/13-network-rack-cleanup.png';
+
+const faqs = [
+  {
+    q: 'How much does structured cabling cost in Los Angeles?',
+    a: 'Cost depends on the number of runs, cable length, and whether it’s new construction or a retrofit through existing walls. We give a free on-site assessment and firm quote before starting, so you know the cost upfront rather than getting billed per unexpected wall.'
+  },
+  {
+    q: 'What’s the difference between Cat6 and Cat6a cabling?',
+    a: 'Cat6a supports higher speeds over longer distances and has better shielding against interference, which matters more in commercial buildings or runs near heavy electrical equipment. We’ll recommend the right spec for your property rather than defaulting to whichever is cheaper.'
+  },
+  {
+    q: 'Can you run cabling in an existing building without tearing open walls?',
+    a: 'In most cases, yes. We route through attics, crawl spaces, and existing conduit wherever possible, and use minimally invasive techniques for the runs that do need wall access — then patch and finish cleanly.'
+  },
+  {
+    q: 'Do you label and document the cabling for future technicians?',
+    a: 'Always. Every run is labeled at both ends and mapped to a patch panel diagram, so anyone servicing the system later — us or someone else — can actually understand what connects where.'
+  },
+  {
+    q: 'Can structured cabling support both my cameras and Wi-Fi access points?',
+    a: 'Yes — that’s exactly how we design it. PoE-rated Cat6 runs power and connect both cameras and access points off the same clean backbone, which is more reliable and easier to service than mixing separate ad-hoc wiring for each system.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Structured Cabling Installation",
+  "name": "Structured Cabling & Cat6 Installation — Los Angeles",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "City", "name": "Los Angeles" },
+  "description": "Cat6 & Ethernet wiring, data drops, patch panels, and clean labeled racks across Greater Los Angeles.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site assessment and quote" }
+};
 ---
 
 <Layout title="Structured Cabling & Cat6 Installation Los Angeles" description="Cat6 & Ethernet wiring, data drops, patch panels, and clean labeled racks across Greater Los Angeles." ogImage="/images/og/og-structured-cabling.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Structured Cabling',url:'/structured-cabling'}]}>
@@ -25,12 +67,23 @@ import heroImage from '../assets/images/13-network-rack-cleanup.png';
   .callout h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
   .callout p{font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px;}
   .callout a{white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF;}
+  .intro-block { max-width:760px; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){
     .sec{padding:20px 16px;}
     .grid3,.grid2{grid-template-columns:1fr;}
     .callout{flex-direction:column;align-items:flex-start;}
   }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
 
 <InnerHero
   breadcrumb="STRUCTURED CABLING"
@@ -47,6 +100,13 @@ import heroImage from '../assets/images/13-network-rack-cleanup.png';
   imageAlt="Clean labeled network rack with patch panels and organized cable runs"
   statusLabel="PATCHED · LABELED"
 />
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// STRUCTURED CABLING & CAT6 INSTALLATION — LOS ANGELES</div>
+    <p>NaMiSmart runs and terminates structured cabling for homes, offices, retail, and commercial buildings throughout Burbank and Greater Los Angeles. Cameras, access points, and switches are only as reliable as the wiring behind them — so every run is built to spec, tested, and labeled at both ends. Whether it's a new-construction pre-wire or a retrofit through an existing building, we plan the cabling first so everything that plugs into it later just works.</p>
+  </div>
+</section>
 
 <section class="sec">
   <div class="eyebrow">// WHAT'S INCLUDED</div>
@@ -84,6 +144,17 @@ import heroImage from '../assets/images/13-network-rack-cleanup.png';
     </div>
     <a href="/maintenance">Maintenance &amp; Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// STRUCTURED CABLING FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions about structured cabling</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

@@ -2,6 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/technician-nvr-monitoring-check.png';
+
+const faqs = [
+  {
+    q: 'Can you service a camera or network system someone else installed?',
+    a: 'Yes — this is one of our most common calls. We audit whatever is already there, figure out what\'s actually wrong or missing, and fix or upgrade only what needs it rather than starting over from scratch.'
+  },
+  {
+    q: 'Why did my cameras stop recording without anyone noticing?',
+    a: 'It usually comes down to a full hard drive, a failed drive, or a network drop that quietly interrupted the connection — and most consumer systems don\'t alert you when it happens. Our maintenance checks catch this before it becomes a problem, and we can add monitoring so you\'re notified automatically.'
+  },
+  {
+    q: 'Do you offer ongoing maintenance plans or just one-time repairs?',
+    a: 'Both. Some clients just need a one-time fix or upgrade; others want scheduled health checks and priority support so problems get caught before they cause downtime. We\'ll recommend what makes sense for your property\'s size and how critical uptime is for you.'
+  },
+  {
+    q: 'How fast can you respond to an urgent camera or network outage?',
+    a: 'Response time depends on your location and whether you\'re on a support plan, but we prioritize urgent outages at critical properties. Reach out through the contact page or call directly and we\'ll give you a real timeframe.'
+  },
+  {
+    q: 'Can you clean up a messy, disorganized network rack?',
+    a: 'Yes — untangling and relabeling a rack that\'s grown into a mess over the years is one of the highest-impact fixes we do. A clean, documented rack makes every future repair faster and cheaper.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Security Camera and Network Maintenance",
+  "name": "Security Camera & Network Maintenance — Los Angeles",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "City", "name": "Los Angeles" },
+  "description": "Troubleshooting, upgrades, health checks, and long-term support for cameras, NVRs, and networks across Greater Los Angeles.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free assessment for existing systems" }
+};
 ---
 
 <Layout title="Security Camera & Network Maintenance Los Angeles" description="Troubleshooting, upgrades, health checks, and long-term support for cameras, NVRs, and networks across Greater LA." ogImage="/images/og/og-maintenance.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Maintenance & Support',url:'/maintenance'}]}>
@@ -25,12 +67,23 @@ import heroImage from '../assets/images/technician-nvr-monitoring-check.png';
   .callout h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0;}
   .callout p{font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px;}
   .callout a{white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF;}
+  .intro-block { max-width:760px; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){
     .sec{padding:20px 16px;}
     .grid3,.tier-grid{grid-template-columns:1fr;}
     .callout{flex-direction:column;align-items:flex-start;}
   }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
 
 <InnerHero
   breadcrumb="MAINTENANCE & SUPPORT"
@@ -47,6 +100,13 @@ import heroImage from '../assets/images/technician-nvr-monitoring-check.png';
   imageAlt="Technician monitoring live camera feeds on dual displays at an NVR station"
   statusLabel="SYSTEM HEALTHY"
 />
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// SECURITY CAMERA & NETWORK MAINTENANCE — LOS ANGELES</div>
+    <p>NaMiSmart provides troubleshooting, upgrades, and ongoing support for security camera and network systems throughout Burbank and Greater Los Angeles — including systems we didn't originally install. Most calls we get aren't about buying something new; they're about a camera that quietly stopped recording, a network that's grown unreliable, or a rack nobody understands anymore. We diagnose the actual problem first, then fix or upgrade only what needs it.</p>
+  </div>
+</section>
 
 <section class="sec">
   <div class="eyebrow">// WHAT WE SUPPORT</div>
@@ -90,6 +150,17 @@ import heroImage from '../assets/images/technician-nvr-monitoring-check.png';
     </div>
     <a href="/structured-cabling">Structured Cabling →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// MAINTENANCE & SUPPORT FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions about maintenance & support</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">
