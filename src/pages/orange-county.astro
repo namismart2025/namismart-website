@@ -2,6 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/07-security-cameras-hallway.png';
+
+const faqs = [
+  {
+    q: 'Do you install security cameras and Wi-Fi for hotels in Orange County?',
+    a: 'Yes — hotel work is one of our most common Orange County projects. That includes lobby and hallway camera coverage, parking lot monitoring, per-floor network closets, and guest Wi-Fi kept separate from staff and back-office systems for hotels in Anaheim, Garden Grove, and Buena Park.'
+  },
+  {
+    q: 'How fast can you respond to a service call in Anaheim, Irvine, or Santa Ana?',
+    a: 'Orange County is treated as a direct extension of our Los Angeles service area, not an out-of-area job, so response times for existing clients are comparable to our LA-based response times — typically much faster than installers based outside the region.'
+  },
+  {
+    q: 'Can you separate guest Wi-Fi from our business network at our OC property?',
+    a: 'Yes. We regularly configure VLANs and firewall rules so guest or public Wi-Fi is fully isolated from POS systems, cameras, and internal business traffic — standard on our hotel and retail installs throughout Orange County.'
+  },
+  {
+    q: 'Do you charge out-of-area fees for Orange County jobs?',
+    a: 'No. Orange County is within our standard service area, so there are no added travel fees on estimates or installs.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <Layout
@@ -41,8 +69,16 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
   .intro-block { max-width:760px; }
   .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
   .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <InnerHero
   breadcrumb="ORANGE COUNTY"
@@ -170,6 +206,17 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
     </div>
     <a href="/maintenance">Maintenance & Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// ORANGE COUNTY FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions from Orange County property owners</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

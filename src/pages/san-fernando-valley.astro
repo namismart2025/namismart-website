@@ -2,6 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/07-security-cameras-hallway.png';
+
+const faqs = [
+  {
+    q: 'Do you install cameras and Wi-Fi for apartment buildings in the San Fernando Valley?',
+    a: 'Yes. Apartment and condo work is one of our most common Valley projects — entry, gate, mailroom, hallway, and parking coverage, plus building-wide Wi-Fi for tenants. We work with property managers and HOAs across Burbank, Van Nuys, and Woodland Hills.'
+  },
+  {
+    q: 'How quickly can you respond to a service call in Burbank or Glendale?',
+    a: 'NaMiSmart is based in the Greater Los Angeles area and runs the majority of our projects in the San Fernando Valley, so response times for service calls here are typically same-week, often faster, with no long-distance travel delay.'
+  },
+  {
+    q: 'Do you work directly with HOAs and property management companies?',
+    a: 'Yes. We regularly coordinate directly with HOA boards and property managers on camera and network upgrades for multi-building complexes throughout the Valley, including scheduling around tenant access and common-area work.'
+  },
+  {
+    q: 'Can you clean up a messy or disorganized network rack instead of starting from scratch?',
+    a: 'Often, yes. A lot of Valley properties we visit have inherited tangled wiring, unlabeled patch panels, or dead access points from a previous installer. We audit what exists first and fix or replace only what actually needs it.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <Layout
@@ -66,12 +94,20 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
   .intro-block p {
     font-size:15px;line-height:1.75;color:#98A4BA;margin:0;
   }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){
     .sec{padding:20px 16px;}
     .grid3,.grid2,.sys-grid{grid-template-columns:1fr;}
     .callout{flex-direction:column;align-items:flex-start;}
   }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <InnerHero
   breadcrumb="SAN FERNANDO VALLEY"
@@ -204,6 +240,17 @@ import heroImage from '../assets/images/07-security-cameras-hallway.png';
     </div>
     <a href="/maintenance">Maintenance & Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// SAN FERNANDO VALLEY FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions from Valley property owners</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

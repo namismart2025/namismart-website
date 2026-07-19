@@ -2,6 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/10-hotel-camera-network-system.png';
+
+const faqs = [
+  {
+    q: 'Do you install security cameras for schools in Ventura County?',
+    a: 'Yes. We install campus-wide security cameras, perimeter and entry coverage, and reliable networking for classrooms and administrative offices at schools throughout Ventura County, built to hold up under daily student traffic.'
+  },
+  {
+    q: 'How fast can you respond to a service call in Thousand Oaks or Camarillo?',
+    a: 'We work throughout Ventura County regularly, not occasionally, so response times for existing clients are typically fast — without the delay you\'d get from an installer who only comes out for the occasional out-of-area job.'
+  },
+  {
+    q: 'Do you charge travel fees for Ventura County jobs?',
+    a: 'No. Ventura County is part of our regular service area, so there are no out-of-area surcharges on estimates or installs — from Thousand Oaks to Oxnard to Ventura.'
+  },
+  {
+    q: 'Can you upgrade an old or unreliable camera system instead of replacing everything?',
+    a: 'Often, yes. We audit what\'s already installed first — cameras, cabling, and network hardware — and repair or upgrade only what actually needs it, rather than defaulting to a full rip-and-replace.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <Layout
@@ -41,8 +69,16 @@ import heroImage from '../assets/images/10-hotel-camera-network-system.png';
   .intro-block { max-width:760px; }
   .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
   .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <InnerHero
   breadcrumb="VENTURA COUNTY"
@@ -166,6 +202,17 @@ import heroImage from '../assets/images/10-hotel-camera-network-system.png';
     </div>
     <a href="/maintenance">Maintenance & Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// VENTURA COUNTY FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions from Ventura County property owners</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

@@ -2,6 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/08-networking-wifi-rack.png';
+
+const faqs = [
+  {
+    q: 'Do you pre-wire new-construction homes and businesses in Santa Clarita?',
+    a: 'Yes. Santa Clarita has a lot of active new construction, and that’s the best time to get camera conduit, access point cabling, and network rough-in done before walls close up. We work directly with builders and GCs on new builds in Valencia, Saugus, and Castaic.'
+  },
+  {
+    q: 'How much does a commercial security camera system cost in Santa Clarita?',
+    a: 'It depends on the size of the property, number of cameras, and whether cabling already exists. Most Santa Clarita retail and office installs range from a handful of cameras up to full multi-building coverage. We give a free on-site assessment and a firm quote before any work starts — no cost to find out.'
+  },
+  {
+    q: 'Do you charge extra to travel to Santa Clarita?',
+    a: 'No. Santa Clarita is part of our regular service area, not an out-of-area job. There’s no travel surcharge on estimates or service calls here.'
+  },
+  {
+    q: 'Can you fix or upgrade a camera system that already exists instead of replacing it?',
+    a: 'Often, yes. We regularly audit existing setups in Santa Clarita — dead cameras, disorganized racks, or systems that were never configured correctly — and upgrade only what needs it rather than ripping everything out.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <Layout
@@ -41,8 +69,16 @@ import heroImage from '../assets/images/08-networking-wifi-rack.png';
   .intro-block { max-width:760px; }
   .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
   .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <InnerHero
   breadcrumb="SANTA CLARITA"
@@ -163,6 +199,17 @@ import heroImage from '../assets/images/08-networking-wifi-rack.png';
     </div>
     <a href="/maintenance">Maintenance & Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// SANTA CLARITA FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions from Santa Clarita property owners</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">

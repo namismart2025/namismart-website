@@ -2,6 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import InnerHero from '../components/InnerHero.astro';
 import heroImage from '../assets/images/09-nvr-camera-monitors.png';
+
+const faqs = [
+  {
+    q: 'Do your outdoor cameras hold up in high-desert heat and dust?',
+    a: 'Yes. Properties in Lancaster and Palmdale need outdoor-rated equipment that can handle extreme summer heat, dust, and temperature swings — that\'s the standard we install to, not general-purpose cameras rated for milder coastal climates.'
+  },
+  {
+    q: 'Do you charge extra to travel to Lancaster or Palmdale?',
+    a: 'No. A lot of LA-based installers treat the Antelope Valley as out-of-area and add travel surcharges, or decline the work outright. We serve Lancaster, Palmdale, and the surrounding Antelope Valley as part of our regular coverage area with no markup.'
+  },
+  {
+    q: 'Can you network a large warehouse or manufacturing facility?',
+    a: 'Yes — this is common work for us in the Antelope Valley. That includes wired access points across large floor plates, high-bay camera mounting, loading dock coverage, and network racks sized for heavy device loads in warehouse and manufacturing environments.'
+  },
+  {
+    q: 'What about large rural or ranch-style properties with buildings spread far apart?',
+    a: 'We design for that specifically — long-range outdoor cameras, gate and driveway coverage, and wireless bridging or solar-compatible setups when running cable between distant buildings isn\'t practical.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <Layout
@@ -41,8 +69,16 @@ import heroImage from '../assets/images/09-nvr-camera-monitors.png';
   .intro-block { max-width:760px; }
   .intro-block h2 { font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 16px;line-height:1.1; }
   .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
   @media(max-width:860px){ .sec{padding:20px 16px;} .grid3,.grid2,.sys-grid{grid-template-columns:1fr;} .callout{flex-direction:column;align-items:flex-start;} }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <InnerHero
   breadcrumb="LANCASTER & PALMDALE"
@@ -162,6 +198,17 @@ import heroImage from '../assets/images/09-nvr-camera-monitors.png';
     </div>
     <a href="/maintenance">Maintenance & Support →</a>
   </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// ANTELOPE VALLEY FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions from Lancaster & Palmdale property owners</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
 </section>
 
 <section class="cta-band">
