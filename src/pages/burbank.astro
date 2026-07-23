@@ -30,6 +30,16 @@ const faqJsonLd = {
     "acceptedAnswer": { "@type": "Answer", "text": f.a }
   }))
 };
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Security Camera & Network Installation",
+  "name": "Security Camera & Network Installation — Burbank, CA",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "City", "name": "Burbank" },
+  "description": "Security camera installation and enterprise networking based in Burbank, CA — serving Media District, Downtown Burbank, Magnolia Park, Toluca Lake, and surrounding communities.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site assessment and quote" }
+};
 ---
 
 <Layout
@@ -79,6 +89,7 @@ const faqJsonLd = {
 </style>
 
 <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
 
 <InnerHero
   breadcrumb="BURBANK"

@@ -30,6 +30,16 @@ const faqJsonLd = {
     "acceptedAnswer": { "@type": "Answer", "text": f.a }
   }))
 };
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Security Camera & Network Installation",
+  "name": "Security Camera & Network Installation — San Fernando Valley",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "San Fernando Valley" },
+  "description": "Security camera installation and enterprise networking in the San Fernando Valley — serving Burbank, Glendale, Van Nuys, Northridge, Woodland Hills, Chatsworth, and surrounding communities.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site assessment and quote" }
+};
 ---
 
 <Layout
@@ -108,6 +118,7 @@ const faqJsonLd = {
 </style>
 
 <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
 
 <InnerHero
   breadcrumb="SAN FERNANDO VALLEY"

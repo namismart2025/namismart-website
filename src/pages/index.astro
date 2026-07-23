@@ -351,7 +351,7 @@ import mapImg from '../assets/images/22-service-area-map.png';
   </div>
 
   <div class="hero-right">
-    <Image src={heroImg} alt="Commercial building with security cameras" loading="eager" />
+    <Image src={heroImg} alt="Commercial building with security cameras" loading="eager" fetchpriority="high" widths={[480, 828, 1200, 1415]} sizes="(max-width: 860px) 100vw, 50vw" />
     <div class="hero-overlay"></div>
 
     <!-- Live cam HUD -->
@@ -361,7 +361,7 @@ import mapImg from '../assets/images/22-service-area-map.png';
         <span>LOBBY</span>
       </div>
       <div class="hud-feed">
-        <Image src={camHallImg} alt="Camera feed" loading="eager" />
+        <Image src={camHallImg} alt="Camera feed" loading="eager" width={472} height={265} />
         <div class="hud-scanline"></div>
         <div class="hud-box">
           <span>PERSON 98%</span>
