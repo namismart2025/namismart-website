@@ -7,4 +7,9 @@ export default defineConfig({
   trailingSlash: 'never',
   compressHTML: true,
   integrations: [sitemap()],
+  vite: {
+    build: {
+      cssCodeSplit: false,
+    },
+  },
 });
