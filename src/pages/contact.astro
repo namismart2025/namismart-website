@@ -146,6 +146,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <!-- Honeypot -->
         <div class="honeypot" aria-hidden="true"><label>Do not fill<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="h-captcha" data-captcha="true" style="margin-top:14px"></div>
         <button type="submit" class="submit-btn">Send Request →</button>
         <div class="form-notice">
           <p>By submitting this form, you authorize NaMiSmart to use the information you provide to respond to your inquiry, evaluate your project, prepare an estimate, communicate with you about requested or related services, and maintain appropriate business records. Your information may be processed by service providers that support our website, form delivery, business email, cloud storage, security, and operations. NaMiSmart does not sell personal information or share it for cross-context behavioral advertising. Please do not include passwords, alarm codes, payment-card information, Social Security numbers, government identification numbers, or other highly sensitive information in this form. For additional information, please review our <a href="/privacy">Privacy Policy</a>.</p>
@@ -170,6 +171,8 @@ import Layout from '../layouts/Layout.astro';
   </div>
   <button class="btn-dark" id="cta-phone-btn" style="border:none;cursor:pointer">Click to reveal number</button>
 </section>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
 
 <script>
   // Reveal contact info on click
