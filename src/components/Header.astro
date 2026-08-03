@@ -4,6 +4,7 @@ const nav = [
   { label: 'Networking',  href: '/networking-wifi' },
   { label: 'Cabling',     href: '/structured-cabling' },
   { label: 'Maintenance', href: '/maintenance' },
+  { label: 'Web Design',  href: '/website-design' },
   { label: 'Industries',  href: '/industries' },
   { label: 'Projects',    href: '/projects' },
   { label: 'About',       href: '/about' },
@@ -52,6 +53,7 @@ const nav = [
     display: flex; align-items: center; gap: 26px;
     font-size: 13.5px; font-weight: 500; color: #9AA6BC;
   }
+  .hdr-nav a { white-space: nowrap; }
   .hdr-nav a:hover { color: #fff; transition: color 0.15s; }
 
   .hdr-right { display: flex; align-items: center; gap: 20px; }
@@ -109,7 +111,7 @@ const nav = [
     border-bottom: none;
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1200px) {
     .hdr-nav, .hdr-status, .hdr-cta-btn { display: none !important; }
     .hdr-burger { display: flex; }
     .hdr-root { padding: 16px 18px; }

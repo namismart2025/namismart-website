@@ -1,0 +1,548 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerHero from '../components/InnerHero.astro';
+import { Image, getImage } from 'astro:assets';
+import heroImage from '../assets/images/website-design-hero-mockup.png';
+
+import namivisaHome from '../assets/images/portfolio/namivisa-desktop.png';
+import namivisaMobile from '../assets/images/portfolio/namivisa-mobile.png';
+import namivisaDashboard from '../assets/images/portfolio/namivisa-dashboard-desktop.png';
+import namivisaProgress from '../assets/images/portfolio/namivisa-progress-desktop.png';
+import namivisaMetrics from '../assets/images/portfolio/namivisa-metrics-desktop.png';
+import namivisaAi from '../assets/images/portfolio/namivisa-ai-desktop.png';
+
+import casaPriveeHome from '../assets/images/portfolio/casaprivee-desktop.png';
+import casaPriveeMobile from '../assets/images/portfolio/casaprivee-mobile.png';
+import casaPriveeProperties from '../assets/images/portfolio/casaprivee-properties-desktop.png';
+import casaPriveeDetail from '../assets/images/portfolio/casaprivee-detail-desktop.png';
+import casaPriveeEventTypes from '../assets/images/portfolio/casaprivee-eventtypes-desktop.png';
+import casaPriveeHowItWorks from '../assets/images/portfolio/casaprivee-howitworks-desktop.png';
+
+import namismartHome from '../assets/images/portfolio/namismart-desktop.png';
+import namismartMobile from '../assets/images/portfolio/namismart-mobile.png';
+import namismartSecurity from '../assets/images/portfolio/namismart-security-desktop.png';
+import namismartProjects from '../assets/images/portfolio/namismart-projects-desktop.png';
+import namismartContact from '../assets/images/portfolio/namismart-contact-desktop.png';
+
+const portfolioSource = [
+  {
+    key: 'namivisa',
+    cat: 'FITNESS / WEB APP',
+    title: 'NaMiVisa — Private Workout Journal',
+    desc: 'A fast, private workout-logging app with progress insights, streaks, and PR tracking — five pages shown below, straight from the live public demo.',
+    tags: ['New Build', 'Web App', 'Mobile-First'],
+    url: 'https://www.namivisa.com/',
+    mobile: namivisaMobile,
+    pages: [
+      { src: namivisaHome, label: 'Homepage' },
+      { src: namivisaDashboard, label: 'Dashboard' },
+      { src: namivisaProgress, label: 'Progress' },
+      { src: namivisaMetrics, label: 'Body Metrics' },
+      { src: namivisaAi, label: 'AI Coach' },
+    ],
+  },
+  {
+    key: 'casaprivee',
+    cat: 'REAL ESTATE / EVENTS',
+    title: 'Casa Privée — Luxury Property Rentals',
+    desc: 'A curated booking site for private luxury residences available for weddings, celebrations, and productions.',
+    tags: ['New Build', 'Bookings', 'In Development'],
+    url: 'https://casaprivee.vercel.app/',
+    mobile: casaPriveeMobile,
+    pages: [
+      { src: casaPriveeHome, label: 'Homepage' },
+      { src: casaPriveeProperties, label: 'Properties' },
+      { src: casaPriveeDetail, label: 'Property Detail' },
+      { src: casaPriveeEventTypes, label: 'Event Types' },
+      { src: casaPriveeHowItWorks, label: 'How It Works' },
+    ],
+  },
+  {
+    key: 'namismart',
+    cat: 'THIS SITE',
+    title: 'NaMiSmart — Security & Networking',
+    desc: "The site you're on right now — fast, modern, and built the same way we engineer a network.",
+    tags: ['Live Site', '99 Performance Score', 'SEO-Ready'],
+    url: 'https://www.namismart.com/',
+    mobile: namismartMobile,
+    pages: [
+      { src: namismartHome, label: 'Homepage' },
+      { src: namismartSecurity, label: 'Security Cameras' },
+      { src: namismartProjects, label: 'Project Gallery' },
+      { src: namismartContact, label: 'Contact (spam-protected)' },
+    ],
+  },
+];
+
+// The card thumbnail only needs a small image, but the in-page gallery
+// needs full-size renditions — reusing the thumbnail-sized image for the
+// expanded view made it blurry, so every gallery/thumb image gets its own
+// properly-sized rendition here.
+const portfolio = await Promise.all(portfolioSource.map(async (p) => {
+  const coverDesktop = await getImage({ src: p.pages[0].src, width: 800, format: 'webp' });
+  const coverMobile = await getImage({ src: p.mobile, width: 180, format: 'webp' });
+
+  const galleryPages = await Promise.all(p.pages.map(async (page) => {
+    const full = await getImage({ src: page.src, width: 1440, format: 'webp' });
+    const thumb = await getImage({ src: page.src, width: 200, format: 'webp' });
+    return { label: page.label, full: full.src, thumb: thumb.src, mobile: false };
+  }));
+  const mobileFull = await getImage({ src: p.mobile, width: 600, format: 'webp' });
+  const mobileThumb = await getImage({ src: p.mobile, width: 120, format: 'webp' });
+
+  const gallery = [...galleryPages, { label: 'Mobile view', full: mobileFull.src, thumb: mobileThumb.src, mobile: true }];
+
+  return {
+    ...p,
+    coverDesktopSrc: coverDesktop.src,
+    coverMobileSrc: coverMobile.src,
+    gallery,
+  };
+}));
+
+const faqs = [
+  {
+    q: 'How much does a new business website cost?',
+    a: 'It depends on the number of pages, whether you need e-commerce or booking features, and how much content/photography you already have. We give every project a clear, itemized quote up front — no vague "starting at" pricing and no surprise invoices later.'
+  },
+  {
+    q: 'How long does it take to build a website?',
+    a: 'A standard small-business site typically takes a few weeks from kickoff to launch. Larger sites with e-commerce, custom features, or a lot of content take longer. We give you a firm timeline as part of the quote.'
+  },
+  {
+    q: 'Can you redesign my existing website instead of starting from scratch?',
+    a: 'Yes — redesigns are one of the most common projects we take on. We can rebuild an outdated site on modern, fast technology while keeping the content, structure, and SEO history you\'ve already built.'
+  },
+  {
+    q: 'Do you handle hosting and the domain, or do I need my own?',
+    a: 'Either works. We can set up and manage hosting and your domain for you, or build the site to hand off to your existing setup — whatever is easiest for how you run your business.'
+  },
+  {
+    q: 'Will my website actually show up on Google?',
+    a: 'Every site we build starts with solid SEO fundamentals — fast load times, proper page structure, mobile-friendly design, and correct metadata — the technical groundwork search engines and AI assistants actually check. Ranking for competitive terms takes ongoing content work too, which we can help plan.'
+  },
+  {
+    q: 'What happens after the site launches — can I make changes myself?',
+    a: 'Yes. We build sites you can update yourself for simple edits, and we\'re also available for ongoing changes, new pages, or ongoing support if you\'d rather not touch it.'
+  }
+];
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Website Design & Development",
+  "name": "Website Design & Development — Los Angeles",
+  "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
+  "areaServed": { "@type": "City", "name": "Los Angeles" },
+  "description": "Fast, modern websites designed and built for small and local businesses across Greater Los Angeles.",
+  "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free consultation and quote" }
+};
+---
+
+<Layout title="Website Design & Development Los Angeles" description="Fast, modern websites designed and built for small and local businesses across Greater Los Angeles." ogImage="/images/og/og-website-design.png" breadcrumbs={[{name:'Home',url:'/'},{name:'Website Design',url:'/website-design'}]}>
+
+<style>
+  .sec { position:relative;z-index:4;padding:30px 56px 20px; }
+  .eyebrow { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#4DA6FF;margin-bottom:14px; }
+  .grid3 { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+  .grid2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .card {
+    border:1px solid rgba(255,255,255,0.1);border-radius:14px;
+    background:#0E131D;padding:22px;
+  }
+  .card h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:#fff;margin:0; }
+  .card p  { font-size:13.5px;line-height:1.55;color:#8B98AE;margin:8px 0 0; }
+  .card-lg {
+    border:1px solid rgba(255,255,255,0.1);border-radius:16px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);padding:30px;
+  }
+  .card-lg h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;line-height:1.12;color:#fff;margin:0; }
+  .card-lg p  { font-size:14.5px;line-height:1.65;color:#98A4BA;margin:14px 0 0; }
+  .tag-row { display:flex;flex-direction:column;gap:12px;justify-content:center; }
+  .tag-row-item {
+    display:flex;align-items:center;gap:14px;
+    border:1px solid rgba(255,255,255,0.1);border-radius:14px;
+    background:#0E131D;padding:16px 20px;
+  }
+  .tag-lbl { font-family:'Space Mono',monospace;font-size:11px;color:#4DA6FF;width:96px;letter-spacing:0.08em; }
+  .tag-row-item span:last-child { font-size:13.5px;color:#B9C6DC; }
+  .sys-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0; }
+  .sys-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;padding:28px; }
+  .sys-card h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .sys-card p  { font-size:14px;line-height:1.6;color:#8B98AE;margin:10px 0 0; }
+  .callout {
+    border:1px solid rgba(77,166,255,0.22);border-radius:16px;
+    background:linear-gradient(160deg,#0D1220,#0A0E17);
+    padding:30px 34px;display:flex;align-items:center;
+    justify-content:space-between;gap:28px;
+  }
+  .callout h3 { font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;color:#fff;margin:0; }
+  .callout p  { font-size:14.5px;line-height:1.6;color:#98A4BA;margin:8px 0 0;max-width:640px; }
+  .callout a  { white-space:nowrap;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:#4DA6FF; }
+  .areas-tags { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+  .atag {
+    font-family:'Space Mono',monospace;font-size:11px;padding:7px 13px;
+    border-radius:999px;border:1px solid rgba(77,166,255,0.3);color:#9EC5F5;
+  }
+  .systems-list { display:flex;flex-direction:column;gap:12px; }
+  .sys-row {
+    display:flex;justify-content:space-between;align-items:center;
+    padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.09);
+  }
+  .sys-row:last-child { border-bottom:none;padding-bottom:0; }
+  .sys-row span:first-child { font-weight:600;color:#EAF0F8;font-size:14.5px; }
+  .sys-row span:last-child  { font-size:10.5px;font-family:'Space Mono',monospace;color:#4DA6FF; }
+  .intro-block { max-width:760px; }
+  .intro-block p { font-size:15px;line-height:1.75;color:#98A4BA;margin:0; }
+  .faq-item { border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0E131D;padding:20px 22px;margin-bottom:12px; }
+  .faq-item summary { font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;cursor:pointer;list-style:none; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after { content:'+';float:right;color:#4DA6FF;font-weight:400; }
+  .faq-item[open] summary::after { content:'−'; }
+  .faq-item p { font-size:14px;line-height:1.65;color:#98A4BA;margin:12px 0 0; }
+  .port-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .port-card { border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:#0E131D;overflow:hidden; }
+  .port-shot-btn { border:none;padding:0;margin:0;background:none;font:inherit;text-align:left;cursor:pointer;width:100%;display:block; }
+  .port-shot { position:relative;height:220px;overflow:hidden;background:#080B12; }
+  .port-shot img.port-desktop { width:100%;height:100%;object-fit:cover;object-position:top;display:block; }
+  .port-shot-btn::after {
+    content:'';position:absolute;inset:0;background:rgba(6,9,16,0);transition:background 0.2s;
+  }
+  .port-shot-btn:hover::after, .port-shot-btn:focus-visible::after { background:rgba(6,9,16,0.32); }
+  .port-zoom-hint {
+    position:absolute;top:12px;left:12px;z-index:2;
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#fff;
+    background:rgba(6,9,16,0.7);border:1px solid rgba(255,255,255,0.25);
+    border-radius:999px;padding:5px 12px;opacity:0;transition:opacity 0.2s;
+  }
+  .port-shot-btn:hover .port-zoom-hint, .port-shot-btn:focus-visible .port-zoom-hint { opacity:1; }
+  .port-mobile-inset {
+    position:absolute;bottom:14px;right:14px;width:60px;height:118px;z-index:2;
+    border:2px solid rgba(255,255,255,0.28);border-radius:9px;overflow:hidden;
+    box-shadow:0 14px 30px rgba(0,0,0,0.6);
+  }
+  .port-mobile-inset img { width:100%;height:100%;object-fit:cover;object-position:top;display:block; }
+  .port-body { padding:20px 22px 24px; }
+  .port-cat { font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#4DA6FF; }
+  .port-body h3 { font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;color:#fff;margin:6px 0 0; }
+  .port-body p { font-size:13px;line-height:1.6;color:#8B98AE;margin:8px 0 12px; }
+  .port-tags { display:flex;gap:6px;flex-wrap:wrap; }
+  .ptag { font-size:10.5px;font-family:'Space Mono',monospace;padding:4px 9px;border-radius:6px;background:rgba(77,166,255,0.1);color:#4DA6FF; }
+
+  /* ===== PORTFOLIO LIGHTBOX / GALLERY ===== */
+  .port-lightbox {
+    display:none;position:fixed;inset:0;z-index:200;
+    background:rgba(6,9,16,0.88);backdrop-filter:blur(3px);
+    align-items:center;justify-content:center;padding:24px;
+  }
+  .port-lightbox.open { display:flex; }
+  .port-lightbox-panel {
+    position:relative;background:#0E131D;border:1px solid rgba(255,255,255,0.14);
+    border-radius:18px;max-width:980px;width:100%;max-height:90vh;overflow-y:auto;
+    padding:30px 30px 26px;
+  }
+  .port-lightbox-close {
+    position:absolute;top:16px;right:16px;width:34px;height:34px;z-index:3;
+    border:1px solid rgba(255,255,255,0.18);border-radius:9px;
+    background:rgba(255,255,255,0.05);color:#fff;font-size:15px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .port-lightbox-cat { font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#4DA6FF; }
+  .port-lightbox-title { font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;color:#fff;margin:6px 0 0;max-width:640px; }
+  .port-lightbox-desc { font-size:14px;line-height:1.6;color:#98A4BA;margin:10px 0 0;max-width:640px; }
+
+  .port-lightbox-main { display:flex;align-items:center;gap:10px;margin-top:22px; }
+  .port-lightbox-nav {
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.05);
+    color:#fff;font-size:20px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .port-lightbox-nav:hover { background:rgba(77,166,255,0.18);border-color:rgba(77,166,255,0.4); }
+  .port-lightbox-stage {
+    position:relative;flex:1;min-width:0;border-radius:12px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.1);background:#080B12;
+    display:flex;align-items:center;justify-content:center;
+    height:58vh;max-height:58vh;
+  }
+  .port-lightbox-stage img { max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block; }
+  .port-lightbox-counter {
+    position:absolute;left:12px;bottom:12px;
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:#fff;
+    background:rgba(6,9,16,0.7);border:1px solid rgba(255,255,255,0.2);
+    border-radius:999px;padding:5px 12px;
+  }
+  .port-lightbox-thumbs {
+    display:flex;gap:10px;margin-top:16px;overflow-x:auto;padding-bottom:4px;
+    scrollbar-width:thin;
+  }
+  .port-lightbox-visit {
+    display:inline-block;margin-top:18px;
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.04em;
+    color:#5E6C86;
+  }
+  .port-lightbox-visit:hover { color:#9EC5F5; }
+  @media(max-width:860px){
+    .sec{padding:20px 16px;}
+    .grid3,.grid2,.sys-grid,.port-grid{grid-template-columns:1fr;}
+    .callout{flex-direction:column;align-items:flex-start;}
+    .port-lightbox-panel { padding:22px 16px 22px; }
+    .port-lightbox-nav { width:32px;height:32px;font-size:16px; }
+    .port-lightbox-stage { height:44vh;max-height:44vh; }
+  }
+</style>
+
+<!-- Thumbnail buttons are created client-side (document.createElement), so
+     Astro's scoped CSS never attaches to them — these rules must be global. -->
+<style is:global>
+  .port-lightbox-thumb {
+    flex-shrink:0;width:78px;height:52px;border-radius:8px;overflow:hidden;
+    border:2px solid rgba(255,255,255,0.12);padding:0;cursor:pointer;background:#080B12;
+    opacity:0.65;transition:opacity 0.15s,border-color 0.15s;
+  }
+  .port-lightbox-thumb img { width:100%;height:100%;object-fit:cover;object-position:top;display:block; }
+  .port-lightbox-thumb:hover { opacity:0.9; }
+  .port-lightbox-thumb.active { opacity:1;border-color:#4DA6FF; }
+  @media(max-width:860px){
+    .port-lightbox-thumb { width:64px;height:44px; }
+  }
+</style>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
+
+<InnerHero
+  breadcrumb="WEBSITE DESIGN"
+  eyebrow="// WEBSITE DESIGN & DEVELOPMENT"
+  title="Websites engineered to"
+  titleBlue="load fast and get found."
+  subtitle="Most web designers hand you a template. We engineer a site the same way we engineer a network — fast, structured, and built to actually perform, for small and local businesses across Greater Los Angeles."
+  tags={['MODERN & FAST', 'MOBILE-FIRST', 'SEO FOUNDATIONS', 'AI-SEARCH READY', 'BUILT TO CONVERT']}
+  ctaLabel="Request a Free Consultation →"
+  ctaHref="/contact"
+  secondaryLabel="See Examples"
+  secondaryHref="/projects"
+  image={heroImage}
+  imageAlt="Stylized browser window showing a modern website layout"
+  statusLabel="LIVE · 99 PERFORMANCE SCORE"
+  statusColor="#34E7A8"
+/>
+
+<section class="sec">
+  <div class="intro-block">
+    <div class="eyebrow">// WEBSITE DESIGN — LOS ANGELES</div>
+    <p>NaMiSmart designs and builds websites for small and local businesses across Burbank and Greater Los Angeles. Every project starts with a real conversation about what the site needs to do — win calls, book jobs, sell products — rather than a generic template stretched to fit. The site you're reading right now is one of ours: fast, clean, and built the same way we build a network — planned first, engineered second, so it actually holds up.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WHAT'S INCLUDED</div>
+  <div class="sys-grid">
+    <div class="sys-card"><h3>Design &amp; Build</h3><p>Custom design and development on fast, modern technology — no bloated page builders or plugin pile-ups slowing you down.</p></div>
+    <div class="sys-card"><h3>Redesigns</h3><p>Rebuild an outdated or slow site on modern technology while keeping the content and SEO equity you've already earned.</p></div>
+    <div class="sys-card"><h3>Launch &amp; Support</h3><p>Domain and hosting setup, a smooth launch, and ongoing edits or support after the site is live.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// BUILT RIGHT, NOT JUST PRETTY</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">What makes a site actually perform</h2>
+  <div class="grid3">
+    <div class="card"><h3>Real page speed</h3><p>Optimized images and lean code — not a 15-second load time on a phone.</p></div>
+    <div class="card"><h3>Mobile-first layout</h3><p>Built for the phone first, since that's where most of your customers are.</p></div>
+    <div class="card"><h3>Clean structure &amp; schema</h3><p>Proper headings and markup so search engines understand exactly what you offer.</p></div>
+    <div class="card"><h3>AI-search readiness</h3><p>Clear, direct content structured so AI assistants like Google AI, ChatGPT, and Perplexity can find and cite your business.</p></div>
+    <div class="card"><h3>Built to convert</h3><p>Clear calls to action designed to turn visitors into calls, quotes, and bookings.</p></div>
+    <div class="card"><h3>Easy to maintain</h3><p>Update your own content, or let us handle changes — your choice.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="grid2">
+    <div class="card-lg">
+      <div class="eyebrow">// WHY IT MATTERS</div>
+      <h3>A slow, outdated site is worse than none.</h3>
+      <p>A site that takes too long to load, looks broken on a phone, or doesn't say clearly what you do costs you customers before they ever call. We design for the moment someone lands on your site looking for exactly what you offer — clear, fast, and built to earn the call.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tag-row-item"><span class="tag-lbl">SPEED</span><span>engineered to load fast, not just look fast</span></div>
+      <div class="tag-row-item"><span class="tag-lbl">CLARITY</span><span>says what you do in the first five seconds</span></div>
+      <div class="tag-row-item"><span class="tag-lbl">FOUND</span><span>structured for search &amp; AI assistants</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// SEE THE WORK</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 8px">Sites we've designed and built</h2>
+  <p style="font-size:13.5px;line-height:1.6;color:#8B98AE;margin:0 0 22px">Click into any project to browse it right here — multiple pages, desktop and mobile, no need to leave this site.</p>
+  <div class="port-grid">
+    {portfolio.map(p => (
+      <div class="port-card" data-url={p.url} data-title={p.title} data-cat={p.cat} data-desc={p.desc} data-gallery={JSON.stringify(p.gallery)}>
+        <button type="button" class="port-shot port-shot-btn" aria-label={`Browse screenshots of ${p.title}`}>
+          <img src={p.coverDesktopSrc} alt={`${p.title} — desktop view`} loading="lazy" class="port-desktop" />
+          <div class="port-mobile-inset">
+            <img src={p.coverMobileSrc} alt={`${p.title} — mobile view`} loading="lazy" />
+          </div>
+          <span class="port-zoom-hint">Browse {p.pages.length} pages ⤢</span>
+        </button>
+        <div class="port-body">
+          <div class="port-cat">{p.cat}</div>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+          <div class="port-tags">
+            {p.tags.map(t => <span class="ptag">{t}</span>)}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<div class="port-lightbox" id="port-lightbox">
+  <div class="port-lightbox-panel">
+    <button type="button" class="port-lightbox-close" id="port-lightbox-close" aria-label="Close">✕</button>
+    <div class="port-lightbox-cat" id="port-lightbox-cat"></div>
+    <h3 class="port-lightbox-title" id="port-lightbox-title"></h3>
+    <p class="port-lightbox-desc" id="port-lightbox-desc"></p>
+
+    <div class="port-lightbox-main">
+      <button type="button" class="port-lightbox-nav prev" id="port-lightbox-prev" aria-label="Previous page">‹</button>
+      <div class="port-lightbox-stage">
+        <img id="port-lightbox-img" alt="" />
+        <div class="port-lightbox-counter" id="port-lightbox-counter"></div>
+      </div>
+      <button type="button" class="port-lightbox-nav next" id="port-lightbox-next" aria-label="Next page">›</button>
+    </div>
+
+    <div class="port-lightbox-thumbs" id="port-lightbox-thumbs"></div>
+
+    <a href="#" target="_blank" rel="noopener" class="port-lightbox-visit" id="port-lightbox-visit">View live at <span id="port-lightbox-visit-host"></span> ↗</a>
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('port-lightbox');
+  const lbCat = document.getElementById('port-lightbox-cat');
+  const lbTitle = document.getElementById('port-lightbox-title');
+  const lbDesc = document.getElementById('port-lightbox-desc');
+  const lbImg = document.getElementById('port-lightbox-img');
+  const lbCounter = document.getElementById('port-lightbox-counter');
+  const lbThumbs = document.getElementById('port-lightbox-thumbs');
+  const lbVisit = document.getElementById('port-lightbox-visit');
+  const lbVisitHost = document.getElementById('port-lightbox-visit-host');
+  const lbClose = document.getElementById('port-lightbox-close');
+  const lbPrev = document.getElementById('port-lightbox-prev');
+  const lbNext = document.getElementById('port-lightbox-next');
+
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  function showImage(i) {
+    if (!currentGallery.length) return;
+    currentIndex = (i + currentGallery.length) % currentGallery.length;
+    const item = currentGallery[currentIndex];
+    lbImg.src = item.full;
+    lbImg.alt = item.label;
+    lbCounter.textContent = `${currentIndex + 1} / ${currentGallery.length} — ${item.label}`;
+    [...lbThumbs.children].forEach((t, idx) => t.classList.toggle('active', idx === currentIndex));
+    const activeThumb = lbThumbs.children[currentIndex];
+    if (activeThumb) activeThumb.scrollIntoView({ block: 'nearest', inline: 'center' });
+  }
+
+  function openLightbox(card) {
+    currentGallery = JSON.parse(card.dataset.gallery || '[]');
+    lbCat.textContent = card.dataset.cat || '';
+    lbTitle.textContent = card.dataset.title || '';
+    lbDesc.textContent = card.dataset.desc || '';
+
+    lbThumbs.innerHTML = '';
+    currentGallery.forEach((item, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'port-lightbox-thumb';
+      btn.setAttribute('aria-label', item.label);
+      const img = document.createElement('img');
+      img.src = item.thumb;
+      img.alt = item.label;
+      btn.appendChild(img);
+      btn.addEventListener('click', () => showImage(idx));
+      lbThumbs.appendChild(btn);
+    });
+
+    try {
+      const host = new URL(card.dataset.url).hostname.replace(/^www\./, '');
+      lbVisitHost.textContent = host;
+      lbVisit.href = card.dataset.url || '#';
+    } catch {
+      lbVisit.style.display = 'none';
+    }
+
+    showImage(0);
+    lightbox?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.port-shot-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.port-card');
+      if (card) openLightbox(card);
+    });
+  });
+
+  lbClose?.addEventListener('click', closeLightbox);
+  lbPrev?.addEventListener('click', () => showImage(currentIndex - 1));
+  lbNext?.addEventListener('click', () => showImage(currentIndex + 1));
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+</script>
+
+<section class="sec" style="padding-bottom:10px">
+  <div class="callout">
+    <div>
+      <h3>Already have a website?</h3>
+      <p>We audit existing sites for speed, mobile issues, and outdated design, and can rebuild what's holding you back while keeping what's already working.</p>
+    </div>
+    <a href="/contact">Request a Free Audit →</a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="eyebrow">// WEBSITE DESIGN FAQ</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Common questions about website design</h2>
+  {faqs.map(f => (
+    <details class="faq-item">
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
+</section>
+
+<section class="cta-band">
+  <div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.8)">// LET'S BUILD IT</div>
+    <h2>Let's design your website.</h2>
+    <p>Free consultation &amp; quote across Greater LA.</p>
+  </div>
+  <a href="/contact" class="btn-dark">Request a consultation</a>
+</section>
+
+</Layout>

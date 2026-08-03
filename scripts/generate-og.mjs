@@ -13,6 +13,7 @@ const pages = [
   { file: 'og-networking-wifi',    headline: 'Enterprise Wi-Fi &\nNetworking',            sub: 'GREATER LOS ANGELES' },
   { file: 'og-structured-cabling', headline: 'Structured Cabling\n& Cat6 Installation',   sub: 'GREATER LOS ANGELES' },
   { file: 'og-maintenance',        headline: 'Maintenance &\nSystem Support',             sub: 'GREATER LOS ANGELES' },
+  { file: 'og-website-design',     headline: 'Website Design &\nDevelopment',             sub: 'GREATER LOS ANGELES' },
   { file: 'og-blog',               headline: 'Security &\nNetworking Insights',           sub: 'NAMISMART BLOG' },
   { file: 'og-san-fernando-valley',headline: 'Security Cameras &\nNetworking',            sub: 'SAN FERNANDO VALLEY' },
   { file: 'og-ventura-county',     headline: 'Security Cameras &\nNetworking',            sub: 'VENTURA COUNTY' },
