@@ -1,5 +1,5 @@
 ---
-title: "Website Design for Law Firms and Medical & Dental Practices"
+title: "Website Design for Law Firms & Medical Practices"
 description: "Law firms and medical or dental practices sell trust before anything else. Here's what their websites need to get right — and where most templates fall short."
 pubDate: 2026-08-10
 author: "Vick Sarkis"

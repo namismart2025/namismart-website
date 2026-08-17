@@ -1,6 +1,6 @@
 ---
-title: "Security Cameras: What Homeowners in Burbank, Glendale, and Pasadena Should Know"
-description: "Real search interest in security cameras is rising right across Burbank, Glendale, and Pasadena. Here's what actually matters when choosing a system, plus what \"IP camera\" means and why it's suddenly everywhere."
+title: "Security Cameras — Burbank, Glendale & Pasadena"
+description: "What actually matters when choosing a security camera system in Burbank, Glendale, or Pasadena — plus what an IP camera is and why it is suddenly everywhere."
 pubDate: 2026-08-17
 author: "Vick Sarkis"
 tags: ["Security Cameras", "Home Security", "Burbank", "Los Angeles"]

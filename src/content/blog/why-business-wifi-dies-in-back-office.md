@@ -1,6 +1,6 @@
 ---
-title: "Why Your Business Wi-Fi Dies in the Back Office — and How to Fix It"
-description: "Business Wi-Fi weak in the back office, stock room, warehouse, or break room? Learn why it happens and how a proper access point, cabling, and network design can fix it."
+title: "Why Business Wi-Fi Dies in the Back Office"
+description: "Business Wi-Fi weak in the back office or warehouse? Learn why it happens and how the right access points, cabling, and network design fix it."
 pubDate: 2026-07-07
 author: "Vick Sarkis"
 tags: ["Networking & Wi-Fi", "Business", "Los Angeles"]

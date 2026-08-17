@@ -1,6 +1,6 @@
 ---
-title: "Wired vs. Wireless Security Cameras: Which Is Right for Your LA Home?"
-description: "A straight comparison of wired and wireless home security cameras — installation, durability in LA heat, signal reliability, and real costs — so you can pick the right one the first time."
+title: "Wired vs. Wireless Security Cameras — LA"
+description: "A straight comparison of wired vs. wireless home security cameras — installation, durability in LA heat, signal reliability, and real costs."
 pubDate: 2026-07-15
 author: "Vick Sarkis"
 tags: ["Security Cameras", "Home Security", "Los Angeles"]
