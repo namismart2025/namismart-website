@@ -54,7 +54,7 @@ The limitation is that the card is inside the camera — which means if the came
 
 **NVR systems (Network Video Recorders)** are the professional-grade option. A PoE (Power over Ethernet) camera system runs a cable from each camera back to a central recorder. The cable handles both power and video data. The NVR stores all footage on a hard drive inside your home or business.
 
-There is no Wi-Fi dependency for the cameras. No monthly cloud fee. You view footage from your phone, tablet, or TV using the NVR's app or web interface. Storage capacity depends on how large a hard drive the NVR uses, but most systems hold anywhere from two weeks to over a month of continuous footage before overwriting.
+There is no Wi-Fi dependency for the cameras. No monthly cloud fee. You view footage from your phone, tablet, or TV using the NVR's app or web interface. Storage capacity depends on how large a hard drive the NVR uses, but most systems hold anywhere from two weeks to over a month of continuous footage before overwriting. For the full breakdown of how long local vs. cloud storage actually lasts, see [our cloud vs. local storage comparison](/blog/cloud-vs-local-storage-security-cameras-la-homeowners).
 
 **NAS storage** is another option for homeowners who want more control. A network-attached storage device sits on your home network and can hold camera footage from compatible cameras. This approach takes more setup but gives you full control over storage size and how long recordings are kept.
 
