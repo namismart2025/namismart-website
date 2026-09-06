@@ -1,15 +1,17 @@
 # NaMiSmart
 
-> Security camera installation, enterprise networking, and structured cabling for homes and businesses across Burbank and Greater Los Angeles.
+> Security camera installation, door access control, enterprise networking, and structured cabling for homes and businesses across Burbank and Greater Los Angeles.
 
-NaMiSmart is a Burbank, CA-based low-voltage contractor specializing in AI-enabled security camera systems, enterprise Wi-Fi/networking, and structured Cat6 cabling for residential, commercial, and enterprise properties throughout Los Angeles County, Ventura County, Orange County, and the Antelope Valley. Every project starts with a free on-site assessment. Owned and operated by Vick Sarkis.
+NaMiSmart is a Burbank, CA-based low-voltage contractor specializing in AI-enabled security camera systems, door access control, enterprise Wi-Fi/networking (UniFi and Cisco), and structured Cat6 cabling for residential, commercial, and enterprise properties throughout Los Angeles County, Ventura County, Orange County, and the Antelope Valley. Every project starts with a free on-site assessment. Owned and operated by Vick Sarkis.
 
 ## Services
 
-- [Security Camera Installation](https://namismart.com/security-cameras): AI people/vehicle detection, 4K, 180° dual-lens cameras, NVR/VMS recording, secure remote viewing. Works with Digital Watchdog IPVMS, UniFi Protect, Reolink, and Amcrest.
+- [Security Camera Installation](https://namismart.com/security-cameras): AI people/vehicle detection, 4K, 180° dual-lens cameras, NVR/VMS recording, secure remote viewing, plus door access control (card readers, keypads, video intercoms, gate entry). Works with Digital Watchdog IPVMS, UniFi Protect, UniFi Access, Reolink, and Amcrest.
 - [Enterprise Wi-Fi & Networking](https://namismart.com/networking-wifi): UniFi and Cisco networking, managed switching, firewalls, VLAN segmentation, clean network racks.
 - [Structured Cabling](https://namismart.com/structured-cabling): Cat6/Cat6a Ethernet wiring, data drops, patch panels, PoE cabling for cameras and access points.
 - [Maintenance & Support](https://namismart.com/maintenance): Troubleshooting, upgrades, and ongoing support for existing camera and network systems, including systems NaMiSmart did not originally install.
+- [IT Infrastructure Consulting](https://namismart.com/it-consulting): Free on-site IT infrastructure assessments evaluating cameras, door access, Wi-Fi, UniFi/Cisco switches, firewalls, routers, and cabling together, ending in a prioritized upgrade plan.
+- [Website Design](https://namismart.com/website-design): Website design and development for local service businesses.
 
 ## Service Areas
 
