@@ -23,6 +23,10 @@ const faqs = [
   {
     q: 'How long does a typical security camera installation take?',
     a: 'A standard home system is usually a single day. Larger commercial or multi-building projects can take several days to a couple of weeks depending on cabling needs — we’ll give you a clear timeline as part of your quote.'
+  },
+  {
+    q: 'Do you install door access control alongside cameras?',
+    a: 'Yes — card readers, keypads, video intercoms, and gate entry systems are one of our most common pairings with camera systems. We design both together so access events and camera footage line up, rather than running as two disconnected systems.'
   }
 ];
 const faqJsonLd = {
@@ -41,7 +45,7 @@ const serviceJsonLd = {
   "name": "Security Camera Installation — Los Angeles",
   "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
   "areaServed": { "@type": "City", "name": "Los Angeles" },
-  "description": "AI detection, 4K, and 180° dual-lens security camera systems designed and installed across Greater Los Angeles.",
+  "description": "AI detection, 4K, and 180° dual-lens security camera systems, plus door access control (card readers, keypads, intercoms, gate entry), designed and installed across Greater Los Angeles.",
   "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site assessment and quote" }
 };
 ---
@@ -164,6 +168,16 @@ const serviceJsonLd = {
 </section>
 
 <section class="sec">
+  <div class="eyebrow">// DOOR ACCESS &amp; ENTRY</div>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Cameras and door access, designed together</h2>
+  <div class="sys-grid">
+    <div class="sys-card"><h3>Card readers &amp; keypads</h3><p>Single doors to full multi-door systems, wired into the same network as your cameras.</p></div>
+    <div class="sys-card"><h3>Video intercoms &amp; gate entry</h3><p>See and buzz in visitors from a phone or a wall-mounted panel — residential or commercial.</p></div>
+    <div class="sys-card"><h3>Integrated with cameras</h3><p>Access events and camera footage aligned, so you can see who badged in and what happened.</p></div>
+  </div>
+</section>
+
+<section class="sec">
   <div class="grid2">
     <div class="card-lg">
       <div class="eyebrow">// WHY IT MATTERS</div>
@@ -194,6 +208,7 @@ const serviceJsonLd = {
       <div class="systems-list">
         <div class="sys-row"><span>Digital Watchdog IPVMS / Spectrum</span><span>CERTIFIED</span></div>
         <div class="sys-row"><span>UniFi Protect</span><span style="color:#6C7890">ENTERPRISE</span></div>
+        <div class="sys-row"><span>UniFi Access</span><span style="color:#6C7890">DOOR ACCESS</span></div>
         <div class="sys-row"><span>Reolink</span><span style="color:#6C7890">RESIDENTIAL</span></div>
         <div class="sys-row"><span>Amcrest</span><span style="color:#6C7890">RESIDENTIAL</span></div>
       </div>

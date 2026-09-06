@@ -10,7 +10,15 @@ const faqs = [
   },
   {
     q: 'Is this the same as hiring an IT consultant or managed service provider?',
-    a: 'Not exactly. We focus specifically on the physical infrastructure — cameras, Wi-Fi, switches, firewalls, routers, and cabling — rather than help desk support, software, or cloud services. If your business also needs full managed IT, we coordinate with whoever handles that side rather than trying to cover it ourselves.'
+    a: 'Not exactly. We focus specifically on the physical infrastructure — cameras, door access, Wi-Fi, switches, firewalls, routers, and cabling — rather than help desk support, software, or cloud services. If your business also needs full managed IT, we coordinate with whoever handles that side rather than trying to cover it ourselves.'
+  },
+  {
+    q: 'Do you assess door access control along with cameras and networking?',
+    a: 'Yes. Card readers, keypads, video intercoms, and gate entry hardware are part of the same walkthrough — especially where they share power, wiring, or network gear with your cameras and Wi-Fi. We flag outdated readers, single-door workarounds, and integration gaps the same way we do for the rest of the system.'
+  },
+  {
+    q: 'Do you specialize in UniFi or Cisco, or work with both?',
+    a: 'Both. We assess and design around UniFi/Ubiquiti for most small and mid-size properties, and Cisco business-grade equipment where scale or client requirements call for it. Part of the assessment is telling you honestly which platform actually fits your budget and property, not defaulting to one brand.'
   },
   {
     q: 'What if our equipment is a mix of brands, ages, and past installers?',
@@ -41,12 +49,12 @@ const serviceJsonLd = {
   "name": "IT Infrastructure Consulting & Upgrade Assessments — Los Angeles",
   "provider": { "@type": "LocalBusiness", "name": "NaMiSmart", "telephone": "+1-818-612-4117", "url": "https://namismart.com" },
   "areaServed": { "@type": "City", "name": "Los Angeles" },
-  "description": "Free on-site IT infrastructure assessments — cameras, Wi-Fi, switches, firewalls, routers, and cabling evaluated together with a prioritized upgrade plan — across Greater Los Angeles.",
+  "description": "Free on-site IT infrastructure assessments — cameras, door access control, Wi-Fi, UniFi/Cisco switches, firewalls, routers, and cabling evaluated together with a prioritized upgrade plan — across Greater Los Angeles.",
   "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Free on-site IT infrastructure assessment" }
 };
 ---
 
-<Layout title="IT Infrastructure Consulting & Upgrades — LA" description="Free on-site IT infrastructure assessments for LA businesses — cameras, Wi-Fi, switches, firewalls, and routers evaluated together with a prioritized upgrade plan." ogImage="/images/og/og-it-consulting.png" breadcrumbs={[{name:'Home',url:'/'},{name:'IT Consulting',url:'/it-consulting'}]}>
+<Layout title="IT Infrastructure Consulting & Upgrades — LA" description="Free on-site IT infrastructure assessments for LA businesses — cameras, door access, Wi-Fi, UniFi/Cisco switches, firewalls, and routers evaluated together with a prioritized upgrade plan." ogImage="/images/og/og-it-consulting.png" breadcrumbs={[{name:'Home',url:'/'},{name:'IT Consulting',url:'/it-consulting'}]}>
 
 <style>
   .sec{position:relative;z-index:4;padding:30px 56px 20px;}
@@ -95,8 +103,8 @@ const serviceJsonLd = {
   eyebrow="// IT INFRASTRUCTURE CONSULTING"
   title="One consultation."
   titleBlue="Every system covered."
-  subtitle="We audit your cameras, Wi-Fi, switches, firewalls, routers, and cabling together — then hand you a clear, prioritized plan for what to upgrade first, what to replace, and what's fine as-is."
-  tags={['FREE ON-SITE ASSESSMENT','CAMERAS + NETWORK','SWITCHES · FIREWALLS · ROUTERS','UPGRADE ROADMAP']}
+  subtitle="We audit your cameras, door access, Wi-Fi, switches, firewalls, routers, and cabling together — then hand you a clear, prioritized plan for what to upgrade first, what to replace, and what's fine as-is."
+  tags={['FREE ON-SITE ASSESSMENT','CAMERAS + DOOR ACCESS','UNIFI · CISCO EXPERTISE','UPGRADE ROADMAP']}
   ctaLabel="Request a Free IT Assessment →"
   ctaHref="/contact"
   secondaryLabel="Networking & Wi-Fi"
@@ -109,7 +117,7 @@ const serviceJsonLd = {
 <section class="sec">
   <div class="intro-block">
     <div class="eyebrow">// IT INFRASTRUCTURE CONSULTING — LOS ANGELES</div>
-    <p>Most businesses don't need a dozen vendors — they need one team who can look at the cameras, the network closet, the Wi-Fi, and the cabling together and say plainly what actually needs to change. NaMiSmart does full on-site IT infrastructure consultations for offices, hotels, retail, and commercial properties throughout Burbank and Greater Los Angeles: we evaluate your existing switches, firewalls, routers, access points, cameras, and cabling as one system, flag what's outdated or undersized, and hand you a straightforward, prioritized upgrade plan — with no obligation to use us for the work itself.</p>
+    <p>Most businesses don't need a dozen vendors — they need one team who can look at the cameras, door access, the network closet, the Wi-Fi, and the cabling together and say plainly what actually needs to change. NaMiSmart does full on-site IT infrastructure consultations for offices, hotels, retail, and commercial properties throughout Burbank and Greater Los Angeles: we evaluate your existing cameras, door access hardware, switches, firewalls, routers, access points, and cabling as one system — with hands-on expertise across both UniFi/Ubiquiti and Cisco business-grade equipment — flag what's outdated or undersized, and hand you a straightforward, prioritized upgrade plan — with no obligation to use us for the work itself.</p>
   </div>
 </section>
 
@@ -117,12 +125,14 @@ const serviceJsonLd = {
   <div class="eyebrow">// WHAT WE ASSESS</div>
   <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">Every layer of the system, in one visit</h2>
   <div class="grid3">
-    <div class="card"><h3>Switches &amp; routing</h3><p>Whether your switches are managed, PoE-capable, and sized for current and future devices.</p></div>
+    <div class="card"><h3>Switches &amp; routing</h3><p>Whether your UniFi or Cisco switches are managed, PoE-capable, and sized for current and future devices.</p></div>
     <div class="card"><h3>Firewalls &amp; segmentation</h3><p>Whether traffic is properly segmented — or everything sits on one flat, unprotected network.</p></div>
     <div class="card"><h3>Wi-Fi coverage</h3><p>Dead zones, overloaded access points, and consumer routers doing an enterprise job.</p></div>
     <div class="card"><h3>Cameras &amp; NVRs</h3><p>Recording gaps, storage limits, and camera traffic competing with everything else on the network.</p></div>
+    <div class="card"><h3>Door access &amp; entry</h3><p>Outdated readers, single-door workarounds, and access hardware that doesn't talk to the rest of the system.</p></div>
     <div class="card"><h3>Cabling &amp; racks</h3><p>Undocumented, tangled, or undersized wiring that limits every device plugged into it.</p></div>
     <div class="card"><h3>Power &amp; uptime</h3><p>UPS coverage and backup power planning so a single outage doesn't take everything down.</p></div>
+    <div class="card"><h3>UniFi &amp; Cisco fit</h3><p>Whether your current platform still matches your budget, scale, and where the property is headed.</p></div>
   </div>
 </section>
 
@@ -130,7 +140,7 @@ const serviceJsonLd = {
   <div class="eyebrow">// HOW IT WORKS</div>
   <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;color:#fff;margin:0 0 22px">From walkthrough to upgrade plan</h2>
   <div class="steps">
-    <div class="step"><div class="num">STEP 1</div><h3>On-site walkthrough</h3><p>We inspect your current cameras, network closet, switches, firewall, access points, and cabling in person.</p></div>
+    <div class="step"><div class="num">STEP 1</div><h3>On-site walkthrough</h3><p>We inspect your current cameras, door access hardware, network closet, switches, firewall, access points, and cabling in person.</p></div>
     <div class="step"><div class="num">STEP 2</div><h3>Findings report</h3><p>A plain-language rundown of what's working, what's outdated, and what's an actual risk — no jargon, no pressure.</p></div>
     <div class="step"><div class="num">STEP 3</div><h3>Upgrade roadmap</h3><p>A prioritized plan and quote, phased by budget if needed, so you decide what gets tackled first.</p></div>
   </div>
